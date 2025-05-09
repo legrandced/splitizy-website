@@ -1,0 +1,77 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero{
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.0)), url(assets/background.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: #fff;
+}
+
+.hero img {
+    max-width: 50vw;
+    max-height: 30vh;
+    margin-bottom: 0px;
+}
+
+h1{
+    font-size: 4rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #FFFFFF;
+}
+
+.timebox{
+    display: flex;
+    gap: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: -150px;
+}
+
+/* Apply a larger gap for screens wider than 768px */
+@media (min-width: 768px) {
+    .timebox {
+        gap: 90px;
+    }
+}
+
+.time{
+    text-align: center;
+}
+
+.time h2{
+    font-size: 5rem;
+    font-weight: 300;
+}
+
+.title-period {
+    color: #EE7116;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #EE7116; /* Using one of your theme colors */
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #d45f0d; /* Darker shade for hover */
+}
