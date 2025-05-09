@@ -35,17 +35,10 @@ h1{
 
 .timebox{
     display: flex;
-    gap: 50px;
+    gap: 90px;
     margin-left: 20px;
     margin-right: 20px;
     margin-top: -150px;
-}
-
-/* Apply a larger gap for screens wider than 768px */
-@media (min-width: 768px) {
-    .timebox {
-        gap: 90px;
-    }
 }
 
 .time{
@@ -74,4 +67,105 @@ h1{
 
 .cta-button:hover {
     background-color: #d45f0d; /* Darker shade for hover */
+}
+
+/* Styles for 404 page elements */
+.logo-404 {
+    max-width: 400px; /* Adjusted from 500px for better proportion */
+    margin-bottom: 20px;
+}
+
+.title-404 {
+    font-size: 8rem;
+    margin-bottom: 0;
+    color: #FFFFFF; /* Explicitly set color */
+}
+
+.message-404 {
+    font-size: 1.5rem;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px; /* Add a little space from the 404 title */
+    margin-bottom: 30px;
+    color: #FFFFFF; /* Explicitly set color */
+    text-align: center; /* Ensure message is centered */
+}
+
+.copyright {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem; /* Small font size */
+    color: #fff; /* White color, assuming dark background */
+    background-color: rgba(0, 0, 0, 0.3); /* Slight background for readability */
+    padding: 5px 10px;
+    border-radius: 3px;
+    z-index: 1000; /* Ensure it's on top */
+    text-align: center;
+}
+
+/* Specific adjustment for 404 page hero section on larger screens */
+.hero-404-page {
+    justify-content: flex-start; /* Align content to the top */
+    padding-top: 3vh; /* Add some space from the absolute top */
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 767px) {
+    h1 {
+        font-size: 2.5rem; /* Smaller font size for title */
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 15px;
+    }
+
+    .hero img {
+        max-width: 70vw; /* Allow logo to be a bit larger relative to small screen */
+        max-height: 25vh;
+        margin-bottom: 10px; /* Adjust space below logo */
+    }
+
+    .timebox {
+        gap: 20px; /* Smaller gap between time elements */
+        margin-top: -20px; /* Adjust negative margin for smaller layout */
+        margin-left: 10px;
+        margin-right: 10px;
+        flex-wrap: wrap; /* Allow time elements to wrap if needed */
+        justify-content: center; /* Center wrapped items */
+    }
+
+    .time h2 {
+        font-size: 3rem; /* Smaller font size for countdown numbers */
+    }
+
+    .time p {
+        font-size: 0.8rem; /* Smaller font for labels like Days, Hours */
+    }
+
+    .hero {
+        justify-content: center; /* Center items more traditionally on mobile */
+    }
+
+    /* Ensure our 404-page specific hero rule doesn't override mobile centering if it was different */
+    .hero-404-page {
+        justify-content: center; /* Explicitly keep centered on mobile too */
+    }
+
+    /* 404 page specific responsive styles */
+    .logo-404 {
+        max-width: 60vw;
+        margin-bottom: 15px;
+    }
+
+    .title-404 {
+        font-size: 5rem; /* Smaller for mobile */
+    }
+
+    .message-404 {
+        font-size: 1.1rem; /* Smaller for mobile */
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 25px;
+    }
 }
