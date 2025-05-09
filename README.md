@@ -1,2 +1,0 @@
-# splitizy-website
-
