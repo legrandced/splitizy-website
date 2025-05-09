@@ -19,8 +19,8 @@
 }
 
 .hero img {
-    max-width: 50vw;
-    max-height: 30vh;
+    max-width: 100vw;
+    max-height: 50vh;
     margin-bottom: 0px;
 }
 
@@ -55,6 +55,7 @@ h1{
 }
 
 .cta-button {
+    margin-bottom: 50px;
     display: inline-block;
     padding: 10px 20px;
     background-color: #EE7116; /* Using one of your theme colors */
@@ -144,12 +145,12 @@ h1{
     }
 
     .hero {
-        justify-content: center; /* Center items more traditionally on mobile */
+        justify-content: space-around; /* Center items more traditionally on mobile */
     }
 
     /* Ensure our 404-page specific hero rule doesn't override mobile centering if it was different */
     .hero-404-page {
-        justify-content: center; /* Explicitly keep centered on mobile too */
+        justify-content: space-around; /* Explicitly keep centered on mobile too */
     }
 
     /* 404 page specific responsive styles */
