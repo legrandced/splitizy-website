@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
     <div class="hero">
@@ -33,9 +34,31 @@
             </div>
         </div>
         <h1>La sérénité successorale commence ici<span class="title-period">.</span></h1>
+        <div class="newsletter-signup">
+            <form id="newsletter-form">
+                <input type="email" id="newsletter-email" name="email" placeholder="Votre email" required>
+                <button
+                  class="g-recaptcha"
+                  data-sitekey="6LciCDcrAAAAAC2XJHnQHRu64gPiBMffaW30RW-u"
+                  data-callback="onSubmit"
+                  data-badge="bottomleft"
+                  data-size="invisible"
+                  type="submit"
+                >
+                  Je veux être tenu au courant
+                </button>
+            </form>
+            <div id="newsletter-message"></div>
+            <div class="recaptcha-legal">
+                Ce site est protégé par reCAPTCHA et Google :
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Confidentialité</a> -
+                <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Conditions</a>
+            </div>
+        </div>
+        <div class="copyright">© <span id="copyright-notice"></span> Splitizy SRL. Tous droits réservés.</div>
     </div>
 
-    <div class="copyright">© <span id="copyright-notice"></span> Splitizy SRL. Tous droits réservés.</div>
+    <!-- <div class="copyright">© <span id="copyright-notice"></span> Splitizy SRL. Tous droits réservés.</div> -->
     <script src="script.js"></script>
 </body>
 </html>

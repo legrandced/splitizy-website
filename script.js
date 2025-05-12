@@ -38,3 +38,47 @@ const copyrightElement = document.getElementById('copyright-notice');
 if (copyrightElement) {
     copyrightElement.textContent = new Date().getFullYear();
 }
+
+const newsletterForm = document.getElementById('newsletter-form');
+const newsletterMessage = document.getElementById('newsletter-message');
+
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        grecaptcha.execute(); // Lance le reCAPTCHA invisible
+    });
+}
+
+function onSubmit(token) {
+    // Simule la soumission du formulaire avec le token reCAPTCHA invisible
+    const newsletterForm = document.getElementById('newsletter-form');
+    const submitButton = newsletterForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    const email = document.getElementById('newsletter-email').value;
+
+    submitButton.textContent = "Envoi en cours...";
+    submitButton.disabled = true;
+
+    fetch('https://script.google.com/macros/s/AKfycbyVWI4fYiXoR5sHDkKR1tjOcSh9_7paklY6IQXXQwkVxnATnb_0Npi6ZpUa38yh100u/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'email=' + encodeURIComponent(email) + '&g-recaptcha-response=' + encodeURIComponent(token)
+    }).then(() => {
+        submitButton.textContent = "Merci ! Vous serez tenu au courant.";
+        newsletterForm.reset();
+        grecaptcha.reset(); // Réinitialise le reCAPTCHA
+        setTimeout(() => {
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+        }, 3000);
+    }).catch(() => {
+        submitButton.textContent = "Erreur, réessayez.";
+        setTimeout(() => {
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+        }, 3000);
+    });
+}

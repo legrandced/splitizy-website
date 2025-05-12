@@ -5,10 +5,13 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body{
+    background-color: #3BADA4;
+}
+
 .hero{
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), 
-    rgba(0, 0, 0, 0.0)), url(assets/background.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.0)), url(assets/background.jpg);
     background-size: cover;
     background-position: center;
     display: flex;
@@ -70,6 +73,50 @@ h1{
     background-color: #d45f0d; /* Darker shade for hover */
 }
 
+/* Newsletter signup */
+.newsletter-signup {
+    margin: 30px 0 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#newsletter-form {
+    display: flex;
+    gap: 10px;
+}
+
+#newsletter-form input[type="email"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    min-width: 350px;
+    width: 350px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+#newsletter-form button {
+    padding: 10px 20px;
+    background-color: #EE7116;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#newsletter-form button:hover {
+    background-color: #d45f0d;
+}
+
+#newsletter-message {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
 /* Styles for 404 page elements */
 .logo-404 {
     max-width: 400px; /* Adjusted from 500px for better proportion */
@@ -93,17 +140,13 @@ h1{
 }
 
 .copyright {
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.75rem; /* Small font size */
-    color: #fff; /* White color, assuming dark background */
-    background-color: rgba(0, 0, 0, 0.3); /* Slight background for readability */
+    background-color: rgba(0, 0, 0, 0.3);
     padding: 5px 10px;
     border-radius: 3px;
-    z-index: 1000; /* Ensure it's on top */
+    font-size: 0.75rem;
+    color: #fff;
     text-align: center;
+    margin: 0;
 }
 
 /* Specific adjustment for 404 page hero section on larger screens */
@@ -115,10 +158,11 @@ h1{
 /* Responsive styles for smaller screens */
 @media (max-width: 767px) {
     h1 {
-        font-size: 2.5rem; /* Smaller font size for title */
+        font-size: 2.5rem;
         margin-left: 10px;
         margin-right: 10px;
-        margin-bottom: 15px;
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
 
     .hero img {
@@ -129,7 +173,7 @@ h1{
 
     .timebox {
         gap: 20px; /* Smaller gap between time elements */
-        margin-top: -20px; /* Adjust negative margin for smaller layout */
+        margin-top: 10px; /* Adjust negative margin for smaller layout */
         margin-left: 10px;
         margin-right: 10px;
         flex-wrap: wrap; /* Allow time elements to wrap if needed */
@@ -146,6 +190,29 @@ h1{
 
     .hero {
         justify-content: space-around; /* Center items more traditionally on mobile */
+    }
+    
+    /* Newsletter signup */
+    .newsletter-signup {
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-top: 0px; /* Ajouté : réduit l'espacement au-dessus du formulaire */
+    }
+
+    #newsletter-form {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    #newsletter-form input[type="email"],
+    #newsletter-form button {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     /* Ensure our 404-page specific hero rule doesn't override mobile centering if it was different */
@@ -169,4 +236,38 @@ h1{
         margin-right: 10px;
         margin-bottom: 25px;
     }
+
+    .copyright {
+        font-size: 0.7rem;
+    }
+
+    .grecaptcha-badge { 
+        visibility: hidden !important;
+    }
+}
+
+/* Retrait des styles custom pour le badge reCAPTCHA, retour au défaut */
+.grecaptcha-badge {
+    position: fixed !important;
+    right: 10px !important;
+    bottom: 10px !important; /* Ou plus haut si besoin */
+    opacity: 0.6 !important;
+    z-index: 1000 !important;
+    transition: opacity 0.3s;
+}
+.grecaptcha-badge:hover {
+    opacity: 1 !important;
+}
+
+.recaptcha-legal {
+    font-size: 0.7rem;
+    color: #eee;
+    margin-top: 8px;
+    text-align: center;
+    opacity: 0.7;
+}
+.recaptcha-legal a {
+    color: #eee;
+    text-decoration: underline;
+    margin: 0 2px;
 }
