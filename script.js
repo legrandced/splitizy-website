@@ -3,7 +3,7 @@ const Hours = document.getElementById('hours');
 const Minutes = document.getElementById('minutes');
 const Seconds = document.getElementById('seconds');
 
-const targetDate = new Date("June 9 2025 00:00:00").getTime();
+const targetDate = new Date("June 16 2025 00:00:00").getTime();
 
 // Check if all timer elements exist before running timer logic
 if (Days && Hours && Minutes && Seconds) {
