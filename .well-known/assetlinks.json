@@ -6,7 +6,8 @@
             "package_name": "com.splitizy.splitizy",
             "sha256_cert_fingerprints": [
                 "6b:3d:be:4b:f8:8a:0f:cf:e3:7d:bb:56:2b:a7:10:32:71:eb:6b:f7:89:a2:3f:8e:d0:71:31:67:fa:1b:17:c4",
-                "ca:54:ae:1a:2d:28:6d:ef:cb:68:a0:91:8d:f0:18:67:47:b4:ce:fa:f3:e1:52:d9:d4:79:d9:1f:d9:76:7c:89"
+                "ca:54:ae:1a:2d:28:6d:ef:cb:68:a0:91:8d:f0:18:67:47:b4:ce:fa:f3:e1:52:d9:d4:79:d9:1f:d9:76:7c:89",
+                "67:2e:1a:f8:b6:16:1b:16:37:e9:48:21:1e:8a:b1:fa:0a:7d:40:ce:17:13:25:82:74:3b:34:2f:df:eb:a2:fe"
             ]
         }
     }
