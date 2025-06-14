@@ -4,7 +4,7 @@
         "target": {
             "namespace": "android_app",
             "package_name": "com.splitizy.splitizy",
-            "sha256_cert_fingerprints": ["ca:54:ae:1a:2d:28:6d:ef:cb:68:a0:91:8d:f0:18:67:47:b4:ce:fa:f3:e1:52:d9:d4:79:d9:1f:d9:76:7c:89"]
+            "sha256_cert_fingerprints": ["16:52:b1:1f:67:90:36:f7:74:5d:09:77:4b:8d:53:ec:92:71:d3:3a:f3:2f:b7:28:f4:36:f3:ce:9a:33:63:ce"]
         }
     }
 ]
