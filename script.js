@@ -110,7 +110,7 @@ function onContactSubmit(token) {
     submitButton.disabled = true;
 
     // Envoi du formulaire
-    fetch('https://script.google.com/macros/s/AKfycbw3mgEXE8I08FJy6TE4ma3-XeRk1vbUw3XFYkYrFs28nX2gQ4uhH4Tmxg8dWcg0BgGu/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbx6xQBBYvukFmx_bUOs2bt7WYbN0bFyK_OxAFFn34mZucyaHccOfNUG_e0JiNbnCBKU/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
