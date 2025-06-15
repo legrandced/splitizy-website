@@ -82,3 +82,61 @@ function onSubmit(token) {
         }, 3000);
     });
 }
+
+// Contact form handling
+const contactForm = document.getElementById('contact-form');
+const contactMessageStatus = document.getElementById('contact-message-status');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        grecaptcha.execute(); // Lance le reCAPTCHA invisible pour le formulaire de contact
+    });
+}
+
+function onContactSubmit(token) {
+    const contactForm = document.getElementById('contact-form');
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    const messageStatus = document.getElementById('contact-message-status');
+    
+    const formData = new FormData(contactForm);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const subject = formData.get('subject');
+    const message = formData.get('message');
+
+    submitButton.textContent = "Envoi en cours...";
+    submitButton.disabled = true;
+
+    // Envoi du formulaire
+    fetch('https://script.google.com/macros/s/AKfycbw3mgEXE8I08FJy6TE4ma3-XeRk1vbUw3XFYkYrFs28nX2gQ4uhH4Tmxg8dWcg0BgGu/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'type=contact&name=' + encodeURIComponent(name) + 
+              '&email=' + encodeURIComponent(email) + 
+              '&subject=' + encodeURIComponent(subject) + 
+              '&message=' + encodeURIComponent(message) + 
+              '&g-recaptcha-response=' + encodeURIComponent(token)
+    }).then(() => {
+        submitButton.textContent = "Message envoyé !";
+        messageStatus.innerHTML = '<p style="color: #4CAF50;">✓ Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.</p>';
+        contactForm.reset();
+        grecaptcha.reset();
+        setTimeout(() => {
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+            messageStatus.innerHTML = '';
+        }, 5000);
+    }).catch(() => {
+        submitButton.textContent = "Erreur, réessayez";
+        messageStatus.innerHTML = '<p style="color: #f44336;">✗ Une erreur est survenue. Veuillez réessayer ou nous contacter directement par email.</p>';
+        setTimeout(() => {
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+        }, 3000);
+    });
+}

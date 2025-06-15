@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Splitizy</title>
+    <meta name="description" content="Contactez l'équipe Splitizy pour toute question ou demande de support concernant notre service de gestion de succession.">
+    <link rel="canonical" href="https://splitizy.com/contact.html" />
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div class="hero hero-contact-page">
+        <img src="/assets/logo_full_transparent_120.gif" alt="Splitizy Logo" class="logo-contact">
+        <h1>Contactez-nous<span class="title-period">.</span></h1>
+        <p class="contact-subtitle">Notre équipe est là pour vous accompagner</p>
+        
+        <div class="contact-form-container">
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="contact-name">Nom complet *</label>
+                    <input type="text" id="contact-name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact-email">Adresse email *</label>
+                    <input type="email" id="contact-email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact-subject">Sujet *</label>
+                    <select id="contact-subject" name="subject" required>
+                        <option value="">Sélectionnez un sujet</option>
+                        <option value="support">Support technique</option>
+                        <option value="question">Question générale</option>
+                        <option value="feedback">Retour d'expérience</option>
+                        <option value="partnership">Partenariat</option>
+                        <option value="other">Autre</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact-message">Message *</label>
+                    <textarea id="contact-message" name="message" rows="6" required placeholder="Décrivez votre demande en détail..."></textarea>
+                </div>
+                
+                <button
+                    class="g-recaptcha contact-submit-btn"
+                    data-sitekey="6LciCDcrAAAAAC2XJHnQHRu64gPiBMffaW30RW-u"
+                    data-callback="onContactSubmit"
+                    data-badge="bottomleft"
+                    data-size="invisible"
+                    type="submit"
+                >
+                    Envoyer le message
+                </button>
+            </form>
+            <div id="contact-message-status"></div>
+        </div>
+        
+        <div class="contact-info">
+            <h3>Autres moyens de nous contacter</h3>
+            <div class="contact-details">
+                <p><strong>Email :</strong> <a href="mailto:support@splitizy.com">support@splitizy.com</a></p>
+                <p><strong>Adresse :</strong> Splitizy SRL, Belgique</p>
+                <p><strong>Temps de réponse :</strong> Nous nous efforçons de répondre sous 24-48h</p>
+            </div>
+        </div>
+        
+        <div class="recaptcha-legal">
+            Ce site est protégé par reCAPTCHA et Google :
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Confidentialité</a> -
+            <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Conditions</a>
+            <br>
+            <a href="/politique-de-vie-privee.html">Notre Politique de Vie Privée</a> -
+            <a href="/conditions-licences-utilisation.html">Nos Conditions des Licences d'Utilisation</a> -
+            <a href="/suppression-donnees.html">Supprimer mes données</a>
+        </div>
+        
+        <div class="back-to-home">
+            <a href="/index.html" class="cta-button">Retour à l'accueil</a>
+        </div>
+    </div>
+
+    <div class="copyright">© <span id="copyright-notice"></span> Splitizy SRL. Tous droits réservés.</div>
+    <script src="/script.js"></script>
+</body>
+</html> 
