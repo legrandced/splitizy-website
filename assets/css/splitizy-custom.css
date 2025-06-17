@@ -1,0 +1,647 @@
+/* Splitizy Custom Colors */
+:root {
+    --splitizy-primary: #005291;
+    --splitizy-primary-alpha-50: #80A8C8;
+    --splitizy-primary-alpha-20: #CCDCE9;
+    --splitizy-primary-alpha-10: #E6EEF4;
+    --splitizy-secondary: #EE7116;
+    --splitizy-secondary-alpha-50: #F7B88B;
+    --splitizy-secondary-alpha-20: #FCE3D0;
+    --splitizy-white: #FFFFFF;
+    --splitizy-black: #000000;
+    --splitizy-grey: #9E9E9E;
+    --splitizy-grey-light: #EEEEEE;
+    --splitizy-grey-dark: #424242;
+    --splitizy-red: #F64A66;
+    --splitizy-green: #32D0A0;
+    --splitizy-blue: #2196F3;
+    --splitizy-purple: #7E57C2;
+}
+
+/* Override global title colors */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--splitizy-secondary) !important;
+}
+
+/* Override specific section titles and elements */
+.section-title,
+.feature-title,
+.banner-title,
+.pricing-title,
+.testimonial-title,
+.trial-title,
+.newsletter-title,
+.faq-title,
+.user-title {
+    color: var(--splitizy-secondary) !important;
+}
+
+/* Override partner section */
+.partner-style-4 .section-title {
+    color: var(--splitizy-secondary) !important;
+}
+
+/* Override feature section */
+.feature-style-4 .feature-title {
+    color: var(--splitizy-secondary) !important;
+}
+
+/* Override pricing section */
+.pricing-style-4 .section-title,
+.pricing-style-4 .pricing-item:hover .pricing-info .price {
+    color: var(--splitizy-secondary) !important;
+}
+
+/* Override testimonial section */
+.testimonial-style-4 .section-title,
+.testimonial-style-4 .testimonial-user-info .user-title,
+.testimonial-style-5 .testimonial-user-info .user-title {
+    color: var(--splitizy-secondary) !important;
+}
+
+/* Override newsletter section */
+.newsletter-area.style-3 .newsletter-title {
+    color: var(--splitizy-secondary) !important;
+}
+
+/* Override trial section */
+.trial-title {
+    color: var(--splitizy-secondary) !important;
+}
+
+/* Override FAQ section */
+.faq-style-1 .section-title,
+.faq-style-1 .faq-title {
+    color: var(--splitizy-secondary) !important;
+}
+
+/* Override banner content */
+.banner-content.common-style .banner-title {
+    color: var(--splitizy-secondary) !important;
+}
+
+/* Override header menu colors */
+.header-style-4:not([class*="is-active"]) .header-menu-nav > ul > li > a {
+    color: var(--splitizy-primary) !important; /* Couleur des liens non sélectionnés */
+}
+
+.header-style-4:not([class*="is-active"]) .header-menu-nav > ul > li.active > a {
+    color: var(--splitizy-secondary) !important; /* Couleur du lien actif/sélectionné */
+}
+
+/* Override hover state aussi */
+.header-style-4:not([class*="is-active"]) .header-menu-nav > ul > li > a:hover {
+    color: var(--splitizy-secondary) !important; /* Couleur au survol */
+}
+
+/* Override footer titles */
+.footer-list .title {
+    color: var(--splitizy-secondary) !important;
+}
+
+/* Override feature content titles */
+.feature-content .title {
+    color: var(--splitizy-secondary) !important;
+}
+
+/* Override footer download app title */
+.footer-btn-wrap .title {
+    color: var(--splitizy-secondary) !important;
+}
+
+/* Override all generic .title classes */
+.title {
+    color: var(--splitizy-secondary) !important;
+}
+
+/* Override primary colors */
+.extbot-primary-4,
+.blackcurrant-color,
+.sapphire-color {
+    background-color: var(--splitizy-primary) !important;
+    border-color: var(--splitizy-primary) !important;
+}
+
+.extbot-primary-hover-4:hover,
+.blackcurrant-hover:hover {
+    background-color: var(--splitizy-secondary) !important;
+    border-color: var(--splitizy-secondary) !important;
+}
+
+/* Hero section styling */
+.hero-style-4 .hero-content .title {
+    color: var(--splitizy-secondary) !important; /* Couleur principale du titre */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-style-4 .hero-content .title span {
+    color: var(--splitizy-primary) !important; /* Couleur de "vos biens" */
+    padding: 5px 15px;
+    border-radius: 25px;
+    display: inline-block;
+    margin: 0 5px;
+    background: none !important; /* Supprime l'arrière-plan original */
+}
+
+/* Change la couleur de la bulle originale */
+.hero-style-4 .hero-content .title span:before {
+    background-color: var(--splitizy-secondary-alpha-50) !important; /* Couleur de la bulle */
+}
+
+/* Feature icons and content */
+.feature-style-4 .feature-title {
+    color: var(--splitizy-primary);
+}
+
+/* Section titles */
+.section-title {
+    color: var(--splitizy-primary);
+}
+
+/* Use case items */
+.use-case-item {
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.use-case-item:hover {
+    background-color: var(--splitizy-primary-alpha-20);
+    transform: translateY(-5px);
+}
+
+.use-case-item i {
+    color: var(--splitizy-primary) !important;
+}
+
+.use-case-item p {
+    margin-top: 10px;
+    font-weight: 500;
+    color: var(--splitizy-grey-dark);
+}
+
+/* Pricing section */
+.pricing-style-4 .pricing-title {
+    color: var(--splitizy-primary);
+}
+
+/* Footer styling */
+.footer-style-4 {
+    background-color: var(--splitizy-primary);
+}
+
+/* Footer text colors */
+.footer-style-4 .footer-list .title {
+    color: var(--splitizy-secondary) !important; /* Titres en orange */
+}
+
+.footer-style-4 .footer-list ul li a {
+    color: var(--splitizy-primary) !important; /* Liens en blanc */
+    transition: color 0.3s ease;
+}
+
+.footer-style-4 .footer-list ul li a:hover {
+    color: var(--splitizy-secondary) !important; /* Liens au survol en orange */
+}
+
+.footer-style-4 .footer-list ul li span {
+    color: var(--splitizy-primary) !important; /* Texte statique en blanc */
+}
+
+.footer-style-4 .footer-list ul li i {
+    color: var(--splitizy-secondary) !important; /* Icônes en orange */
+}
+
+/* Footer download app title */
+.footer-style-4 .footer-btn-wrap .title {
+    color: var(--splitizy-secondary) !important; /* "Télécharger l'app" en orange */
+}
+
+/* Footer copyright */
+.footer-style-4 .footer-bottom {
+    background-color: var(--splitizy-primary-alpha-50) !important; /* Fond bleu alpha 50 */
+}
+
+.footer-style-4 .footer-copyright {
+    color: var(--splitizy-white) !important;
+}
+
+.footer-style-4 .footer-copyright a {
+    color: var(--splitizy-white) !important;
+}
+
+.footer-style-4 .footer-copyright i {
+    color: var(--splitizy-red) !important;
+}
+
+.footer-style-4 .footer-copyright a:hover {
+    color: var(--splitizy-white) !important;
+}
+
+/* Button customizations */
+.btn-splitizy-primary {
+    background-color: var(--splitizy-primary);
+    border-color: var(--splitizy-primary);
+    color: white;
+}
+
+.btn-splitizy-primary:hover {
+    background-color: var(--splitizy-secondary);
+    border-color: var(--splitizy-secondary);
+    color: white;
+}
+
+.btn-splitizy-secondary {
+    background-color: var(--splitizy-secondary);
+    border-color: var(--splitizy-secondary);
+    color: white;
+}
+
+.btn-splitizy-secondary:hover {
+    background-color: var(--splitizy-primary);
+    border-color: var(--splitizy-primary);
+    color: white;
+}
+
+/* Navigation active states */
+.header-menu-nav ul li.active a,
+.header-menu-nav ul li a:hover {
+    color: var(--splitizy-primary) !important;
+}
+
+/* Feature items styling */
+.feature-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background-color: var(--splitizy-primary-alpha-10) !important; /* Bleu clair par défaut */
+    border: 2px solid transparent;
+    box-shadow: 0 4px 15px rgba(0, 82, 145, 0.1);
+}
+
+.feature-item:hover {
+    background-color: var(--splitizy-secondary-alpha-20) !important; /* Orange clair au survol */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(238, 113, 22, 0.2);
+}
+
+.feature-item .title {
+    color: var(--splitizy-primary) !important;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.feature-item:hover .title {
+    color: var(--splitizy-secondary) !important;
+}
+
+/* Styles pour les cercles derrière les icônes des fonctionnalités */
+.feature-item:hover .feature-icon {
+    background-color: var(--splitizy-secondary-alpha-50) !important;
+    box-shadow: 0 6px 20px rgba(238, 113, 22, 0.3);
+    transform: scale(1.2);
+}
+
+.feature-item .feature-icon {
+    background-color: var(--splitizy-white) !important;
+    box-shadow: 0 6px 20px rgba(0, 82, 145, 0.3);
+    transform: scale(1.2);
+}
+
+/* Testimonial section */
+.testimonial-style-4 .section-title span {
+    color: var(--splitizy-secondary);
+}
+
+/* FAQ section */
+.faq-area.faq-style-common.faq-style-1 {
+    padding-top: 80px !important;
+}
+.faq-title {
+    color: var(--splitizy-secondary);
+    transition: color 0.3s ease;
+}
+
+.faq-item:hover {
+    background-color: var(--splitizy-secondary-alpha-20) !important;
+    border-color: var(--splitizy-secondary) !important;
+}
+
+.faq-item:hover .faq-title {
+    color: var(--splitizy-secondary) !important;
+}
+
+.faq-item:hover .faq-desc {
+    color: var(--splitizy-grey-dark) !important;
+}
+
+/* Testimonial section styling */
+.testimonial-area.testimonial-style-4 {
+    background-color: var(--splitizy-primary-alpha-20) !important;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+}
+
+/* Testimonial arrows - blue by default */
+.testimonial-arrow-wrap.style-3 .testimonial-button-prev i,
+.testimonial-arrow-wrap.style-3 .testimonial-button-next i {
+    border-color: var(--splitizy-primary) !important;
+    color: var(--splitizy-primary) !important;
+    transition: all 0.3s ease;
+}
+
+.testimonial-arrow-wrap.style-3 .testimonial-button-prev i:hover,
+.testimonial-arrow-wrap.style-3 .testimonial-button-next i:hover {
+    background-color: var(--splitizy-primary) !important;
+    border-color: var(--splitizy-primary) !important;
+    color: var(--splitizy-white) !important;
+}
+
+/* Newsletter section */
+.newsletter-title {
+    color: var(--splitizy-primary);
+}
+
+.newsletter-area.style-3 .newsletter-form .input-field {
+    background-color: var(--splitizy-secondary-alpha-20) !important;
+    border-color: var(--splitizy-secondary-alpha-20) !important;
+    color: var(--splitizy-grey-dark) !important;
+}
+
+/* Trial section */
+.trial-title {
+    color: var(--splitizy-primary);
+}
+
+.trial-category {
+    color: var(--splitizy-secondary);
+    background-color: var(--splitizy-secondary-alpha-20);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Banner sections */
+.banner-category {
+    color: var(--splitizy-secondary);
+    background-color: var(--splitizy-secondary-alpha-20);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.banner-title {
+    color: var(--splitizy-primary);
+}
+
+/* Banner button styling */
+.banner-btn-wrap .btn.blackberry-color {
+    background-color: var(--splitizy-primary) !important; /* Orange par défaut */
+    border-color: var(--splitizy-primary) !important;
+    color: var(--splitizy-white) !important;
+    transition: all 0.3s ease;
+}
+
+.banner-btn-wrap .btn.blackberry-color:hover {
+    background-color: var(--splitizy-secondary) !important; /* Bleu au survol */
+    border-color: var(--splitizy-secondary) !important;
+    color: var(--splitizy-white) !important;
+}
+
+.error-404-area .btn-wrap .btn.blackberry-color {
+    background-color: var(--splitizy-primary) !important;
+    border-color: var(--splitizy-primary) !important;
+    color: var(--splitizy-white) !important;
+    transition: all 0.3s ease;
+    margin-bottom: 80px;
+}
+
+.error-404-area .btn-wrap .btn.blackberry-color:hover {
+    background-color: var(--splitizy-secondary) !important; /* Bleu au survol */
+    border-color: var(--splitizy-secondary) !important;
+    color: var(--splitizy-white) !important;
+}
+
+/* Professional button styling */
+.btn-professionnel {
+    background-color: var(--splitizy-secondary-alpha-20) !important; /* Orange clair par défaut */
+    border-color: var(--splitizy-secondary-alpha-20) !important;
+    color: var(--splitizy-secondary) !important;
+    transition: all 0.3s ease;
+    margin-right: 15px;
+}
+
+.btn-professionnel:hover {
+    background-color: var(--splitizy-primary) !important; /* Bleu au survol */
+    border-color: var(--splitizy-primary) !important;
+    color: var(--splitizy-white) !important;
+}
+
+/* FAQ button styling */
+.faq-btn-wrap .btn.blackberry-color {
+    background-color: var(--splitizy-primary) !important; /* Orange par défaut */
+    border-color: var(--splitizy-primary) !important;
+    color: var(--splitizy-white) !important;
+    transition: all 0.3s ease;
+}
+
+.faq-btn-wrap .btn.blackberry-color:hover {
+    background-color: var(--splitizy-secondary) !important; /* Bleu au survol */
+    border-color: var(--splitizy-secondary) !important;
+    color: var(--splitizy-white) !important;
+}
+
+/* Download buttons styling */
+.download-btn-img {
+    max-height: 90px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.download-btn-img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive download buttons for mobile */
+@media (max-width: 768px) {
+    .download-btn-img {
+        max-height: 65px;
+        width: auto;
+    }
+    
+    .hero-btn-wrap {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .hero-btn-wrap a {
+        display: inline-block;
+        margin: 0 5px 10px 5px;
+    }
+    
+    .trial-btn-wrap .download-btn-img {
+        max-height: 60px;
+    }
+    
+    .footer-btn-wrap .download-btn-img {
+        max-height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .download-btn-img {
+        max-height: 55px;
+        width: auto;
+    }
+    
+    .trial-btn-wrap .download-btn-img {
+        max-height: 50px;
+    }
+    
+    .footer-btn-wrap .download-btn-img {
+        max-height: 45px;
+    }
+    
+    .hero-btn-wrap a {
+        margin: 0 3px 8px 3px;
+    }
+    
+    /* Bulle encore plus petite pour les très petits écrans */
+    .hero-style-4 .hero-content .title span:before {
+        width: 65px !important; /* Bulle très petite sur mobile */
+        height: 65px !important;
+        left: -20px !important;
+    }
+}
+
+/* Styles supplémentaires pour la bulle */
+@media (min-width: 768px) {
+    .hero-style-4 .hero-content .title span:hover {
+        transform: scale(1.05);
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 20px rgba(0, 82, 145, 0.3);
+    }
+}
+
+/* Pricing customizations with Splitizy colors */
+.pricing-style-4 .pricing-tab-nav {
+    background-color: var(--splitizy-secondary-alpha-20) !important;
+}
+
+.pricing-style-4 .pricing-tab-nav li a.active {
+    background-color: var(--splitizy-secondary) !important;
+    color: var(--splitizy-white) !important;
+}
+
+.pricing-style-4 .pricing-item:hover {
+    border-color: var(--splitizy-secondary) !important;
+    background-color: var(--splitizy-secondary) !important;
+}
+
+.pricing-style-4 .pricing-info {
+    background-color: var(--splitizy-secondary) !important;
+}
+
+.pricing-style-4 .pricing-item:hover .pricing-info {
+    background-color: var(--splitizy-white) !important;
+}
+
+.pricing-style-4 .pricing-item:hover .pricing-info .price {
+    color: var(--splitizy-secondary) !important;
+}
+
+.pricing-style-4 .pricing-item:hover .pricing-info .month {
+    color: var(--splitizy-black) !important;
+}
+
+.pricing-style-4 .pricing-item:hover .pricing-btn-wrap .btn-custom-size {
+    background-color: var(--splitizy-white) !important;
+    color: var(--splitizy-secondary) !important;
+    border-color: var(--splitizy-white) !important;
+}
+
+.pricing-style-4 .pricing-btn-wrap .btn-custom-size {
+    background-color: var(--splitizy-secondary-alpha-20) !important;
+    color: var(--splitizy-secondary) !important;
+    border-color: var(--splitizy-secondary-alpha-20) !important;
+}
+
+/* Pricing cards hover effects */
+.pricing-style-4 .pricing-item:hover .pricing-title {
+    color: var(--splitizy-white) !important;
+}
+
+/* FAQ Categories Navigation */
+.faq-categories {
+    margin-bottom: 30px;
+}
+
+.faq-category-nav {
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.faq-category-nav .nav-link {
+    background-color: var(--splitizy-primary-light);
+    color: var(--splitizy-primary);
+    border: 1px solid transparent;
+    border-radius: 25px;
+    padding: 8px 16px;
+    margin: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.faq-category-nav .nav-link:hover {
+    background-color: var(--splitizy-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.faq-category-nav .nav-link.active {
+    background-color: var(--splitizy-primary);
+    color: white;
+    border-color: var(--splitizy-primary);
+}
+
+/* FAQ Tab Content */
+.tab-content {
+    margin-top: 20px;
+}
+
+.tab-pane {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive FAQ Categories */
+@media (max-width: 768px) {
+    .faq-category-nav .nav-link {
+        font-size: 12px;
+        padding: 6px 12px;
+        margin: 3px;
+    }
+    
+    .faq-categories {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .faq-category-nav .nav-link {
+        font-size: 11px;
+        padding: 5px 8px;
+        margin: 2px;
+    }
+} 
