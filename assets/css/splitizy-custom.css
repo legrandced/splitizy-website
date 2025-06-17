@@ -719,4 +719,49 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--splitizy-red);
     background-color: #f8d7da;
     border: 1px solid #f5c6cb;
+}
+
+/* Styles responsifs pour le logo du header */
+@media (min-width: 992px) {
+    .header-style-4:not(.is-active) .header-logo img {
+        max-width: none !important;
+        height: 140px !important;
+        width: auto !important;
+    }
+    
+    /* Logo normal quand le header devient sticky (après scroll) */
+    .header-style-4.is-active .header-logo img {
+        max-width: none !important;
+        height: 90px !important;
+        width: auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-logo img {
+        max-width: 200px !important;
+        height: auto !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-logo img {
+        max-width: 140px !important;
+        height: auto !important;
+    }
+}
+
+/* Ajustements pour le menu offcanvas sur mobile */
+@media (max-width: 768px) {
+    .offcanvas-header .header-logo img {
+        max-width: 200px !important;
+        height: auto !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .offcanvas-header .header-logo img {
+        max-width: 140px !important;
+        height: auto !important;
+    }
 } 
