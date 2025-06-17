@@ -22,7 +22,7 @@ function onSubmit(token) {
     formData.append('email', email);
     formData.append('g-recaptcha-response', token || '');
 
-    fetch('https://script.google.com/macros/s/AKfycbxJluY2P_xc8zxPhJa1i4YL9Y38C21_gotAFDE_GPmPdsG0AY2AM0HFQt4n1mF2IIdU/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbyi3evGSI4OwhakQnN7xI6HKjACRVayn3U7ANJ4R4X0e2nYXhNwqPpG41P-vMs5LXzh/exec', {
         method: 'POST',
         body: formData
     })
@@ -76,7 +76,7 @@ function onContactSubmit(token) {
     formData.append('message', message);
     formData.append('g-recaptcha-response', token || '');
 
-    fetch('https://script.google.com/macros/s/AKfycbxJluY2P_xc8zxPhJa1i4YL9Y38C21_gotAFDE_GPmPdsG0AY2AM0HFQt4n1mF2IIdU/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbyi3evGSI4OwhakQnN7xI6HKjACRVayn3U7ANJ4R4X0e2nYXhNwqPpG41P-vMs5LXzh/exec', {
         method: 'POST',
         body: formData
     })
