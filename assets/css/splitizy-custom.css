@@ -644,4 +644,79 @@ h1, h2, h3, h4, h5, h6 {
         padding: 5px 8px;
         margin: 2px;
     }
+}
+
+/* Contact form button hover effect */
+.form-style-2 .form-btn:hover {
+    background-color: var(--splitizy-primary) !important;
+    border-color: var(--splitizy-primary) !important;
+    color: white !important;
+}
+
+/* Loading state styles */
+.form-messege.alert-info {
+    color: var(--splitizy-primary);
+    background-color: var(--splitizy-primary-alpha-10);
+    border: 1px solid var(--splitizy-primary-alpha-20);
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.form-messege.alert-success {
+    color: var(--splitizy-green);
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.form-messege.alert-danger {
+    color: var(--splitizy-red);
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* Spinner animation */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.icofont-spinner-alt-4 {
+    animation: spin 1s linear infinite;
+}
+
+/* Newsletter messages styling */
+.mailchimp-submitting,
+.mailchimp-success,
+.mailchimp-error {
+    margin-top: 15px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    display: none; /* Caché par défaut */
+}
+
+.mailchimp-submitting:not(:empty) {
+    display: block;
+    color: var(--splitizy-primary);
+    background-color: var(--splitizy-primary-alpha-10);
+    border: 1px solid var(--splitizy-primary-alpha-20);
+}
+
+.mailchimp-success:not(:empty) {
+    display: block;
+    color: var(--splitizy-green);
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+.mailchimp-error:not(:empty) {
+    display: block;
+    color: var(--splitizy-red);
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
 } 
