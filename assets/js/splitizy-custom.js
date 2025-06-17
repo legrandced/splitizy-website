@@ -20,14 +20,20 @@ function onSubmit(token) {
 
     const formData = new FormData();
     formData.append('email', email);
+    formData.append('g-recaptcha-response', token || '');
 
-    fetch('https://script.google.com/macros/s/AKfycbyVWI4fYiXoR5sHDkKR1tjOcSh9_7paklY6IQXXQwkVxnATnb_0Npi6ZpUa38yh100u/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbxJluY2P_xc8zxPhJa1i4YL9Y38C21_gotAFDE_GPmPdsG0AY2AM0HFQt4n1mF2IIdU/exec', {
         method: 'POST',
         body: formData
     })
-    .then(response => {
-        showMailchimpMessage('Merci ! Vous êtes maintenant inscrit à notre newsletter.', 'success');
-        document.getElementById('mc-email').value = 'Entrez votre email';
+    .then(response => response.text())
+    .then(data => {
+        if (data.includes('success')) {
+            showMailchimpMessage('Merci ! Vous êtes maintenant inscrit à notre newsletter.', 'success');
+            document.getElementById('mc-email').value = 'Entrez votre email';
+        } else {
+            throw new Error('Réponse inattendue du serveur');
+        }
     })
     .catch(error => {
         showMailchimpMessage('Une erreur est survenue. Veuillez réessayer.', 'error');
@@ -44,23 +50,47 @@ function onContactSubmit(token) {
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
     
+    // Récupérer les valeurs des champs
+    const name = form.querySelector('input[name="con_name"]').value;
+    const email = form.querySelector('input[name="con_email"]').value;
+    const subject = form.querySelector('input[name="con_subject"]').value;
+    const message = form.querySelector('textarea[name="con_message"]').value;
+    
+    // Validation côté client
+    if (!name || !email || !subject || !message) {
+        showContactMessage('Veuillez remplir tous les champs obligatoires.', 'error');
+        return;
+    }
+    
     // Afficher l'indicateur de chargement
     showContactMessage('Traitement en cours...', 'loading');
     submitBtn.disabled = true;
     submitBtn.innerHTML = 'Traitement en cours... <i class="icofont-spinner-alt-4"></i>';
     
-    const formData = new FormData(form);
+    // Préparer les données en FormData avec les noms que le script Apps Script attend
+    const formData = new FormData();
     formData.append('type', 'contact');
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('subject', subject);
+    formData.append('message', message);
+    formData.append('g-recaptcha-response', token || '');
 
-    fetch('https://script.google.com/macros/s/AKfycbx6xQBBYvukFmx_bUOs2bt7WYbN0bFyK_OxAFFn34mZucyaHccOfNUG_e0JiNbnCBKU/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbxJluY2P_xc8zxPhJa1i4YL9Y38C21_gotAFDE_GPmPdsG0AY2AM0HFQt4n1mF2IIdU/exec', {
         method: 'POST',
         body: formData
     })
-    .then(response => {
-        showContactMessage('Merci ! Votre message a été envoyé avec succès.', 'success');
-        form.reset();
+    .then(response => response.text())
+    .then(data => {
+        if (data.includes('success')) {
+            showContactMessage('Merci ! Votre message a été envoyé avec succès.', 'success');
+            form.reset();
+        } else {
+            throw new Error('Réponse inattendue du serveur');
+        }
     })
     .catch(error => {
+        console.error('Erreur:', error);
         showContactMessage('Une erreur est survenue. Veuillez réessayer.', 'error');
     })
     .finally(() => {
