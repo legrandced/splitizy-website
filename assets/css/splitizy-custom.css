@@ -143,9 +143,34 @@ h1, h2, h3, h4, h5, h6 {
     background: none !important; /* Supprime l'arrière-plan original */
 }
 
+.hero-style-4 .hero-content .title span.no-bubble {
+    padding: 0 !important;
+    margin: 0 !important;
+    display: inline !important;
+    background: none !important; /* Supprime l'arrière-plan original */
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.hero-style-4 .hero-content .title span.no-bubble:before {
+    display: none !important;
+}
+
 /* Change la couleur de la bulle originale */
-.hero-style-4 .hero-content .title span:before {
+.hero-style-4 .hero-content .title span:not(.no-bubble):before {
     background-color: var(--splitizy-secondary-alpha-50) !important; /* Couleur de la bulle */
+}
+
+/* Change the download buttons */
+.hero-btn-wrap {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.hero-btn-wrap a {
+    display: inline-block;
+    margin: 0px 30px 0px 30px;
 }
 
 /* Feature icons and content */
@@ -457,7 +482,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Download buttons styling */
 .download-btn-img {
-    max-height: 90px;
+    max-height: 80px;
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -507,7 +532,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .hero-btn-wrap a {
-        margin: 0 3px 8px 3px;
+        margin: 20px 3px 8px 3px !important;
     }
     
     /* Bulle encore plus petite pour les très petits écrans */
@@ -764,4 +789,44 @@ h1, h2, h3, h4, h5, h6 {
         max-width: 140px !important;
         height: auto !important;
     }
-} 
+}
+
+/* Ajustements responsifs pour le header entre 992px et 1200px */
+@media (min-width: 992px) and (max-width: 1200px) {
+    /* Forcer la largeur maximale du conteneur */
+    .header-container {
+        max-width: 100% !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    /* Réduction de la taille du logo */
+    .header-style-4:not(.is-active) .header-logo img {
+        height: 110px !important;
+    }
+
+    /* Réduction de l'espacement du menu */
+    .header-style-4 .header-menu-nav > ul > li:not(:last-child) {
+        margin-right: 15px !important;
+    }
+
+    /* Réduction de l'espacement des boutons */
+    .header-right > li:not(:first-child) {
+        margin-left: 0px !important;
+    }
+}
+@media (min-width: 992px) and (max-width: 1060px) {
+    /* Réduction de l'espacement du menu */
+    .header-style-4 .header-menu-nav > ul > li:not(:last-child) {
+        margin-right: 5px !important;
+    }
+}
+
+/* Dézoome l'image de fond sur très petits écrans */
+@media (max-width: 363px) {
+    .hero-bg.hero-style-4 {
+        background-image: url('../images/header_1_mobile.png') !important;
+        /* background-size: cover !important; */
+        background-position: center !important;
+    }
+}

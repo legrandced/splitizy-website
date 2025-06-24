@@ -1581,17 +1581,22 @@ img {
   height: 100%;
 }
 .hero-style-4.hero-bg {
-  height: 1055px;
+  height: 1100px;
   background-position: bottom;
+}
+@media (max-width: 1200px) {
+  .hero-style-4.hero-bg {
+    height: 1350px;
+  }
 }
 @media (max-width: 991px) {
   .hero-style-4.hero-bg {
     height: 850px;
   }
 }
-@media (max-width: 991px) {
+@media (max-width: 370px) {
   .hero-style-4.hero-bg {
-    height: 750px;
+    height: 1000px;
   }
 }
 .hero-style-4 .hero-item {
