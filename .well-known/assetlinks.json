@@ -1,16 +1,13 @@
 [
-    {
-      "relation": [
-        "delegate_permission/common.handle_all_urls",
-        "delegate_permission/common.get_login_creds"
-      ],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "com.splitizy.splitizy",
-        "sha256_cert_fingerprints": [
-          "CA:54:AE:1A:2D:28:6D:EF:CB:68:A0:91:8D:F0:18:67:47:B4:CE:FA:F3:E1:52:D9:D4:79:D9:1F:D9:76:7C:89",
-          "16:52:B1:1F:67:90:36:F7:74:5D:09:77:4B:8D:53:EC:92:71:D3:3A:F3:2F:B7:28:F4:36:F3:CE:9A:33:63:CE"
-        ]
-      }
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.splitizy.splitizy",
+      "sha256_cert_fingerprints": ["16:52:B1:1F:67:90:36:F7:74:5D:09:77:4B:8D:53:EC:92:71:D3:3A:F3:2F:B7:28:F4:36:F3:CE:9A:33:63:CE"]
     }
-  ]
+  }
+]
