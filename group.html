@@ -6,9 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Splitizy - Page non trouvée</title>
-    <meta name="robots" content="index, follow" />
-    <meta name="description" content="Page non trouvée - Splitizy"
+    <title>Splitizy - Rejoindre un groupe</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="Rejoindre un groupe Splitizy">
+    
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/logo/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/logo/favicon-32x32.png">
@@ -31,9 +32,69 @@
     
     <!-- Splitizy Custom CSS -->
     <link rel="stylesheet" href="/assets/css/splitizy-custom.css">
-    
-    <!-- reCAPTCHA -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <style>
+        .group-redirect-area {
+            padding: 80px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .group-redirect-content {
+            text-align: center;
+            max-width: 600px;
+        }
+        .group-redirect-content h1 {
+            color: var(--splitizy-primary);
+            margin-bottom: 30px;
+        }
+        .group-redirect-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .download-btn {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .download-btn:hover {
+            transform: scale(1.05);
+        }
+        .download-btn img {
+            height: 60px;
+            width: auto;
+        }
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--splitizy-primary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .countdown {
+            font-size: 14px;
+            color: #999;
+            margin-top: 20px;
+        }
+        #countdown-timer {
+            font-weight: bold;
+            color: var(--splitizy-primary);
+        }
+    </style>
 
 </head>
 
@@ -135,45 +196,37 @@
 
         <!-- Begin Main Content Area -->
         <div class="main-content">
-            <div class="breadcrumb-area breadcrumb-height" data-bg-image="/assets/images/header_2.png">
-                <div class="container h-100">
-                    <div class="row h-100">
-                        <div class="col-lg-12">
-                            <div class="breadcrumb-item">
-                                <h1 class="breadcrumb-title">Page non trouvée</h1>
-                                <ul class="breadcrumb-list">
-                                    <li>
-                                        <a href="/index.html" style="color: var(--splitizy-primary);">Accueil</a>
-                                    </li>
-                                    <li><span>404</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="error-404-area">
+            <div class="group-redirect-area">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="error-404-item">
-                                <div class="error-404-img">
-                                    <div class="scene fill">
-                                        <div class="expand-width" data-depth="0.2">
-                                            <img src="/assets/images/404/1-631x451.png" alt="404 Image">
-                                        </div>
-                                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="group-redirect-content">
+                                <div class="loading-spinner" id="loading-spinner"></div>
+                                
+                                <h1 id="main-title">Redirection vers l'application...</h1>
+                                
+                                <p id="main-description">
+                                    Vous allez être redirigé vers l'application Splitizy pour rejoindre votre groupe.
+                                </p>
+                                
+                                <div class="countdown" id="countdown-section" style="display: none;">
+                                    Redirection automatique dans <span id="countdown-timer">5</span> secondes...
                                 </div>
-                                <div class="error-404-content">
-                                    <h2 class="title">Désolé, cette page n'existe pas.</h2>
-                                    <p class="desc">La page que vous recherchez n'a pas été trouvée. Retournez à l'accueil pour découvrir toutes les fonctionnalités de Splitizy.
-                                    </p>
-                                    <div class="btn-wrap">
-                                        <a class="btn btn-custom-size btn-lg blackberry-color extbot-primary-hover-4" href="/index.html">
-                                            <i class="icofont-long-arrow-left"></i>
-                                            Retour à l'accueil
-                                        </a>
-                                    </div>
+
+                                <div class="download-buttons" id="download-buttons" style="display: none;">
+                                    <a href="https://play.google.com/store/apps/details?id=com.splitizy.splitizy&hl=fr" target="_blank" rel="noopener noreferrer" class="download-btn">
+                                        <img src="/assets/images/google-play.png" alt="Télécharger sur Google Play">
+                                    </a>
+                                    <a href="https://apps.apple.com/be/app/splitizy/id6747078524?platform=iphone" target="_blank" rel="noopener noreferrer" class="download-btn">
+                                        <img src="/assets/images/app-store.png" alt="Télécharger sur l'App Store">
+                                    </a>
+                                </div>
+
+                                <div class="btn-wrap" style="margin-top: 40px;">
+                                    <a class="btn btn-custom-size btn-lg blackcurrant-color extbot-primary-hover-4" href="/index.html">
+                                        <i class="icofont-long-arrow-left"></i>
+                                        Retour à l'accueil
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -182,46 +235,6 @@
             </div>
         </div>
         <!-- Main Content Area End -->
-
-        <!-- Begin Newsletter Area -->
-        <div class="newsletter-area style-3">
-            <div class="container">
-                <div class="newsletter-bg" data-bg-image="/assets/images/newsletter_1.png">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="newsletter-item">
-                                <div class="inner-item">
-                                    <h2 class="newsletter-title">Rejoignez-nous.</h2>
-                                    <p class="newsletter-desc">Recevez les dernières actualités de Splitizy.</p>
-                                    <form class="newsletter-form" id="mc-form" action="#">
-                                        <input class="input-field" id="mc-email" type="email" autocomplete="off" name="email" placeholder="Entrez votre email" value="Entrez votre email" onblur="if(this.value==''){this.value='Entrez votre email'}" onfocus="if(this.value=='Entrez votre email'){this.value=''}">
-                                        <div class="btn-wrap">
-                                            <button class="btn btn-custom-size extbot-primary-4 blackcurrant-hover g-recaptcha" 
-                                                    id="mc-submit"
-                                                    data-sitekey="6LciCDcrAAAAAC2XJHnQHRu64gPiBMffaW30RW-u"
-                                                    data-callback="onSubmit"
-                                                    data-badge="bottomleft"
-                                                    data-size="invisible"
-                                                    type="submit">
-                                                S'inscrire
-                                                <i class="icofont-double-right"></i>
-                                            </button>
-                                        </div>
-                                    </form>
-                                    <!-- Mailchimp Alerts -->
-                                    <div class="mailchimp-alerts text-centre p3-5">
-                                        <div class="mailchimp-submitting"></div>
-                                        <div class="mailchimp-success"></div>
-                                        <div class="mailchimp-error"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Newsletter Area End Here -->
 
         <!-- Begin Footer Area -->
         <footer class="footer-style-4" data-bg-image="/assets/images/footer.png">
@@ -314,8 +327,6 @@
 
     </div>
 
-    <!-- Global Vendor, plugins JS -->
-
     <!-- JS Files
     ============================================ -->
 
@@ -337,36 +348,110 @@
     <!-- Splitizy Custom JS -->
     <script src="/assets/js/splitizy-custom.js"></script>
 
-    <!-- Gestion des liens de groupe -->
+    <!-- Group Redirect Logic -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Vérifier si l'URL actuelle contient /group/
+        // Extraire le code du groupe depuis l'URL ou le hash
         var currentUrl = window.location.href;
         var currentPath = window.location.pathname;
+        var currentHash = window.location.hash;
         
-        console.log('URL actuelle:', currentUrl);
-        console.log('Chemin actuel:', currentPath);
+        console.log('URL complète:', currentUrl);
+        console.log('Chemin:', currentPath);
+        console.log('Hash:', currentHash);
         
-        // Si l'URL contient /group/, rediriger vers group.html avec les paramètres
-        if (currentPath.match(/\/group\//i)) {
-            var groupMatch = currentPath.match(/\/group\/([^\/\?#]+)/i);
-            if (groupMatch) {
-                var groupCode = groupMatch[1];
-                console.log('Code de groupe détecté:', groupCode);
-                
-                // Rediriger vers group.html avec le code de groupe dans l'URL
-                var redirectUrl = '/group.html#' + groupCode;
-                console.log('Redirection vers:', redirectUrl);
-                window.location.href = redirectUrl;
-                return;
-            }
+        var groupCode = null;
+        
+        // Essayer d'extraire depuis le hash d'abord (pour les redirections depuis 404.html)
+        if (currentHash && currentHash.length > 1) {
+            groupCode = currentHash.substring(1); // enlever le #
+            console.log('Code de groupe depuis hash:', groupCode);
         }
         
-        // Si nous arrivons ici, c'est une vraie 404
-        console.log('Page 404 légitime');
+        // Sinon essayer d'extraire depuis l'URL normale
+        if (!groupCode) {
+            var groupMatch = currentUrl.match(/\/group\/([^\/\?#]+)/i);
+            groupCode = groupMatch ? groupMatch[1] : null;
+            console.log('Code de groupe depuis URL:', groupCode);
+        }
+        
+        // Fonction pour détecter le type d'appareil
+        function detectDevice() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            if (/android/i.test(userAgent)) {
+                return 'android';
+            }
+            
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return 'ios';
+            }
+            
+            return 'other';
+        }
+        
+        // Fonction de redirection vers l'app (basée sur le code sand.splitizy.com qui fonctionne)
+        function redirectToApp(device, groupCode) {
+            var appUrl;
+            
+            if (device === 'ios') {
+                // Pour iOS - même scheme que sand
+                appUrl = 'splitizy://group/' + groupCode;
+            } else if (device === 'android') {
+                // Pour Android - scheme production (sans -sand)
+                appUrl = 'splitizy://group/' + groupCode;
+            } else {
+                // Pour desktop/autres, afficher les boutons de téléchargement
+                showDownloadButtons();
+                return;
+            }
+            
+            console.log('Redirection vers app:', appUrl);
+            
+            // Méthode 1: Redirection directe (plus fiable)
+            window.location.href = appUrl;
+            
+            // Méthode 2: Iframe en fallback (comme dans le code qui marche)
+            setTimeout(function() {
+                var iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = appUrl;
+                document.body.appendChild(iframe);
+            }, 100);
+        }
+        
+        // Fonction pour afficher les boutons de téléchargement
+        function showDownloadButtons() {
+            document.getElementById('loading-spinner').style.display = 'none';
+            document.getElementById('main-title').textContent = 'Application Splitizy requise';
+            document.getElementById('main-description').textContent = 'Pour rejoindre ce groupe, veuillez télécharger l\'application Splitizy sur votre appareil mobile.';
+            document.getElementById('download-buttons').style.display = 'flex';
+        }
+        
+
+        
+        // Démarrer le processus (redirection immédiate comme sand.splitizy.com)
+        if (groupCode) {
+            console.log('Code de groupe détecté:', groupCode);
+            
+            // Afficher les infos du groupe
+            document.getElementById('loading-spinner').style.display = 'none';
+            document.getElementById('main-title').textContent = 'Rejoindre le groupe ' + groupCode;
+            document.getElementById('main-description').textContent = 'Ouverture de l\'application en cours...';
+            
+            // Redirection immédiate vers l'app (comme sur sand)
+            var device = detectDevice();
+            redirectToApp(device, groupCode);
+        } else {
+            // Pas de code de groupe, rediriger vers 404
+            console.log('Aucun code de groupe trouvé');
+            setTimeout(function() {
+                window.location.href = '/404.html';
+            }, 2000);
+        }
     });
     </script>
 
 </body>
 
-</html>
+</html> 
