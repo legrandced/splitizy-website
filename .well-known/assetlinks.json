@@ -8,7 +8,6 @@
         "namespace": "android_app",
         "package_name": "com.splitizy.splitizy",
         "sha256_cert_fingerprints": [
-          "16:52:b1:1f:67:90:36:f7:74:5d:09:77:4b:8d:53:ec:92:71:d3:3a:f3:2f:b7:28:f4:36:f3:ce:9a:33:63:ce",
           "CA:54:AE:1A:2D:28:6D:EF:CB:68:A0:91:8D:F0:18:67:47:B4:CE:FA:F3:E1:52:D9:D4:79:D9:1F:D9:76:7C:89",
           "16:52:B1:1F:67:90:36:F7:74:5D:09:77:4B:8D:53:EC:92:71:D3:3A:F3:2F:B7:28:F4:36:F3:CE:9A:33:63:CE"
         ]
