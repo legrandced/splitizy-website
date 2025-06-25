@@ -396,10 +396,10 @@
             
             if (device === 'ios') {
                 // Pour iOS - même scheme que sand
-                appUrl = 'splitizy://splitizy.com/group/' + groupCode;
+                appUrl = 'splitizy://group/' + groupCode;
             } else if (device === 'android') {
                 // Pour Android - scheme production (sans -sand)
-                appUrl = 'splitizy://splitizy.com/group/' + groupCode;
+                appUrl = 'splitizy://group/' + groupCode;
             } else {
                 // Pour desktop/autres, afficher les boutons de téléchargement
                 showDownloadButtons();
