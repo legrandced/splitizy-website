@@ -1,0 +1,760 @@
+{
+  "nav": {
+    "features": "Features",
+    "distribution": "Distribution",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "individual": "Individual",
+    "professional": "Professional"
+  },
+  "hero": {
+    "title": "Inventory, <span class=\"no-bubble\">Manage</span> and Share <br><span>your assets</span>with peace of mind.",
+    "subtitle": "The complete solution for inventory, distribution and fair sharing of your assets",
+    "downloadGooglePlay": "Download on Google Play",
+    "downloadAppStore": "Download on the App Store"
+  },
+  "features": {
+    "title": "Main Features",
+    "subtitle": "Splitizy accompanies you in the management and fair sharing of your assets with professional and intuitive tools.",
+    "intelligentInventory": {
+      "title": "Smart Inventory",
+      "description": "Take photos of your objects, and AI takes care of the rest: Organization by rooms and categories, descriptions,..."
+    },
+    "professionalExpertise": {
+      "title": "Professional Expertise",
+      "description": "Expert appraisal service available with precise evaluation by certified experts and official reports."
+    },
+    "fairDistribution": {
+      "title": "Fair Distribution",
+      "description": "Intelligent distribution system that respects everyone's preferences with a fair and transparent algorithm."
+    }
+  },
+  "trial": {
+    "title": "Download the app for free!",
+    "description": "The demo version gives you access to all Splitizy features for free."
+  },
+  "distribution": {
+    "title": "Fair distribution for everyone.",
+    "description": "Splitizy offers various distribution methods to adapt to each situation, taking into account favorite objects, those with sentimental value, and everyone's ideal share.",
+    "learnMore": "Learn more"
+  },
+  "pricing": {
+    "title": "Pricing",
+    "description": "Splitizy offers a complete free version and a Premium License to unlock all advanced features.",
+    "premiumLicense": "Premium License",
+    "expertise": "Expertise",
+    "freeVersion": {
+      "title": "Free Version",
+      "price": "€0",
+      "features": [
+        "Max. 30 objects in inventory",
+        "Up to 4 members per group",
+        "Distribution details"
+      ],
+      "button": "Download"
+    },
+    "premium": {
+      "title": "Premium License",
+      "price": "€99",
+      "features": [
+        "Unlimited inventory",
+        "Unlimited members",
+        "Detailed reports"
+      ],
+      "button": "Get started!"
+    },
+    "expertiseService": {
+      "title": "Expertise",
+      "price": "€40",
+      "priceUnit": "per object",
+      "features": [
+        "Professional expertise",
+        "Value evaluation",
+        "Personalized advice"
+      ],
+      "button": "Get started!"
+    }
+  },
+  "testimonials": {
+    "title": "What our users think about Splitizy",
+    "testimonial1": {
+      "text": "Our mother's succession could have been a headache. <strong>Splitizy</strong> made the process so simple and fair with its <strong>smart inventory</strong> and <strong>transparent distribution</strong>. No more disputes, a real relief!",
+      "author": "Sophie M."
+    },
+    "testimonial2": {
+      "text": "Sharing our assets after the divorce seemed insurmountable. <strong>Splitizy</strong> made the process so simple and fair! The <strong>intuitive inventory</strong> and <strong>fair distribution</strong> avoided many disputes. It's an essential tool for a respectful and serene separation.",
+      "author": "Marc L."
+    },
+    "testimonial3": {
+      "text": "Managing the inheritance remotely with my sister was a challenge. <strong>Splitizy</strong> gave us incredible clarity. The <strong>detailed reports</strong> and <strong>data security</strong> were essential. A modern and indispensable tool!",
+      "author": "Lucie P."
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Quickly find answers to the most common questions about Splitizy",
+    "breadcrumbTitle": "Frequently Asked Questions",
+    "otherQuestions": "Other Questions",
+    "categories": {
+      "general": "📱 General",
+      "connexion": "🔒 Login & Account",
+      "licence": "💳 Premium License",
+      "groupe": "👥 Group",
+      "inventaire": "📦 Inventory",
+      "expertise": "🔍 Expertise",
+      "repartition": "⚖️ Distribution",
+      "services": "🚚 Services",
+      "donnees": "🔒 Data & Privacy",
+      "support": "🆘 Support"
+    },
+    "sections": {
+      "general": [
+        {
+          "question": "What is Splitizy?",
+          "answer": "Splitizy is an innovative mobile application dedicated to <strong>sharing movable goods (furniture)</strong>. It helps you create a detailed inventory of goods, obtain informative and objective value for most photographed goods, make professional evaluations, and perform fair distribution among all group members."
+        },
+        {
+          "question": "How does Splitizy work?",
+          "answer": "1. <strong>Create a group</strong> with other heirs<br>2. <strong>Photograph and catalog</strong> all goods<br>3. <strong>Evaluate or have objects appraised</strong><br>4. <strong>Choose your favorites</strong> (maximum 5 favorites per person)<br>5. <strong>Mark</strong> objects that have <strong>sentimental value</strong> for you<br>6. <strong>Perform final distribution</strong> according to a chosen method"
+        },
+        {
+          "question": "Is the application free?",
+          "answer": "Splitizy offers a <strong>free version</strong> limited to 30 objects and 4 members per group, ideal for testing the application. For more extensive use, the <strong>Premium license at €99</strong> unlocks all features without limitation."
+        },
+        {
+          "question": "What languages are supported?",
+          "answer": "Currently, our application supports the following languages:<br><br><strong>- Français</strong><br><strong>- English</strong><br><strong>- Nederlands</strong>"
+        },
+        {
+          "question": "How can I use the application in my preferred language?",
+          "answer": "<strong>1.</strong> Click on the \"Settings\" tab at the bottom of your screen<br><strong>2.</strong> Press the first button in the list: \"Language\"<br><strong>3.</strong> Select your preferred language<br><strong>4.</strong> The language change happens automatically"
+        },
+        {
+          "question": "On which devices can I use Splitizy?",
+          "answer": "Splitizy is available on <strong>iOS and Android</strong>. You can download the application from the App Store or Google Play. An Internet connection is required to synchronize data between group members."
+        },
+        {
+          "question": "Is my data secure?",
+          "answer": "Yes, <strong>the security of your data is our priority</strong>. All data is hosted on secure servers in Belgium, compliant with GDPR. No transfer is made outside the European Union."
+        }
+      ],
+      "connexion": [
+        {
+          "question": "How to create an account?",
+          "answer": "You can create an account in <strong>three ways</strong>:<br>• With your email address and a password<br>• Via your Google account<br>• Via your Apple account (on iOS)<br><br>You will then need to provide your first name, last name, and date of birth to finalize your profile."
+        },
+        {
+          "question": "What are the password criteria?",
+          "answer": "Your password must contain <strong>minimum 8 characters</strong>, at least <strong>one uppercase letter and one number</strong>. It cannot exceed 128 characters. These criteria ensure the security of your account."
+        },
+        {
+          "question": "I forgot my password, what should I do?",
+          "answer": "On the login page, click on <strong>\"Forgot password\"</strong>. Enter your email address and you will receive a link to reset your password. Also check your spam folder if you don't receive the email."
+        },
+        {
+          "question": "How to change my password?",
+          "answer": "Go to <strong>Settings > My profile</strong>, then to the \"Password\" section. You will need to enter your current password then the new one. This option is only available for accounts created with email/password."
+        },
+        {
+          "question": "How to delete my account?",
+          "answer": "In <strong>Settings > My profile</strong>, scroll down to the \"Delete account\" section. <span style=\"color: var(--splitizy-red);\">Warning</span>: this action is irreversible and will delete all your data."
+        }
+      ],
+      "licence": [
+        {
+          "question": "What is the difference between the free and Premium version?",
+          "answer": "<strong>Free version</strong>: Up to 30 objects, 4 members maximum<br><br><strong>Premium version</strong>: Unlimited inventory, unlimited members, full access to expertise, official final distribution, professional PDF/Excel exports."
+        },
+        {
+          "question": "How much does the Premium license cost?",
+          "answer": "The Premium license costs <strong>€99 for the entire group</strong> with a one-time payment. The license is <strong>valid for 3 years</strong>, giving you all the time needed to perform the distribution."
+        },
+        {
+          "question": "How to buy the Premium license?",
+          "answer": "The purchase is made directly in the application via the <strong>\"Upgrade group to Premium version\"</strong> button visible at the top of the screen in the \"Settings\" and \"Group\" tabs for free groups. Secure payment is made via Google Pay on Android and Apple Pay on iOS. Activation is immediate."
+        },
+        {
+          "question": "When and how is my Premium license consumed?",
+          "answer": "One (1) unique Splitizy usage license starts automatically upon purchase. It is <strong>\"consumed\"</strong> automatically after launching the sharing algorithm of your choice OR after a total inactivity of the Group for a period of 12 months."
+        },
+        {
+          "question": "What should I do if I want to restart the sharing?",
+          "answer": "If you want to restart the sharing, you will need to purchase and activate a new unique Splitizy license and proceed with the different steps: Group Creation, Inventory Creation, Inventory Locking, Choice of a distribution method, Launch of sharing."
+        }
+      ],
+      "groupe": [
+        {
+          "question": "How to create a group?",
+          "answer": "After creating your account, you can create a group by clicking on <strong>\"Create a group\"</strong>. Give it a name, choose a language, country and currency, then invite other members by sharing the automatically generated invitation link."
+        },
+        {
+          "question": "How to invite members to my group?",
+          "answer": "In the <strong>\"Group\"</strong> tab, copy the invitation link and share it via SMS, email or any other application. People will be able to join the group by clicking on this link. You can then define their role (Administrator, Member or Guest)."
+        },
+        {
+          "question": "What are the different roles in a group?",
+          "answer": "• <strong>Administrator</strong>: Can manage everything (add/remove members, configure the group, access all features)<br>• <strong>Member</strong>: Can add objects, evaluate, participate in distribution<br>• <strong>Guest</strong>: Read-only access, can view inventory but not modify it"
+        },
+        {
+          "question": "How to change groups?",
+          "answer": "If you are a member of multiple groups, go to the <strong>\"Group\"</strong> tab and click on the change icon next to the desired group name. You can also join new groups via invitation links."
+        },
+        {
+          "question": "What currency to use?",
+          "answer": "We invite you to select your usual currency for ease of use and object valuation."
+        },
+        {
+          "question": "Can we use different currencies in the same Group?",
+          "answer": "Yes. Splitizy handles converting values to each user's chosen currency. Currency exchange rates refer to ExchangeRate-API."
+        }
+      ],
+      "inventaire": [
+        {
+          "question": "How to add an object to the inventory?",
+          "answer": "In the <strong>\"Inventory\"</strong> tab, click the \"+\" button to add a new object. You can take photos, give a name, description, assign a room, category and estimate a value. Adding quality photos is strongly recommended."
+        },
+        {
+          "question": "How many photos can I add per object?",
+          "answer": "You can add <strong>maximum 10 photos per object</strong> to document it from all angles. Photos can be taken directly from the camera or imported from your gallery. Favor sharp and well-lit photos for better expertise."
+        },
+        {
+          "question": "How to organize my inventory?",
+          "answer": "You can organize your inventory with <strong>rooms, categories and tags</strong>. You can also filter by favorites, expertised or archived objects. A search system allows you to easily find an object by its name or description."
+        },
+        {
+          "question": "What is an archived object?",
+          "answer": "An archived object is an object that <strong>will not participate in the distribution</strong> (for example: broken object, worthless, already distributed). It remains visible in the inventory for documentation but does not appear in distribution calculations."
+        },
+        {
+          "question": "What is a Tag?",
+          "answer": "A tag (or label, marker, label) is a keyword or term associated with information (for example a material, a place, or a first name), which describes a characteristic of the object and/or allows easy grouping of information containing the same keywords."
+        }
+      ],
+      "expertise": [
+        {
+          "question": "What is the expertise service?",
+          "answer": "The expertise service allows you to have your objects evaluated by <strong>qualified professional experts</strong>. They analyze your photos and descriptions to provide an official value estimate. This service is paid and costs €39.99 per object."
+        },
+        {
+          "question": "How does AI estimation work?",
+          "answer": "Artificial intelligence can analyze photos of your objects and provide a <strong>preliminary estimate of their value</strong>. This estimate is indicative and does not replace the expertise of a qualified professional for an official evaluation."
+        },
+        {
+          "question": "How much does an expertise cost?",
+          "answer": "The cost of an expertise is <strong>€39.99 per object</strong>. Payment is made directly in the application via Google Pay (for Android) or Apple Pay (for iOS) depending on your device's operating system."
+        }
+      ],
+      "repartition": [
+        {
+          "question": "How does distribution work?",
+          "answer": "Once the inventory is completed and locked by all members, a group administrator can launch the distribution by choosing one of 4 methods:<br><br>- Reverse Round Robin<br>- Single File<br>- Simple Round Robin<br>- Random Draw<br><br>The algorithm then proposes an equitable distribution taking into account the value and <strong>preferences and sentimental attachment</strong> of each person."
+        },
+        {
+          "question": "Can I go back after launching the distribution?",
+          "answer": "Once the distribution is launched, it is not possible to go back. Your inventory is locked and can no longer be modified."
+        },
+        {
+          "question": "What happens after launching the distribution?",
+          "answer": "After launching the distribution, each group member receives an email detailing their basket as well as the total sharing. The detail will be integrated into a PDF appendix document.<br><br>Don't forget to check your SPAM if you don't see the email appear in your inbox."
+        },
+        {
+          "question": "Why is distribution irreversible?",
+          "answer": "To guarantee the impartiality of the process, the distribution is final and cannot be modified. This approach ensures fairness of sharing by preventing any subsequent manipulation of results, thus guaranteeing a fair and transparent sharing accepted by all."
+        }
+      ],
+      "services": [
+        {
+          "question": "What additional services are available?",
+          "answer": "Splitizy offers <strong>paid virtual expertise services</strong> performed by <strong>professionals</strong> and <strong>free moving quote services</strong> to facilitate the distribution of goods after distribution.<br><br>The virtual expertise report may contain an invitation to opt for an in-person expertise when necessary."
+        },
+        {
+          "question": "How to contact an expert for an in-person expertise?",
+          "answer": "When requesting expertise, you can choose the option <strong>\"Have the expert contact me\"</strong>. The application will connect you with an expert in your region who will contact you directly to arrange an appointment."
+        }
+      ],
+      "donnees": [
+        {
+          "question": "How long is my data kept?",
+          "answer": "Your data is kept for <strong>3 years after the last use</strong> of the application. You can request a copy of your data before their destruction or proceed with early deletion from your account settings."
+        },
+        {
+          "question": "With whom is my data shared?",
+          "answer": "Your data is only shared with <strong>members of your group</strong> and, only with your explicit consent, with <strong>additional service providers</strong> (experts, movers) that you solicit."
+        },
+        {
+          "question": "How to permanently delete my data?",
+          "answer": "To permanently delete your account and all your personal data:<br><br><strong>1.</strong> Go to <strong>Settings > Account Settings</strong><br><strong>2.</strong> Scroll down to the bottom of the profile page<br><strong>3.</strong> Click on <strong>\"Delete my account\"</strong><br><strong>4.</strong> Confirm your choice<br><br><span style=\"color: var(--splitizy-red);\">⚠️ Warning</span>: This action is irreversible and will permanently delete all your data (inventories, photos, histories). Deletion is effective immediately."
+        }
+      ],
+      "support": [
+        {
+          "question": "How to contact support?",
+          "answer": "You can contact us via <strong>Settings > Contact us</strong> in the application, or directly by email at <strong>support@splitizy.com</strong>. Our team will respond to you as soon as possible."
+        },
+        {
+          "question": "The application is not working properly, what to do?",
+          "answer": "First try to <strong>restart the application</strong> or check your Internet connection. If the problem persists, contact us via support describing precisely the problem encountered. Remember to mention your device model and application version."
+        },
+        {
+          "question": "Can I recover a group deleted by mistake?",
+          "answer": "Group deletion is <span style=\"color: var(--splitizy-red);\">generally irreversible</span>. However, quickly contact our support at <strong>support@splitizy.com</strong> specifying the group ID. In some cases, recovery may be possible."
+        }
+      ]
+    }
+  },
+  "newsletter": {
+    "title": "Join us.",
+    "description": "Receive the latest news from Splitizy.",
+    "placeholder": "Enter your email",
+    "button": "Subscribe"
+  },
+  "footer": {
+    "contactUs": "Contact Us",
+    "legal": "Legal",
+    "termsOfUse": "Terms of Use",
+    "privacyPolicy": "Privacy Policy",
+    "dataRemoval": "Data Removal",
+    "copyright": "© 2025 Splitizy <i class=\"icofont-heart\"></i> All rights reserved"
+  },
+  "breadcrumb": {
+    "home": "Home"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We are here to help you",
+    "breadcrumbTitle": "Contact Us",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject*",
+      "message": "Message",
+      "submit": "Send"
+    },
+    "info": {
+      "email": "support@splitizy.com",
+      "location": "Belgium"
+    }
+  },
+  "error404": {
+    "title": "Page Not Found",
+    "breadcrumbTitle": "Page Not Found",
+    "errorTitle": "Sorry, this page doesn't exist.",
+    "errorDescription": "The page you are looking for was not found. Return to the homepage to discover all Splitizy features.",
+    "backButton": "Back to Home"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "breadcrumbTitle": "Privacy Policy",
+    "lastUpdated": "Last updated: June 2025",
+    "sections": {
+      "definitions": {
+        "title": "1. DEFINITIONS",
+        "intro": "For the application of this privacy policy, the following terms mean:",
+        "items": [
+          "The \"<strong>Application</strong>\": refers to the mobile application called \"Splitizy\", developed by SPLITIZY.",
+          "The \"<strong>Group</strong>\": means the users of the Application within the meaning of article 1 of the Splitizy License Agreement who, together, are authorized to use the Application for a particular inheritance sharing operation;",
+          "The \"<strong>GDPR</strong>\": Regulation (EU) 2016/679 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, also known as the General Data Protection Regulation",
+          "The \"<strong>Additional Services</strong>\": means as provided for in article 4 of the Splitizy License Agreement;"
+        ],
+        "conclusion": "All terms used in this privacy policy that are derived from the GDPR, such as \"processor\", \"controller\" and \"joint controllers\", are understood in accordance with the definitions appearing in the GDPR."
+      },
+      "dataController": {
+        "title": "2. WHO IS THE DATA CONTROLLER?",
+        "content": "SPLITIZY SRL, whose registered office is established at Rue Konkel 3 in 1150 Woluwe-Saint-Pierre and registered with the BCE under number 1022.619.233, is responsible for the processing of your personal data and determines the purposes and means of processing. SPLITIZY complies with the GDPR.",
+        "commitment": "SPLITIZY attaches great importance to the secure, transparent and confidential collection and processing of your personal data. This privacy policy aims to inform you clearly about how your personal data is processed in the context of using the SPLITIZY Application.",
+        "contact": "You can contact SPLITIZY at the following address: <a href=\"mailto:privacy@splitizy.com\" style=\"color: var(--splitizy-primary);\">privacy@splitizy.com</a>"
+      },
+      "dataCollection": {
+        "title": "3. WHAT DATA IS COLLECTED, WHY AND ON WHAT LEGAL BASIS?",
+        "intro": "SPLITIZY may collect and process personal data in the context of the processing activities listed below.",
+        "noAutomation": "No automated processing or decision-making based exclusively on automated processing, including profiling, is performed by SPLITIZY in the context of using the Application.",
+        "subsections": {
+          "3.1": {
+            "title": "3.1. Data collected when creating a user account",
+            "content": [
+              "When you create an account on the SPLITIZY Application, whether as an administrator or as a member joining a group, certain personal data is required to allow access to the service features. You are specifically asked to provide your last name, first name, email address and date of birth.",
+              "This information is necessary to create and manage your user account, authenticate your identity, allow you to join a group or create one, and access the services provided by SPLITIZY.",
+              "This processing is based on the execution of the contract, i.e. the <strong>provision of the service</strong> (article 6(1)(b) GDPR)."
+            ]
+          },
+          "3.2": {
+            "title": "3.2. Optional data: profile picture",
+            "content": [
+              "When creating your account, you are also offered, on an optional basis, to upload a profile picture. This data allows for personalization of the user experience and facilitates the identification of members within sharing groups.",
+              "This processing is based on your explicit <strong>consent</strong> (article 6(1)(a) GDPR), which you can withdraw at any time by deleting your photo.",
+              "Similarly, if you use additional services, we process information related to them and that you communicate through the Application (date and time of request, amount, information transmitted)."
+            ]
+          },
+          "3.3": {
+            "title": "3.3. Data collected in the context of inheritance sharing services",
+            "content": [
+              "The Application allows you to use an inheritance sharing service and an asset expertise service assisted by artificial intelligence. To enable this service, you must provide an inventory of assets to be shared, including photographs of these assets and details about their value. This information is necessary for the proper functioning of the inheritance sharing tool offered by SPLITIZY.",
+              "This processing is based on the execution of the contract, namely the <strong>provision of the service</strong> (article 6(1)(b) GDPR)."
+            ]
+          },
+          "3.4": {
+            "title": "3.4. Data collected in the context of technical support",
+            "content": [
+              "When you contact our technical support service, we may process a set of personal data in order to respond effectively to your request. This includes identification data (last name, first name, email, date of birth), any photographs transmitted, as well as elements of the inheritance sharing service (inventory, photos of assets, comments, asset valuation, etc.).",
+              "This data is processed only to the extent necessary to provide personalized technical assistance.",
+              "The legal basis for this processing is the execution of the contract, i.e. the <strong>provision of the service</strong> (article 6(1)(b) GDPR)."
+            ]
+          },
+          "3.5": {
+            "title": "3.5. Data collected for connecting with third-party providers",
+            "content": [
+              "If you choose to activate the optional service of connecting with (1) an authorized expert for an on-site expertise or (2) a moving service, SPLITIZY will share your email address, phone number, postal address and inventory with this provider. This transmission allows the expert to contact you directly to arrange an appointment or intervention.",
+              "This processing is based exclusively on your explicit <strong>consent</strong> (article 6(1)(a) GDPR), which will be requested at the time of the connection request."
+            ]
+          }
+        }
+      },
+      "dataRetention": {
+        "title": "4. HOW LONG DO WE KEEP YOUR PERSONAL DATA?",
+        "content": "SPLITIZY limits the retention of your personal data to the period necessary to accomplish the purposes for which it was collected, including to satisfy legal and accounting requirements and, where applicable, to ensure the defense of its interests in legal proceedings until the extinction of said proceedings.",
+        "retention": "Data necessary for the provision of services is retained for three years from the last use of the Application, unless a longer period is necessary to ensure SPLITIZY's legal defense or to respond to legal obligations.",
+        "deletion": "At the end of the applicable retention period, SPLITIZY will destroy your personal data definitively and in accordance with applicable laws and regulations. You will have the possibility to request a copy of your personal data before their destruction."
+      },
+      "dataSharing": {
+        "title": "5. WITH WHOM IS YOUR PERSONAL DATA SHARED?",
+        "intro": "In order to provide certain services offered via the SPLITIZY Application, your personal data may be transmitted to third-party providers of Additional Services, as referenced below. This sharing is strictly limited to the data necessary for the purpose of the service and always relies on an appropriate legal basis, including your explicit consent.",
+        "noInternationalTransfer": "No transfer of your personal data is made outside the European Union. All data is hosted on secure servers located in Belgium.",
+        "subsections": {
+          "5.1": {
+            "title": "5.1. Sharing with an authorized expert (remote expertise)",
+            "content": [
+              "When you choose to use an authorized expert for remote expertise via the Application, SPLITIZY transmits to this expert restricted access to the information necessary to accomplish their mission. This includes the inventory of assets to be shared, corresponding photographs and, where applicable, information about their value.",
+              "No data allowing identification of group members (last name, first name, contact details, date of birth) is communicated to the expert. The expert acts solely from descriptive data to propose a distribution.",
+              "The purpose of this sharing is strictly limited to the provision of the service, based on <strong>contract execution</strong> (article 6(1)(b) GDPR)."
+            ]
+          },
+          "5.2": {
+            "title": "5.2. Sharing with an authorized expert (on-site expertise)",
+            "content": [
+              "If you opt for on-site support by an authorized expert, SPLITIZY shares your phone number with this provider to enable your connection.",
+              "The sharing of this data is based on your <strong>consent</strong> (article 6(1)(a) GDPR), expressed at the time of your connection request."
+            ]
+          },
+          "5.3": {
+            "title": "5.3. Sharing with a moving company",
+            "content": [
+              "If you request a moving service offered via the Application, SPLITIZY transmits the information necessary for connection with a specialized provider. This includes your last name, first name, email address, date of birth, possibly your profile picture, phone number, as well as pickup and destination addresses. The moving company also receives the inventory of assets to be transported, associated photos, volume (in m³) and, when available, their valuation after sharing.",
+              "The objective is to allow the provider to correctly evaluate the request, plan the transport and contact you directly to organize the intervention. This sharing is also based on your <strong>consent</strong> (article 6(1)(a) GDPR), collected during your connection request."
+            ]
+          },
+          "5.4": {
+            "title": "5.4. Responsibility of third-party providers",
+            "content": [
+              "SPLITIZY is responsible for transmitting your data to third-party providers of Additional Services. SPLITIZY is not responsible for the use of your data by these third-party providers, nor for the security or confidentiality practices of such third-party providers. Once the connection is made, the third-party provider will be the sole point of contact with you, and will be solely responsible for responding to requests for exercising your rights."
+            ]
+          },
+          "5.5": {
+            "title": "5.5. No international transfers",
+            "content": [
+              "No transfer of your personal data is made outside the European Union. All data is hosted on secure servers located in Belgium."
+            ]
+          }
+        }
+      },
+      "userRights": {
+        "title": "6. WHAT ARE YOUR RIGHTS?",
+        "intro": "In accordance with the GDPR, you have the following rights:",
+        "rights": [
+          "<strong>1. Right of access</strong>: you have the right to consult and, within reason, to consult the personal data that SPLITIZY processes about you and to verify for what purposes they are used.",
+          "<strong>2. Right of rectification</strong>: you have the right to obtain the rectification (correction) of inaccurate personal data concerning you as well as the right to complete incomplete personal data concerning you.",
+          "<strong>3. Right of opposition</strong>: you have the right to object to the processing of personal data concerning you for serious and legitimate reasons.",
+          "<strong>4. Right to be forgotten or to erasure of data</strong>: you have the right to request SPLITIZY to erase your personal data.",
+          "<strong>5. Right to withdraw your consent</strong>: in case of processing of personal data based on your consent, this consent can be withdrawn.",
+          "<strong>6. Right to data portability</strong>: you have the right to receive the personal data concerning you that you have provided to SPLITIZY, in a structured, commonly used and machine-readable format.",
+          "<strong>7. Right to lodge a complaint</strong>: In case of a dispute concerning your privacy, SPLITIZY undertakes to do everything possible to find an amicable solution with you. You can lodge a complaint with the competent supervisory authority (<a href=\"https://www.autoriteprotectiondonnees.be/\" target=\"_blank\" style=\"color: var(--splitizy-primary);\">https://www.autoriteprotectiondonnees.be/</a>)."
+        ],
+        "contact": "You can exercise the above rights free of charge by contacting: <a href=\"mailto:privacy@splitizy.com\" style=\"color: var(--splitizy-primary);\">privacy@splitizy.com</a>"
+      },
+      "security": {
+        "title": "7. SECURITY MEASURES",
+        "content": "SPLITIZY takes technical and organizational measures to process data at a sufficient level of security and to protect your personal data against destruction, loss, falsification, unauthorized access or notification to third parties by error as well as unauthorized processing of this data."
+      },
+      "modifications": {
+        "title": "8. MODIFICATIONS TO THIS POLICY",
+        "content": "From time to time, this privacy policy will be modified, for example in the context of modifications to the services provided. At the time of publication of modifications to the privacy policy, the date of the \"last update\" will be modified at the bottom of the document and you will be informed in advance (for example, email notification)."
+      },
+      "applicableLaw": {
+        "title": "9. APPLICABLE LAW AND DISPUTES",
+        "content": "This privacy policy is governed by Belgian law. All disputes relating to this privacy policy fall under the exclusive jurisdiction of the courts of Brussels, Belgium. The competent supervisory authority for any complaint is the Data Protection Authority (<a href=\"https://www.autoriteprotectiondonnees.be/\" target=\"_blank\" style=\"color: var(--splitizy-primary);\">https://www.autoriteprotectiondonnees.be/</a>)"
+      }
+    }
+  },
+  "dataRemoval": {
+    "title": "Data Removal",
+    "breadcrumbTitle": "Data Removal",
+    "subtitle": "Practical guide to exercise your right to erasure",
+    "sections": {
+      "yourRight": {
+        "title": "Your right to data deletion",
+        "content": "In accordance with the General Data Protection Regulation (GDPR), you have the right to request the erasure of your personal data. Splitizy respects this right and offers you the possibility to easily delete your account and all associated data directly from the application."
+      },
+      "important": {
+        "title": "Important:",
+        "content": "Deleting your account will result in the permanent loss of all your data, including your inventories, photos, and distribution histories. This action is irreversible."
+      },
+      "howToDelete": {
+        "title": "How to delete your account and your data",
+        "intro": "To permanently delete your Splitizy account and all your personal data, follow these simple steps:",
+        "steps": [
+          {
+            "title": "Step 1: Access the application",
+            "content": [
+              "Open the Splitizy application on your mobile device",
+              "Log in to your account with your usual credentials"
+            ]
+          },
+          {
+            "title": "Step 2: Access your profile",
+            "content": [
+              "Navigate to the \"Settings\" tab in the main menu",
+              "Click on \"Account Settings\"",
+              "You will then access your profile page"
+            ]
+          },
+          {
+            "title": "Step 3: Delete your account",
+            "content": [
+              "Once on your profile page, scroll down to the bottom of the page",
+              "Locate the \"Delete my account\" button at the bottom of the page",
+              "Click on this button to initiate the deletion procedure",
+              "Confirm your choice when the application asks you to"
+            ]
+          }
+        ]
+      },
+      "afterDeletion": {
+        "title": "What happens after deletion?",
+        "intro": "When you delete your account:",
+        "items": [
+          "All your personal data (name, first name, email, profile photo, etc.) is immediately deleted",
+          "All your inventories, property photos and distribution histories are permanently erased",
+          "Your access to the application is immediately revoked",
+          "If you were part of a sharing group, you will be automatically removed from it",
+          "No trace of your account will remain in our systems"
+        ]
+      },
+      "deletionTime": {
+        "title": "Deletion timeframe",
+        "content": "The deletion of your data is effective immediately after confirmation. However, it may take up to 30 days for all backup copies to also be deleted from our security systems."
+      },
+      "needHelp": {
+        "title": "Need help?",
+        "content": "If you encounter difficulties deleting your account or if you have questions about deleting your data, please do not hesitate to contact us:",
+        "contact": {
+          "email": "privacy@splitizy.com",
+          "subject": "Data deletion request"
+        },
+        "response": "Our team will respond to you as soon as possible to assist you in this process."
+      },
+      "otherRights": {
+        "title": "Other rights relating to your data",
+        "content": "In addition to the right to deletion, you have other rights concerning your personal data. To learn more, consult our Privacy Policy which details all your rights under the GDPR."
+      }
+    }
+  },
+  "group": {
+    "title": "Join a group",
+    "description": "Join a Splitizy group",
+    "redirecting": "Redirecting to application...",
+    "redirectingDescription": "You will be redirected to the Splitizy application to join your group.",
+    "joiningGroup": "Join group",
+    "appOpening": "Opening application...",
+    "appRequired": "Splitizy application required",
+    "appRequiredDescription": "To join this group, please download the Splitizy application on your mobile device.",
+    "countdown": "Automatic redirection in {seconds} seconds...",
+    "backToHome": "Back to Home",
+    "noGroupFound": "No group code found",
+    "groupDetected": "Group code detected",
+    "redirectToApp": "Redirecting to app"
+  },
+  "terms": {
+    "title": "Terms of Use",
+    "breadcrumbTitle": "Terms of Use",
+    "breadcrumbSpan": "Terms of Use",
+    "lastUpdated": "Last updated: June 2025",
+    "sections": {
+      "definitions": {
+        "title": "1. DEFINITIONS AND SCOPE",
+        "intro": "For the application of this Contract, the following terms mean:",
+        "items": [
+          "– The \"<strong>Application</strong>\": refers to the mobile application called \"Splitizy\", developed by SPLITIZY.",
+          "– The \"<strong>Contract</strong>\" refers to this contract;",
+          "– The \"<strong>Distributor</strong>\": any company or association that contracts with SPLITIZY to distribute its Application to Users;",
+          "– The \"<strong>Group</strong>\": means the User and Authorized Users who, together, are authorized to use the Application for a particular succession sharing operation;",
+          "– The \"<strong>Additional Services</strong>\": as defined in article 4;",
+          "– \"<strong>SPLITIZY</strong>\": SPLITIZY SRL, whose registered office is located at Rue Konkel 3 in 1150 Woluwe-Saint-Pierre and registered with the BCE under number 1022.619.233;",
+          "– The \"<strong>User</strong>\": any person who has subscribed to a license to use the Application for personal use;",
+          "– The \"<strong>Authorized User</strong>\": any person designated by the User, who is thus authorized to use the Application."
+        ],
+        "conclusion": [
+          "The Contract governs the license to use the Application granted by SPLITIZY to the User.",
+          "These provisions can only be modified by express written agreement. They are deemed to be accepted by the User by the mere fact of using the Application, excluding by right their own general or specific conditions."
+        ]
+      },
+      "license": {
+        "title": "2. LICENSE TO USE",
+        "subsections": {
+          "2.1": {
+            "title": "2.1.",
+            "content": "SPLITIZY grants the User a non-exclusive, personal and non-transferable right to use the Application for personal purposes. SPLITIZY retains full ownership and all intellectual property rights in the Application."
+          },
+          "2.2": {
+            "title": "2.2.",
+            "content": [
+              "After payment of the price to the Distributor of the Application and acceptance of these terms, the User will receive the access codes to the Application.",
+              "<u>In case of direct sale by SPLITIZY to the User</u>, the User will receive access to the Application after payment of the price to SPLITIZY and acceptance of these terms."
+            ]
+          },
+          "2.3": {
+            "title": "2.3.",
+            "content": "When creating their account or subsequently, the User may designate one or more Authorized Users who will then be granted access to the Application. The User is fully responsible for compliance with this Contract by the Authorized Users."
+          },
+          "2.4": {
+            "title": "2.4.",
+            "content": "Access is strictly personal and confidential. The User may not share it with other persons. The User is solely responsible for the loss or theft of their access and the consequences thereof."
+          },
+          "2.5": {
+            "title": "2.5.",
+            "content": "The license to use the Application must be activated within one (1) year from the delivery of the license access codes. Once the license is activated by creating a Group, it remains valid for the entire duration of operation necessary to carry out a single succession sharing operation. However, data will be deleted three (3) years after the last use of the Application."
+          }
+        }
+      },
+      "royalties": {
+        "title": "3. FEES",
+        "content": [
+          "The right to use the Application is granted for a fee that is included in the price paid by the Distributor of the Application to SPLITIZY.",
+          "<u>In case of direct sale by SPLITIZY to the User</u>: the price of the Application is determined by SPLITIZY in the order form to the User. Unless otherwise stated, all prices are net excluding VAT, fees and taxes additional.",
+          "All SPLITIZY invoices are payable in cash. Access to the Application will only be given to the User if the price has been paid.",
+          "In the absence of payment of all or part of an invoice within 30 days of its issue, the total amount due will be increased by right and without formal notice by interest calculated at the legal rate, any month started being due.",
+          "Any complaint regarding an invoice must be addressed in writing within 7 working days following its receipt, which is presumed to be realized within three working days following the date shown on the invoice.",
+          "Upon expiration of this period, the invoice will be deemed accepted. A complaint cannot in any case justify a suspension of payment of the indisputably due.",
+          "No refund will be made for fees paid, for any reason whatsoever, except in the case referred to in article 6 (right of withdrawal)."
+        ]
+      },
+      "additionalServices": {
+        "title": "4. ADDITIONAL SERVICES",
+        "subsections": {
+          "4.1": {
+            "title": "4.1.",
+            "content": "The User has the possibility to order additional and paid Services via the Application, such as notably:",
+            "items": [
+              "– an expertise service via a qualified expert,",
+              "– a moving service."
+            ]
+          },
+          "4.2": {
+            "title": "4.2.",
+            "content": [
+              "Services involving third-party providers will be billed directly by the third-party providers and will be governed by their own general or contractual conditions.",
+              "SPLITIZY does not endorse any liability or guarantee as to the quality or accuracy of the Services provided by these third parties."
+            ]
+          }
+        }
+      },
+      "termination": {
+        "title": "5. TERMINATION",
+        "content": "This Contract may be terminated at any time by SPLITIZY, by right, without notice, or compensation in case of non-compliance by the User with article 8.1."
+      },
+      "withdrawal": {
+        "title": "6. RIGHT OF WITHDRAWAL",
+        "content": "Unless, in accordance with article VI.53. 13° of the Economic Law Code, the User has given their consent to start using the application while acknowledging that they will lose their right of withdrawal, the User who is a consumer within the meaning of article I.1. of the Economic Law Code may terminate the Contract without reason within 14 days of receiving access to the Application by addressing to this effect via the Application. In accordance with applicable regulations, the right of withdrawal is exclusively reserved for consumer customers who acquired their license via a distance selling channel. No withdrawal will be accepted for licenses acquired or purchased from a distributor."
+      },
+      "responsibility": {
+        "title": "7. LIABILITY",
+        "subsections": {
+          "7.1": {
+            "title": "7.1.",
+            "content": [
+              "The Application offers Users and Authorized Users assistance in the context of succession sharing, notably by proposing evaluation and distribution tools for assets. However, the results produced by the Application are provided purely for informational purposes and cannot in any case be considered as having official, legal or other value.",
+              "The User acknowledges that the evaluations and distribution proposals generated by the Application do not replace the advice of a qualified expert and cannot substitute for personalized analysis. Consequently, the Application cannot be held responsible for decisions made solely on the basis of the results it provides.",
+              "The Application constitutes only an aid to succession sharing without commitment to the accuracy, completeness or timeliness of the data generated. The User undertakes to use the Application in a loyal, ethical and good faith manner, in accordance with its purpose and the spirit of cooperation between Users.",
+              "Any abusive, fraudulent or diverted use of the Application, notably any manipulation aimed at falsifying results, harming the smooth running of interactions or voluntarily disadvantaging other Users, is prohibited."
+            ]
+          },
+          "7.2": {
+            "title": "7.2.",
+            "content": "To the fullest extent permitted by applicable legal provisions, and except in cases of intentional fault or fraud, SPLITIZY's total liability arising from this Contract is expressly limited to the amount of the fee actually paid by the User for the use of the license."
+          },
+          "7.3": {
+            "title": "7.3.",
+            "content": "SPLITIZY does not endorse any liability or guarantee as to the services of third-party providers of Additional Services. The relationship between the User and the third-party provider is governed by the general or contractual conditions specific to the provider."
+          },
+          "7.4": {
+            "title": "7.4.",
+            "content": "SPLITIZY will guarantee the User against any legal action related to claims brought by third parties on the grounds that the Application constitutes or includes an infringement of their intellectual property rights, provided that the User:",
+            "items": [
+              "– notifies SPLITIZY of the third party's claim as soon as they become aware of it;",
+              "– gives SPLITIZY exclusive conduct of the legal defense;",
+              "– does not at any time admit their liability or attempt to settle the dispute, except on express instruction from SPLITIZY; and",
+              "– acts in accordance with SPLITIZY's instructions and provides SPLITIZY with all assistance for the conduct of said defense."
+            ]
+          },
+          "7.5": {
+            "title": "7.5.",
+            "content": "SPLITIZY will make reasonable efforts to ensure that the Application, at the time it is provided, is free from viruses, malware or any other harmful code. The User's sole and exclusive remedy is to obtain a replacement copy of the Application. SPLITIZY's liability cannot be engaged in case of:",
+            "items": [
+              "– Breakdowns, interruptions or unavailability of the Application for maintenance or force majeure reasons.",
+              "– Data loss, provided that SPLITIZY has implemented reasonable backup measures."
+            ]
+          }
+        }
+      },
+      "obligations": {
+        "title": "8. OBLIGATIONS OF THE PARTIES",
+        "subsections": {
+          "8.1": {
+            "title": "8.1.",
+            "content": "The User is prohibited from:",
+            "items": [
+              "– licensing, distributing, renting, lending, or selling the Application;",
+              "– removing or modifying SPLITIZY's trademarks or property rights notices on the Application;",
+              "– giving access to the Application to third parties other than Authorized Users;",
+              "– proceeding with or allowing reverse engineering or disassembly of the Application."
+            ],
+            "conclusion": "In case of infringement of this article 8 by the User or any Authorized User, SPLITIZY has the right to cut off all access to the Application in accordance with article 5."
+          },
+          "8.2": {
+            "title": "8.2.",
+            "content": "SPLITIZY undertakes to:",
+            "items": [
+              "– <u>In case of sale via Distributor</u>: upon receipt of payment of the fee by the Distributor, provide access to the Application to the Distributor for sharing with the User",
+              "– <u>In case of direct sale</u>: upon receipt of payment of the fee by the User, provide access to the Application to the User."
+            ],
+            "conclusion": "To be able to use it, the User and Authorized Users must download the Application. The Application offers the following features:",
+            "features": [
+              "– A succession sharing service",
+              "– Any additional Service referred to in article 4."
+            ]
+          }
+        }
+      },
+      "dataProcessing": {
+        "title": "9. PROCESSING OF PERSONAL DATA",
+        "content": "The personal data of Users and Authorized Users is processed in accordance with SPLITIZY's privacy policy available directly from the Application or via this link."
+      },
+      "miscellaneous": {
+        "title": "10. MISCELLANEOUS PROVISIONS",
+        "subsections": {
+          "10.1": {
+            "title": "10.1. Partial nullity",
+            "content": "If one or more provisions of the Contract are held to be invalid or declared as such in application of a law, regulation or following a final decision of a competent court, the other provisions will retain all their force and scope, it being specified that the Parties may, by mutual agreement, agree to replace the invalidated provision(s)."
+          },
+          "10.2": {
+            "title": "10.2. Non-waiver",
+            "content": "The fact that one of the Parties has not required the application of any clause of the Contract, whether permanently or temporarily, cannot, in any case, be considered as a waiver of said clause."
+          }
+        }
+      },
+      "applicableLaw": {
+        "title": "11. APPLICABLE LAW AND COMPETENT JURISDICTION",
+        "content": "The Contract is subject to Belgian law which governs all aspects of it. Any dispute arising from the validity, interpretation or execution of the Contract will be subject to the jurisdiction of the French-speaking courts and tribunals of Brussels."
+      }
+    }
+  }
+} 

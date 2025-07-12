@@ -210,7 +210,7 @@
                                 </p>
                                 
                                 <div class="countdown" id="countdown-section" style="display: none;">
-                                    Redirection automatique dans <span id="countdown-timer">5</span> secondes...
+                                    <span id="countdown-text">Redirection automatique dans <span id="countdown-timer">5</span> secondes...</span>
                                 </div>
 
                                 <div class="download-buttons" id="download-buttons" style="display: none;">
@@ -223,7 +223,7 @@
                                 </div>
 
                                 <div class="btn-wrap" style="margin-top: 40px;">
-                                    <a class="btn btn-custom-size btn-lg blackcurrant-color extbot-primary-hover-4" href="/index.html">
+                                    <a class="btn btn-custom-size btn-lg blackcurrant-color extbot-primary-hover-4" href="/index.html" id="back-to-home">
                                         <i class="icofont-long-arrow-left"></i>
                                         Retour à l'accueil
                                     </a>
@@ -347,10 +347,34 @@
     
     <!-- Splitizy Custom JS -->
     <script src="/assets/js/splitizy-custom.js"></script>
+    
+    <!-- Internationalization JS -->
+    <script src="/assets/js/i18n.js"></script>
 
     <!-- Group Redirect Logic -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Attendre que les traductions soient chargées
+        setTimeout(function() {
+            initializeGroupRedirect();
+        }, 100);
+    });
+
+    function initializeGroupRedirect() {
+        // Récupérer les traductions depuis le système i18n
+        const translations = window.i18nManager?.translations?.group || {
+            joiningGroup: 'Rejoindre le groupe',
+            appOpening: 'Ouverture de l\'application en cours...',
+            appRequired: 'Application Splitizy requise',
+            appRequiredDescription: 'Pour rejoindre ce groupe, veuillez télécharger l\'application Splitizy sur votre appareil mobile.',
+            redirecting: 'Redirection vers l\'application...',
+            redirectingDescription: 'Vous allez être redirigé vers l\'application Splitizy pour rejoindre votre groupe.',
+            backToHome: 'Retour à l\'accueil',
+            noGroupFound: 'Aucun code de groupe trouvé',
+            groupDetected: 'Code de groupe détecté',
+            redirectToApp: 'Redirection vers app'
+        };
+
         // Extraire le code du groupe depuis l'URL ou le hash
         var currentUrl = window.location.href;
         var currentPath = window.location.pathname;
@@ -365,14 +389,14 @@
         // Essayer d'extraire depuis le hash d'abord (pour les redirections depuis 404.html)
         if (currentHash && currentHash.length > 1) {
             groupCode = currentHash.substring(1); // enlever le #
-            console.log('Code de groupe depuis hash:', groupCode);
+            console.log(translations.groupDetected + ':', groupCode);
         }
         
         // Sinon essayer d'extraire depuis l'URL normale
         if (!groupCode) {
             var groupMatch = currentUrl.match(/\/group\/([^\/\?#]+)/i);
             groupCode = groupMatch ? groupMatch[1] : null;
-            console.log('Code de groupe depuis URL:', groupCode);
+            console.log(translations.groupDetected + ':', groupCode);
         }
         
         // Fonction pour détecter le type d'appareil
@@ -406,7 +430,7 @@
                 return;
             }
             
-            console.log('Redirection vers app:', appUrl);
+            console.log(translations.redirectToApp + ':', appUrl);
             
             // Méthode 1: Redirection directe (plus fiable)
             window.location.href = appUrl;
@@ -423,33 +447,39 @@
         // Fonction pour afficher les boutons de téléchargement
         function showDownloadButtons() {
             document.getElementById('loading-spinner').style.display = 'none';
-            document.getElementById('main-title').textContent = 'Application Splitizy requise';
-            document.getElementById('main-description').textContent = 'Pour rejoindre ce groupe, veuillez télécharger l\'application Splitizy sur votre appareil mobile.';
+            document.getElementById('main-title').textContent = translations.appRequired;
+            document.getElementById('main-description').textContent = translations.appRequiredDescription;
             document.getElementById('download-buttons').style.display = 'flex';
         }
-        
 
+        // Fonction pour traduire le texte de compte à rebours
+        function translateCountdownText(seconds) {
+            const countdownText = document.getElementById('countdown-text');
+            if (countdownText) {
+                countdownText.innerHTML = translations.countdown.replace('{seconds}', '<span id="countdown-timer">' + seconds + '</span>');
+            }
+        }
         
         // Démarrer le processus (redirection immédiate comme sand.splitizy.com)
         if (groupCode) {
-            console.log('Code de groupe détecté:', groupCode);
+            console.log(translations.groupDetected + ':', groupCode);
             
             // Afficher les infos du groupe
             document.getElementById('loading-spinner').style.display = 'none';
-            document.getElementById('main-title').textContent = 'Rejoindre le groupe ' + groupCode;
-            document.getElementById('main-description').textContent = 'Ouverture de l\'application en cours...';
+            document.getElementById('main-title').textContent = translations.joiningGroup + ' ' + groupCode;
+            document.getElementById('main-description').textContent = translations.appOpening;
             
             // Redirection immédiate vers l'app (comme sur sand)
             var device = detectDevice();
             redirectToApp(device, groupCode);
         } else {
             // Pas de code de groupe, rediriger vers 404
-            console.log('Aucun code de groupe trouvé');
+            console.log(translations.noGroupFound);
             setTimeout(function() {
                 window.location.href = '/404.html';
             }, 2000);
         }
-    });
+    }
     </script>
 
 </body>

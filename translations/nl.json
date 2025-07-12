@@ -1,0 +1,760 @@
+{
+  "nav": {
+    "features": "Functies",
+    "distribution": "Verdeling",
+    "pricing": "Prijzen",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "individual": "Particulier",
+    "professional": "Professioneel"
+  },
+  "hero": {
+    "title": "Inventariseer, <span class=\"no-bubble\">Beheer</span> en Deel <br><span>uw goederen</span>met gemoedsrust.",
+    "subtitle": "De complete oplossing voor inventarisatie, verdeling en eerlijk delen van uw goederen",
+    "downloadGooglePlay": "Download op Google Play",
+    "downloadAppStore": "Download op de App Store"
+  },
+  "features": {
+    "title": "Hoofdfuncties",
+    "subtitle": "Splitizy begeleidt u bij het beheer en eerlijk delen van uw goederen met professionele en intuïtieve tools.",
+    "intelligentInventory": {
+      "title": "Slimme Inventaris",
+      "description": "Maak foto's van uw objecten, en AI zorgt voor de rest: Organisatie per kamer en categorieën, beschrijvingen,..."
+    },
+    "professionalExpertise": {
+      "title": "Professionele Expertise",
+      "description": "Expertiseservice beschikbaar met nauwkeurige evaluatie door gecertificeerde experts en officiële rapporten."
+    },
+    "fairDistribution": {
+      "title": "Eerlijke Verdeling",
+      "description": "Intelligent verdelingssysteem dat ieders voorkeuren respecteert met een eerlijk en transparant algoritme."
+    }
+  },
+  "trial": {
+    "title": "Download de app gratis!",
+    "description": "De demo-versie geeft u gratis toegang tot alle Splitizy-functies."
+  },
+  "distribution": {
+    "title": "Eerlijke verdeling voor iedereen.",
+    "description": "Splitizy biedt verschillende verdelingsmethoden om zich aan elke situatie aan te passen, rekening houdend met favoriete objecten, die met sentimentele waarde, en ieders ideale aandeel.",
+    "learnMore": "Meer weten"
+  },
+  "pricing": {
+    "title": "Prijzen",
+    "description": "Splitizy biedt een complete gratis versie en een Premium Licentie om alle geavanceerde functies te ontgrendelen.",
+    "premiumLicense": "Premium Licentie",
+    "expertise": "Expertise",
+    "freeVersion": {
+      "title": "Gratis Versie",
+      "price": "€0",
+      "features": [
+        "Max. 30 objecten in inventaris",
+        "Tot 4 leden per groep",
+        "Verdelingsdetails"
+      ],
+      "button": "Download"
+    },
+    "premium": {
+      "title": "Premium Licentie",
+      "price": "€99",
+      "features": [
+        "Onbeperkte inventaris",
+        "Onbeperkte leden",
+        "Gedetailleerde rapporten"
+      ],
+      "button": "Aan de slag!"
+    },
+    "expertiseService": {
+      "title": "Expertise",
+      "price": "€40",
+      "priceUnit": "per object",
+      "features": [
+        "Professionele expertise",
+        "Waardebeoordeling",
+        "Persoonlijk advies"
+      ],
+      "button": "Aan de slag!"
+    }
+  },
+  "testimonials": {
+    "title": "Wat onze gebruikers denken over Splitizy",
+    "testimonial1": {
+      "text": "De erfenis van onze moeder had een hoofdpijn kunnen zijn. <strong>Splitizy</strong> maakte het proces zo eenvoudig en eerlijk met zijn <strong>slimme inventaris</strong> en <strong>transparante verdeling</strong>. Geen ruzies meer, een echte opluchting!",
+      "author": "Sophie M."
+    },
+    "testimonial2": {
+      "text": "Het delen van onze goederen na de scheiding leek onoverkomelijk. <strong>Splitizy</strong> maakte het proces zo eenvoudig en eerlijk! De <strong>intuïtieve inventaris</strong> en <strong>eerlijke verdeling</strong> vermeden veel geschillen. Het is een essentieel hulpmiddel voor een respectvolle en serene scheiding.",
+      "author": "Marc L."
+    },
+    "testimonial3": {
+      "text": "Het beheren van de erfenis op afstand met mijn zus was een uitdaging. <strong>Splitizy</strong> gaf ons ongelooflijke helderheid. De <strong>gedetailleerde rapporten</strong> en <strong>gegevensbeveiliging</strong> waren essentieel. Een modern en onmisbaar hulpmiddel!",
+      "author": "Lucie P."
+    }
+  },
+  "faq": {
+    "title": "Veelgestelde Vragen",
+    "subtitle": "Vind snel antwoorden op de meest voorkomende vragen over Splitizy",
+    "breadcrumbTitle": "Veelgestelde Vragen",
+    "otherQuestions": "Andere Vragen",
+    "categories": {
+      "general": "📱 Algemeen",
+      "connexion": "🔒 Inloggen & Account",
+      "licence": "💳 Premium Licentie",
+      "groupe": "👥 Groep",
+      "inventaire": "📦 Inventaris",
+      "expertise": "🔍 Expertise",
+      "repartition": "⚖️ Verdeling",
+      "services": "🚚 Diensten",
+      "donnees": "🔒 Gegevens & Privacy",
+      "support": "🆘 Ondersteuning"
+    },
+    "sections": {
+      "general": [
+        {
+          "question": "Wat is Splitizy?",
+          "answer": "Splitizy is een innovatieve mobiele applicatie gewijd aan <strong>het delen van roerende goederen (meubels)</strong>. Het helpt u een gedetailleerde inventaris van goederen te maken, informatieve en objectieve waarde te verkrijgen voor de meeste gefotografeerde goederen, professionele evaluaties te maken en eerlijke verdeling tussen alle groepsleden uit te voeren."
+        },
+        {
+          "question": "Hoe werkt Splitizy?",
+          "answer": "1. <strong>Maak een groep</strong> met andere erfgenamen<br>2. <strong>Fotografeer en catalogiseer</strong> alle goederen<br>3. <strong>Evalueer of laat objecten taxeren</strong><br>4. <strong>Kies uw favorieten</strong> (maximum 5 favorieten per persoon)<br>5. <strong>Markeer</strong> objecten die <strong>sentimentele waarde</strong> voor u hebben<br>6. <strong>Voer definitieve verdeling uit</strong> volgens een gekozen methode"
+        },
+        {
+          "question": "Is de applicatie gratis?",
+          "answer": "Splitizy biedt een <strong>gratis versie</strong> beperkt tot 30 objecten en 4 leden per groep, ideaal voor het testen van de applicatie. Voor uitgebreider gebruik ontgrendelt de <strong>Premium licentie voor €99</strong> alle functies zonder beperking."
+        },
+        {
+          "question": "Welke talen worden ondersteund?",
+          "answer": "Momenteel ondersteunt onze applicatie de volgende talen:<br><br><strong>- Français</strong><br><strong>- English</strong><br><strong>- Nederlands</strong>"
+        },
+        {
+          "question": "Hoe kan ik de applicatie in mijn gewenste taal gebruiken?",
+          "answer": "<strong>1.</strong> Klik op het \"Instellingen\" tabblad onderaan uw scherm<br><strong>2.</strong> Druk op de eerste knop in de lijst: \"Taal\"<br><strong>3.</strong> Selecteer uw gewenste taal<br><strong>4.</strong> De taalwijziging gebeurt automatisch"
+        },
+        {
+          "question": "Op welke apparaten kan ik Splitizy gebruiken?",
+          "answer": "Splitizy is beschikbaar op <strong>iOS en Android</strong>. U kunt de applicatie downloaden van de App Store of Google Play. Een internetverbinding is vereist om gegevens tussen groepsleden te synchroniseren."
+        },
+        {
+          "question": "Zijn mijn gegevens veilig?",
+          "answer": "Ja, <strong>de veiligheid van uw gegevens is onze prioriteit</strong>. Alle gegevens worden gehost op beveiligde servers in België, conform AVG. Er wordt geen overdracht buiten de Europese Unie uitgevoerd."
+        }
+      ],
+      "connexion": [
+        {
+          "question": "Hoe maak ik een account aan?",
+          "answer": "U kunt op <strong>drie manieren</strong> een account aanmaken:<br>• Met uw e-mailadres en een wachtwoord<br>• Via uw Google-account<br>• Via uw Apple-account (op iOS)<br><br>U moet vervolgens uw voor- en achternaam en geboortedatum invullen om uw profiel te voltooien."
+        },
+        {
+          "question": "Wat zijn de wachtwoordcriteria?",
+          "answer": "Uw wachtwoord moet <strong>minimaal 8 tekens</strong> bevatten, ten minste <strong>één hoofdletter en één cijfer</strong>. Het mag niet meer dan 128 tekens bevatten. Deze criteria garanderen de veiligheid van uw account."
+        },
+        {
+          "question": "Ik ben mijn wachtwoord vergeten, wat moet ik doen?",
+          "answer": "Klik op de inlogpagina op <strong>\"Wachtwoord vergeten\"</strong>. Voer uw e-mailadres in en u ontvangt een link om uw wachtwoord opnieuw in te stellen. Controleer ook uw spam-map als u de e-mail niet ontvangt."
+        },
+        {
+          "question": "Hoe wijzig ik mijn wachtwoord?",
+          "answer": "Ga naar <strong>Instellingen > Mijn profiel</strong>, dan naar de sectie \"Wachtwoord\". U moet uw huidige wachtwoord invoeren en vervolgens het nieuwe. Deze optie is alleen beschikbaar voor accounts aangemaakt met e-mail/wachtwoord."
+        },
+        {
+          "question": "Hoe verwijder ik mijn account?",
+          "answer": "In <strong>Instellingen > Mijn profiel</strong>, scroll naar beneden naar de sectie \"Account verwijderen\". <span style=\"color: var(--splitizy-red);\">Waarschuwing</span>: deze actie is onomkeerbaar en verwijdert al uw gegevens."
+        }
+      ],
+      "licence": [
+        {
+          "question": "Wat is het verschil tussen de gratis en Premium versie?",
+          "answer": "<strong>Gratis versie</strong>: Tot 30 objecten, 4 leden maximum<br><br><strong>Premium versie</strong>: Onbeperkte inventaris, onbeperkte leden, volledige toegang tot expertise, officiële definitieve verdeling, professionele PDF/Excel exports."
+        },
+        {
+          "question": "Hoeveel kost de Premium licentie?",
+          "answer": "De Premium licentie kost <strong>€99 voor de hele groep</strong> met een eenmalige betaling. De licentie is <strong>3 jaar geldig</strong>, waardoor u alle tijd heeft die nodig is om de verdeling uit te voeren."
+        },
+        {
+          "question": "Hoe koop ik de Premium licentie?",
+          "answer": "De aankoop gebeurt direct in de applicatie via de knop <strong>\"Upgrade groep naar Premium versie\"</strong> zichtbaar bovenaan het scherm in de \"Instellingen\" en \"Groep\" tabbladen voor gratis groepen. Veilige betaling gebeurt via Google Pay op Android en Apple Pay op iOS. Activering is onmiddellijk."
+        },
+        {
+          "question": "Wanneer en hoe wordt mijn Premium licentie verbruikt?",
+          "answer": "Eén (1) unieke Splitizy gebruikslicentie start automatisch bij aankoop. Deze wordt <strong>\"verbruikt\"</strong> automatisch na het starten van het deel-algoritme van uw keuze OF na een totale inactiviteit van de Groep gedurende een periode van 12 maanden."
+        },
+        {
+          "question": "Wat moet ik doen als ik het delen opnieuw wil starten?",
+          "answer": "Als u het delen opnieuw wilt starten, moet u een nieuwe unieke Splitizy licentie kopen en activeren en de verschillende stappen doorlopen: Groep aanmaken, Inventaris aanmaken, Inventaris vergrendelen, Keuze van een verdelingsmethode, Delen starten."
+        }
+      ],
+      "groupe": [
+        {
+          "question": "Hoe maak ik een groep aan?",
+          "answer": "Na het aanmaken van uw account kunt u een groep aanmaken door te klikken op <strong>\"Maak een groep aan\"</strong>. Geef het een naam, kies een taal, land en valuta, en nodig vervolgens andere leden uit door de automatisch gegenereerde uitnodigingslink te delen."
+        },
+        {
+          "question": "Hoe nodig ik leden uit in mijn groep?",
+          "answer": "In het <strong>\"Groep\"</strong> tabblad kopieert u de uitnodigingslink en deelt deze via SMS, e-mail of elke andere applicatie. Mensen kunnen de groep joinen door op deze link te klikken. U kunt vervolgens hun rol definiëren (Beheerder, Lid of Gast)."
+        },
+        {
+          "question": "Wat zijn de verschillende rollen in een groep?",
+          "answer": "• <strong>Beheerder</strong>: Kan alles beheren (leden toevoegen/verwijderen, groep configureren, toegang tot alle functies)<br>• <strong>Lid</strong>: Kan objecten toevoegen, evalueren, deelnemen aan verdeling<br>• <strong>Gast</strong>: Alleen-lezen toegang, kan inventaris bekijken maar niet wijzigen"
+        },
+        {
+          "question": "Hoe wissel ik van groep?",
+          "answer": "Als u lid bent van meerdere groepen, ga naar het <strong>\"Groep\"</strong> tabblad en klik op het wijzigingspictogram naast de gewenste groepsnaam. U kunt ook nieuwe groepen joinen via uitnodigingslinks."
+        },
+        {
+          "question": "Welke valuta gebruiken?",
+          "answer": "We nodigen u uit om uw gebruikelijke valuta te selecteren voor gebruiksgemak en object waardering."
+        },
+        {
+          "question": "Kunnen we verschillende valuta's in dezelfde Groep gebruiken?",
+          "answer": "Ja. Splitizy zorgt voor het converteren van waarden naar de gekozen valuta van elke gebruiker. Valutakoersen verwijzen naar ExchangeRate-API."
+        }
+      ],
+      "inventaire": [
+        {
+          "question": "Hoe voeg ik een object toe aan de inventaris?",
+          "answer": "In het <strong>\"Inventaris\"</strong> tabblad klikt u op de \"+\" knop om een nieuw object toe te voegen. U kunt foto's maken, een naam en beschrijving geven, een kamer en categorie toewijzen en een waarde inschatten. Het toevoegen van kwaliteitsfoto's wordt sterk aanbevolen."
+        },
+        {
+          "question": "Hoeveel foto's kan ik per object toevoegen?",
+          "answer": "U kunt <strong>maximaal 10 foto's per object</strong> toevoegen om het vanuit alle hoeken te documenteren. Foto's kunnen direct vanaf de camera worden genomen of geïmporteerd uit uw galerij. Geef de voorkeur aan scherpe en goed belichte foto's voor betere expertise."
+        },
+        {
+          "question": "Hoe organiseer ik mijn inventaris?",
+          "answer": "U kunt uw inventaris organiseren met <strong>kamers, categorieën en tags</strong>. U kunt ook filteren op favorieten, geëxpertiseerde of gearchiveerde objecten. Een zoeksysteem stelt u in staat om gemakkelijk een object te vinden op naam of beschrijving."
+        },
+        {
+          "question": "Wat is een gearchiveerd object?",
+          "answer": "Een gearchiveerd object is een object dat <strong>niet zal deelnemen aan de verdeling</strong> (bijvoorbeeld: kapot object, waardeloos, al verdeeld). Het blijft zichtbaar in de inventaris voor documentatie maar verschijnt niet in verdelingsberekeningen."
+        },
+        {
+          "question": "Wat is een Tag?",
+          "answer": "Een tag (of label, markering, label) is een trefwoord of term geassocieerd met informatie (bijvoorbeeld een materiaal, een plaats, of een voornaam), die een kenmerk van het object beschrijft en/of gemakkelijke groepering van informatie met dezelfde trefwoorden mogelijk maakt."
+        }
+      ],
+      "expertise": [
+        {
+          "question": "Wat is de expertise service?",
+          "answer": "De expertise service stelt u in staat om uw objecten te laten evalueren door <strong>gekwalificeerde professionele experts</strong>. Zij analyseren uw foto's en beschrijvingen om een officiële waardeschatting te geven. Deze service is betaald en kost €39,99 per object."
+        },
+        {
+          "question": "Hoe werkt AI-schatting?",
+          "answer": "Kunstmatige intelligentie kan foto's van uw objecten analyseren en een <strong>voorlopige schatting van hun waarde</strong> geven. Deze schatting is indicatief en vervangt niet de expertise van een gekwalificeerde professional voor een officiële evaluatie."
+        },
+        {
+          "question": "Hoeveel kost een expertise?",
+          "answer": "De kosten van een expertise zijn <strong>€39,99 per object</strong>. Betaling gebeurt direct in de applicatie via Google Pay (voor Android) of Apple Pay (voor iOS) afhankelijk van het besturingssysteem van uw apparaat."
+        }
+      ],
+      "repartition": [
+        {
+          "question": "Hoe werkt de verdeling?",
+          "answer": "Zodra de inventaris voltooid en vergrendeld is door alle leden, kan een groepsbeheerder de verdeling starten door een van 4 methoden te kiezen:<br><br>- Omgekeerde Rondetafel<br>- Enkele Rij<br>- Eenvoudige Rondetafel<br>- Willekeurige Trekking<br><br>Het algoritme stelt vervolgens een eerlijke verdeling voor rekening houdend met de waarde en <strong>voorkeuren en sentimentele gehechtheid</strong> van elke persoon."
+        },
+        {
+          "question": "Kan ik teruggaan na het starten van de verdeling?",
+          "answer": "Zodra de verdeling is gestart, is het niet mogelijk om terug te gaan. Uw inventaris is vergrendeld en kan niet meer worden gewijzigd."
+        },
+        {
+          "question": "Wat gebeurt er na het starten van de verdeling?",
+          "answer": "Na het starten van de verdeling ontvangt elk groepslid een e-mail met details van hun mandje evenals de totale verdeling. Het detail wordt geïntegreerd in een PDF-bijlagedocument.<br><br>Vergeet niet uw SPAM te controleren als u de e-mail niet in uw inbox ziet verschijnen."
+        },
+        {
+          "question": "Waarom is verdeling onomkeerbaar?",
+          "answer": "Om de onpartijdigheid van het proces te garanderen, is de verdeling definitief en kan deze niet worden gewijzigd. Deze aanpak verzekert eerlijkheid van delen door elke latere manipulatie van resultaten te voorkomen, waardoor een eerlijke en transparante verdeling wordt gegarandeerd die door iedereen wordt geaccepteerd."
+        }
+      ],
+      "services": [
+        {
+          "question": "Welke aanvullende diensten zijn beschikbaar?",
+          "answer": "Splitizy biedt <strong>betaalde virtuele expertise diensten</strong> uitgevoerd door <strong>professionals</strong> en <strong>gratis verhuisofferte diensten</strong> om de distributie van goederen na verdeling te vergemakkelijken.<br><br>Het virtuele expertise rapport kan een uitnodiging bevatten om te kiezen voor een persoonlijke expertise wanneer nodig."
+        },
+        {
+          "question": "Hoe contacteer ik een expert voor een persoonlijke expertise?",
+          "answer": "Bij het aanvragen van expertise kunt u de optie <strong>\"Laat de expert mij contacteren\"</strong> kiezen. De applicatie zal u in contact brengen met een expert in uw regio die u direct zal contacteren om een afspraak te regelen."
+        }
+      ],
+      "donnees": [
+        {
+          "question": "Hoe lang worden mijn gegevens bewaard?",
+          "answer": "Uw gegevens worden bewaard gedurende <strong>3 jaar na het laatste gebruik</strong> van de applicatie. U kunt een kopie van uw gegevens aanvragen voor hun vernietiging of vroegtijdige verwijdering vanaf uw accountinstellingen."
+        },
+        {
+          "question": "Met wie worden mijn gegevens gedeeld?",
+          "answer": "Uw gegevens worden alleen gedeeld met <strong>leden van uw groep</strong> en, alleen met uw expliciete toestemming, met <strong>aanvullende dienstverleners</strong> (experts, verhuizers) die u benadert."
+        },
+        {
+          "question": "Hoe verwijder ik mijn gegevens permanent?",
+          "answer": "Om uw account en al uw persoonlijke gegevens permanent te verwijderen:<br><br><strong>1.</strong> Ga naar <strong>Instellingen > Accountinstellingen</strong><br><strong>2.</strong> Scroll naar beneden naar de onderkant van de profielpagina<br><strong>3.</strong> Klik op <strong>\"Verwijder mijn account\"</strong><br><strong>4.</strong> Bevestig uw keuze<br><br><span style=\"color: var(--splitizy-red);\">⚠️ Waarschuwing</span>: Deze actie is onomkeerbaar en zal al uw gegevens (inventarissen, foto's, geschiedenissen) permanent verwijderen. Verwijdering is onmiddellijk effectief."
+        }
+      ],
+      "support": [
+        {
+          "question": "Hoe contacteer ik de ondersteuning?",
+          "answer": "U kunt ons contacteren via <strong>Instellingen > Contacteer ons</strong> in de applicatie, of direct per e-mail op <strong>support@splitizy.com</strong>. Ons team zal u zo snel mogelijk antwoorden."
+        },
+        {
+          "question": "De applicatie werkt niet goed, wat te doen?",
+          "answer": "Probeer eerst de <strong>applicatie opnieuw te starten</strong> of controleer uw internetverbinding. Als het probleem blijft bestaan, contacteer ons via ondersteuning en beschrijf het probleem precies. Vergeet niet uw apparaatmodel en applicatieversie te vermelden."
+        },
+        {
+          "question": "Kan ik een per ongeluk verwijderde groep herstellen?",
+          "answer": "Groepsverwijdering is <span style=\"color: var(--splitizy-red);\">over het algemeen onomkeerbaar</span>. Contacteer echter snel onze ondersteuning op <strong>support@splitizy.com</strong> met vermelding van de groeps-ID. In sommige gevallen kan herstel mogelijk zijn."
+        }
+      ]
+    }
+  },
+  "newsletter": {
+    "title": "Sluit u bij ons aan.",
+    "description": "Ontvang het laatste nieuws van Splitizy.",
+    "placeholder": "Voer uw email in",
+    "button": "Abonneren"
+  },
+  "footer": {
+    "contactUs": "Contacteer Ons",
+    "legal": "Juridisch",
+    "termsOfUse": "Gebruiksvoorwaarden",
+    "privacyPolicy": "Privacybeleid",
+    "dataRemoval": "Gegevensverwijdering",
+    "copyright": "© 2025 Splitizy <i class=\"icofont-heart\"></i> Alle rechten voorbehouden"
+  },
+  "breadcrumb": {
+    "home": "Home"
+  },
+  "contact": {
+    "title": "Contacteer Ons",
+    "subtitle": "We zijn er om u te helpen",
+    "breadcrumbTitle": "Contacteer Ons",
+    "form": {
+      "name": "Naam",
+      "email": "Email",
+      "subject": "Onderwerp*",
+      "message": "Bericht",
+      "submit": "Versturen"
+    },
+    "info": {
+      "email": "support@splitizy.com",
+      "location": "België"
+    }
+  },
+  "error404": {
+    "title": "Pagina Niet Gevonden",
+    "breadcrumbTitle": "Pagina Niet Gevonden",
+    "errorTitle": "Sorry, deze pagina bestaat niet.",
+    "errorDescription": "De pagina die u zoekt werd niet gevonden. Ga terug naar de startpagina om alle Splitizy functies te ontdekken.",
+    "backButton": "Terug naar Home"
+  },
+  "privacy": {
+    "title": "Privacybeleid",
+    "breadcrumbTitle": "Privacybeleid",
+    "lastUpdated": "Laatst bijgewerkt: Juni 2025",
+    "sections": {
+      "definitions": {
+        "title": "1. DEFINITIES",
+        "intro": "Voor de toepassing van dit privacybeleid wordt verstaan onder:",
+        "items": [
+          "De \"<strong>Applicatie</strong>\": verwijst naar de mobiele applicatie genaamd \"Splitizy\", ontwikkeld door SPLITIZY.",
+          "De \"<strong>Groep</strong>\": betekent de gebruikers van de Applicatie in de zin van artikel 1 van de Splitizy Licentieovereenkomst die samen gemachtigd zijn om de Applicatie te gebruiken voor een specifieke erfenisdelingsoperatie;",
+          "De \"<strong>AVG</strong>\": Verordening (EU) 2016/679 betreffende de bescherming van natuurlijke personen in verband met de verwerking van persoonsgegevens en betreffende het vrije verkeer van die gegevens, ook bekend als de Algemene Verordening Gegevensbescherming",
+          "De \"<strong>Aanvullende Diensten</strong>\": zoals bepaald in artikel 4 van de Splitizy Licentieovereenkomst;"
+        ],
+        "conclusion": "Alle termen die in dit privacybeleid worden gebruikt en die afkomstig zijn van de AVG, zoals \"verwerker\", \"verwerkingsverantwoordelijke\" en \"gezamenlijke verwerkingsverantwoordelijken\", worden begrepen in overeenstemming met de definities die in de AVG voorkomen."
+      },
+      "dataController": {
+        "title": "2. WIE IS DE VERWERKINGSVERANTWOORDELIJKE?",
+        "content": "SPLITIZY BV, waarvan de maatschappelijke zetel is gevestigd aan Rue Konkel 3 in 1150 Woluwe-Saint-Pierre en ingeschreven bij de BCE onder nummer 1022.619.233, is verantwoordelijk voor de verwerking van uw persoonsgegevens en bepaalt de doeleinden en middelen van verwerking. SPLITIZY houdt zich aan de AVG.",
+        "commitment": "SPLITIZY hecht groot belang aan de veilige, transparante en vertrouwelijke verzameling en verwerking van uw persoonsgegevens. Dit privacybeleid heeft tot doel u duidelijk te informeren over hoe uw persoonsgegevens worden verwerkt in het kader van het gebruik van de SPLITIZY Applicatie.",
+        "contact": "U kunt contact opnemen met SPLITIZY op het volgende adres: <a href=\"mailto:privacy@splitizy.com\" style=\"color: var(--splitizy-primary);\">privacy@splitizy.com</a>"
+      },
+      "dataCollection": {
+        "title": "3. WELKE GEGEVENS WORDEN VERZAMELD, WAAROM EN OP WELKE RECHTSGROND?",
+        "intro": "SPLITIZY kan persoonsgegevens verzamelen en verwerken in het kader van de verwerkingsactiviteiten die hieronder worden opgesomd.",
+        "noAutomation": "Geen geautomatiseerde verwerking of besluitvorming uitsluitend gebaseerd op geautomatiseerde verwerking, inclusief profilering, wordt uitgevoerd door SPLITIZY in het kader van het gebruik van de Applicatie.",
+        "subsections": {
+          "3.1": {
+            "title": "3.1. Gegevens verzameld bij het aanmaken van een gebruikersaccount",
+            "content": [
+              "Wanneer u een account aanmaakt op de SPLITIZY Applicatie, hetzij als administrator of als lid dat een groep aansluit, zijn bepaalde persoonsgegevens vereist om toegang tot de servicefuncties mogelijk te maken. U wordt specifiek gevraagd om uw achternaam, voornaam, e-mailadres en geboortedatum te verstrekken.",
+              "Deze informatie is nodig om uw gebruikersaccount aan te maken en te beheren, uw identiteit te authenticeren, u toe te staan een groep aan te sluiten of er een te maken, en toegang te krijgen tot de diensten van SPLITIZY.",
+              "Deze verwerking is gebaseerd op de uitvoering van het contract, d.w.z. de <strong>dienstverlening</strong> (artikel 6(1)(b) AVG)."
+            ]
+          },
+          "3.2": {
+            "title": "3.2. Optionele gegevens: profielfoto",
+            "content": [
+              "Bij het aanmaken van uw account krijgt u ook, op optionele basis, de mogelijkheid om een profielfoto te uploaden. Deze gegevens maken personalisatie van de gebruikerservaring mogelijk en vergemakkelijken de identificatie van leden binnen deelgroepen.",
+              "Deze verwerking is gebaseerd op uw expliciete <strong>toestemming</strong> (artikel 6(1)(a) AVG), die u op elk moment kunt intrekken door uw foto te verwijderen.",
+              "Evenzo, als u gebruik maakt van aanvullende diensten, verwerken wij informatie die daaraan gerelateerd is en die u via de Applicatie communiceert (datum en tijd van verzoek, bedrag, doorgegeven informatie)."
+            ]
+          },
+          "3.3": {
+            "title": "3.3. Gegevens verzameld in het kader van erfenisdelingsdiensten",
+            "content": [
+              "De Applicatie stelt u in staat om gebruik te maken van een erfenisdelingsdienst en een expertise-dienst voor activa ondersteund door kunstmatige intelligentie. Om deze service mogelijk te maken, moet u een inventaris van te delen activa verstrekken, inclusief foto's van deze activa en details over hun waarde. Deze informatie is nodig voor het juiste functioneren van het erfenisdelingshulpmiddel dat door SPLITIZY wordt aangeboden.",
+              "Deze verwerking is gebaseerd op de uitvoering van het contract, namelijk de <strong>dienstverlening</strong> (artikel 6(1)(b) AVG)."
+            ]
+          },
+          "3.4": {
+            "title": "3.4. Gegevens verzameld in het kader van technische ondersteuning",
+            "content": [
+              "Wanneer u contact opneemt met onze technische ondersteuning, kunnen wij een set persoonsgegevens verwerken om effectief op uw verzoek te reageren. Dit omvat identificatiegegevens (achternaam, voornaam, e-mail, geboortedatum), eventueel doorgegeven foto's, evenals elementen van de erfenisdelingsdienst (inventaris, foto's van activa, opmerkingen, waardering van activa, enz.).",
+              "Deze gegevens worden alleen verwerkt voor zover nodig om gepersonaliseerde technische assistentie te bieden.",
+              "De rechtsgrond voor deze verwerking is de uitvoering van het contract, d.w.z. de <strong>dienstverlening</strong> (artikel 6(1)(b) AVG)."
+            ]
+          },
+          "3.5": {
+            "title": "3.5. Gegevens verzameld voor verbinding met derde partijen",
+            "content": [
+              "Als u ervoor kiest om de optionele dienst van verbinding met (1) een geautoriseerde expert voor een on-site expertise of (2) een verhuisdienst te activeren, zal SPLITIZY uw e-mailadres, telefoonnummer, postadres en inventaris delen met deze provider. Deze overdracht stelt de expert in staat om u direct te contacteren om een afspraak of interventie te regelen.",
+              "Deze verwerking is uitsluitend gebaseerd op uw expliciete <strong>toestemming</strong> (artikel 6(1)(a) AVG), die zal worden gevraagd op het moment van het verbindingsverzoek."
+            ]
+          }
+        }
+      },
+      "dataRetention": {
+        "title": "4. HOE LANG BEWAREN WIJ UW PERSOONSGEGEVENS?",
+        "content": "SPLITIZY beperkt het bewaren van uw persoonsgegevens tot de periode die nodig is om de doeleinden te verwezenlijken waarvoor ze werden verzameld, inclusief om te voldoen aan wettelijke en boekhoudkundige vereisten en, waar van toepassing, om de verdediging van haar belangen in juridische procedures te verzekeren tot het einde van genoemde procedures.",
+        "retention": "Gegevens die nodig zijn voor de levering van diensten worden bewaard gedurende drie jaar vanaf het laatste gebruik van de Applicatie, tenzij een langere periode nodig is om SPLITIZY's juridische verdediging te verzekeren of om te voldoen aan wettelijke verplichtingen.",
+        "deletion": "Aan het einde van de toepasselijke bewaartermijn zal SPLITIZY uw persoonsgegevens definitief vernietigen en in overeenstemming met de geldende wetten en reglementen. U heeft de mogelijkheid om een kopie van uw persoonsgegevens aan te vragen voordat ze worden vernietigd."
+      },
+      "dataSharing": {
+        "title": "5. MET WIE WORDEN UW PERSOONSGEGEVENS GEDEELD?",
+        "intro": "Om bepaalde diensten aan te bieden via de SPLITIZY Applicatie, kunnen uw persoonsgegevens worden doorgegeven aan derde partijen die Aanvullende Diensten leveren, zoals hieronder vermeld. Dit delen is strikt beperkt tot de gegevens die nodig zijn voor het doel van de dienst en steunt altijd op een passende rechtsgrond, inclusief uw expliciete toestemming.",
+        "noInternationalTransfer": "Er wordt geen overdracht van uw persoonsgegevens buiten de Europese Unie uitgevoerd. Alle gegevens worden gehost op beveiligde servers in België.",
+        "subsections": {
+          "5.1": {
+            "title": "5.1. Delen met een geautoriseerde expert (expertise op afstand)",
+            "content": [
+              "Wanneer u ervoor kiest om een geautoriseerde expert te gebruiken voor expertise op afstand via de Applicatie, stuurt SPLITIZY naar deze expert beperkte toegang tot de informatie die nodig is om hun missie te volbrengen. Dit omvat de inventaris van te delen activa, bijbehorende foto's en, waar van toepassing, informatie over hun waarde.",
+              "Geen gegevens die identificatie van groepsleden mogelijk maken (achternaam, voornaam, contactgegevens, geboortedatum) worden aan de expert gecommuniceerd. De expert handelt uitsluitend op basis van beschrijvende gegevens om een verdeling voor te stellen.",
+              "Het doel van dit delen is strikt beperkt tot de dienstverlening, gebaseerd op <strong>contractuitvoering</strong> (artikel 6(1)(b) AVG)."
+            ]
+          },
+          "5.2": {
+            "title": "5.2. Delen met een geautoriseerde expert (on-site expertise)",
+            "content": [
+              "Als u kiest voor on-site ondersteuning door een geautoriseerde expert, deelt SPLITIZY uw telefoonnummer met deze provider om uw verbinding mogelijk te maken.",
+              "Het delen van deze gegevens is gebaseerd op uw <strong>toestemming</strong> (artikel 6(1)(a) AVG), uitgedrukt op het moment van uw verbindingsverzoek."
+            ]
+          },
+          "5.3": {
+            "title": "5.3. Delen met een verhuisbedrijf",
+            "content": [
+              "Als u een verhuisdienst aanvraagt die wordt aangeboden via de Applicatie, zendt SPLITIZY de informatie door die nodig is voor verbinding met een gespecialiseerde provider. Dit omvat uw achternaam, voornaam, e-mailadres, geboortedatum, mogelijk uw profielfoto, telefoonnummer, evenals ophaal- en bestemmingsadressen. Het verhuisbedrijf ontvangt ook de inventaris van te transporteren activa, bijbehorende foto's, volume (in m³) en, wanneer beschikbaar, hun waardering na deling.",
+              "Het doel is om de provider in staat te stellen het verzoek correct te evalueren, het transport te plannen en u direct te contacteren om de interventie te organiseren. Dit delen is ook gebaseerd op uw <strong>toestemming</strong> (artikel 6(1)(a) AVG), verzameld tijdens uw verbindingsverzoek."
+            ]
+          },
+          "5.4": {
+            "title": "5.4. Verantwoordelijkheid van derde partijen",
+            "content": [
+              "SPLITIZY is verantwoordelijk voor het doorgeven van uw gegevens aan derde partijen van Aanvullende Diensten. SPLITIZY is niet verantwoordelijk voor het gebruik van uw gegevens door deze derde partijen, noch voor de beveiligings- of vertrouwelijkheidspraktijken van dergelijke derde partijen. Zodra de verbinding is gemaakt, zal de derde partij het enige contactpunt met u zijn, en zal alleen verantwoordelijk zijn voor het reageren op verzoeken voor het uitoefenen van uw rechten."
+            ]
+          },
+          "5.5": {
+            "title": "5.5. Geen internationale overdrachten",
+            "content": [
+              "Er wordt geen overdracht van uw persoonsgegevens buiten de Europese Unie uitgevoerd. Alle gegevens worden gehost op beveiligde servers in België."
+            ]
+          }
+        }
+      },
+      "userRights": {
+        "title": "6. WAT ZIJN UW RECHTEN?",
+        "intro": "In overeenstemming met de AVG heeft u de volgende rechten:",
+        "rights": [
+          "<strong>1. Recht van toegang</strong>: u heeft het recht om de persoonsgegevens die SPLITIZY over u verwerkt te raadplegen en, binnen redelijke grenzen, te raadplegen en te verifiëren voor welke doeleinden ze worden gebruikt.",
+          "<strong>2. Recht van rectificatie</strong>: u heeft het recht om rectificatie (correctie) te verkrijgen van onjuiste persoonsgegevens betreffende u evenals het recht om onvolledige persoonsgegevens betreffende u aan te vullen.",
+          "<strong>3. Recht van verzet</strong>: u heeft het recht om bezwaar te maken tegen de verwerking van persoonsgegevens betreffende u om ernstige en legitieme redenen.",
+          "<strong>4. Recht om vergeten te worden of wissing van gegevens</strong>: u heeft het recht om SPLITIZY te verzoeken uw persoonsgegevens te wissen.",
+          "<strong>5. Recht om uw toestemming in te trekken</strong>: in geval van verwerking van persoonsgegevens gebaseerd op uw toestemming, kan deze toestemming worden ingetrokken.",
+          "<strong>6. Recht op gegevensportabiliteit</strong>: u heeft het recht om de persoonsgegevens betreffende u die u aan SPLITIZY heeft verstrekt, te ontvangen in een gestructureerd, algemeen gebruikt en machineleesbaar formaat.",
+          "<strong>7. Recht om een klacht in te dienen</strong>: In geval van een geschil betreffende uw privacy, verbindt SPLITIZY zich ertoe alles in het werk te stellen om een minnelijke oplossing met u te vinden. U kunt een klacht indienen bij de bevoegde toezichthoudende autoriteit (<a href=\"https://www.autoriteprotectiondonnees.be/\" target=\"_blank\" style=\"color: var(--splitizy-primary);\">https://www.autoriteprotectiondonnees.be/</a>)."
+        ],
+        "contact": "U kunt de bovengenoemde rechten kosteloos uitoefenen door contact op te nemen via: <a href=\"mailto:privacy@splitizy.com\" style=\"color: var(--splitizy-primary);\">privacy@splitizy.com</a>"
+      },
+      "security": {
+        "title": "7. BEVEILIGINGSMAATREGELEN",
+        "content": "SPLITIZY neemt technische en organisatorische maatregelen om gegevens te verwerken op een voldoende beveiligingsniveau en om uw persoonsgegevens te beschermen tegen vernietiging, verlies, vervalsing, ongeautoriseerde toegang of melding aan derden door fout evenals ongeautoriseerde verwerking van deze gegevens."
+      },
+      "modifications": {
+        "title": "8. WIJZIGINGEN IN DIT BELEID",
+        "content": "Van tijd tot tijd zal dit privacybeleid worden gewijzigd, bijvoorbeeld in het kader van wijzigingen in de geleverde diensten. Op het moment van publicatie van wijzigingen in het privacybeleid zal de datum van de \"laatste update\" worden gewijzigd onderaan het document en zult u vooraf worden geïnformeerd (bijvoorbeeld per e-mailmelding)."
+      },
+      "applicableLaw": {
+        "title": "9. TOEPASSELIJK RECHT EN GESCHILLEN",
+        "content": "Dit privacybeleid wordt beheerst door Belgisch recht. Alle geschillen betreffende dit privacybeleid vallen onder de exclusieve jurisdictie van de rechtbanken van Brussel, België. De bevoegde toezichthoudende autoriteit voor elke klacht is de Gegevensbeschermingsautoriteit (<a href=\"https://www.autoriteprotectiondonnees.be/\" target=\"_blank\" style=\"color: var(--splitizy-primary);\">https://www.autoriteprotectiondonnees.be/</a>)"
+      }
+    }
+  },
+  "dataRemoval": {
+    "title": "Gegevensverwijdering",
+    "breadcrumbTitle": "Gegevensverwijdering",
+    "subtitle": "Praktische gids om uw recht op verwijdering uit te oefenen",
+    "sections": {
+      "yourRight": {
+        "title": "Uw recht op gegevensverwijdering",
+        "content": "In overeenstemming met de Algemene Verordening Gegevensbescherming (AVG) heeft u het recht om de wissing van uw persoonsgegevens te verzoeken. Splitizy respecteert dit recht en biedt u de mogelijkheid om eenvoudig uw account en alle bijbehorende gegevens direct vanuit de applicatie te verwijderen."
+      },
+      "important": {
+        "title": "Belangrijk:",
+        "content": "Het verwijderen van uw account zal resulteren in het permanente verlies van al uw gegevens, inclusief uw inventarissen, foto's en verdelingsgeschiedenissen. Deze actie is onomkeerbaar."
+      },
+      "howToDelete": {
+        "title": "Hoe uw account en uw gegevens te verwijderen",
+        "intro": "Om uw Splitizy-account en al uw persoonlijke gegevens permanent te verwijderen, volgt u deze eenvoudige stappen:",
+        "steps": [
+          {
+            "title": "Stap 1: Toegang tot de applicatie",
+            "content": [
+              "Open de Splitizy-applicatie op uw mobiele apparaat",
+              "Log in op uw account met uw gebruikelijke inloggegevens"
+            ]
+          },
+          {
+            "title": "Stap 2: Toegang tot uw profiel",
+            "content": [
+              "Navigeer naar het tabblad \"Instellingen\" in het hoofdmenu",
+              "Klik op \"Accountinstellingen\"",
+              "U krijgt dan toegang tot uw profielpagina"
+            ]
+          },
+          {
+            "title": "Stap 3: Verwijder uw account",
+            "content": [
+              "Eenmaal op uw profielpagina, scroll naar beneden naar de onderkant van de pagina",
+              "Zoek de knop \"Verwijder mijn account\" onderaan de pagina",
+              "Klik op deze knop om de verwijderingsprocedure te starten",
+              "Bevestig uw keuze wanneer de applicatie dit vraagt"
+            ]
+          }
+        ]
+      },
+      "afterDeletion": {
+        "title": "Wat gebeurt er na verwijdering?",
+        "intro": "Wanneer u uw account verwijdert:",
+        "items": [
+          "Al uw persoonlijke gegevens (naam, voornaam, e-mail, profielfoto, enz.) worden onmiddellijk verwijderd",
+          "Al uw inventarissen, eigendomsfoto's en verdelingsgeschiedenissen worden permanent gewist",
+          "Uw toegang tot de applicatie wordt onmiddellijk ingetrokken",
+          "Als u deel uitmaakte van een deelgroep, wordt u er automatisch uit verwijderd",
+          "Er blijft geen spoor van uw account achter in onze systemen"
+        ]
+      },
+      "deletionTime": {
+        "title": "Verwijderingstermijn",
+        "content": "De verwijdering van uw gegevens is onmiddellijk effectief na bevestiging. Het kan echter tot 30 dagen duren voordat alle back-upkopieën ook uit onze beveiligingssystemen zijn verwijderd."
+      },
+      "needHelp": {
+        "title": "Hulp nodig?",
+        "content": "Als u moeilijkheden ondervindt bij het verwijderen van uw account of als u vragen heeft over het verwijderen van uw gegevens, aarzel dan niet om contact met ons op te nemen:",
+        "contact": {
+          "email": "privacy@splitizy.com",
+          "subject": "Verzoek tot gegevensverwijdering"
+        },
+        "response": "Ons team zal u zo spoedig mogelijk antwoorden om u bij dit proces te helpen."
+      },
+      "otherRights": {
+        "title": "Andere rechten betreffende uw gegevens",
+        "content": "Naast het recht op verwijdering heeft u andere rechten betreffende uw persoonlijke gegevens. Voor meer informatie raadpleegt u ons Privacybeleid dat al uw rechten onder de AVG details."
+      }
+    }
+  },
+  "group": {
+    "title": "Deelnemen aan een groep",
+    "description": "Deelnemen aan een Splitizy-groep",
+    "redirecting": "Omleiding naar applicatie...",
+    "redirectingDescription": "U wordt omgeleid naar de Splitizy-applicatie om uw groep te joinen.",
+    "joiningGroup": "Groep joinen",
+    "appOpening": "Applicatie openen...",
+    "appRequired": "Splitizy applicatie vereist",
+    "appRequiredDescription": "Om deel te nemen aan deze groep, download alstublieft de Splitizy-applicatie op uw mobiele apparaat.",
+    "countdown": "Automatische omleiding in {seconds} seconden...",
+    "backToHome": "Terug naar Home",
+    "noGroupFound": "Geen groepscode gevonden",
+    "groupDetected": "Groepscode gedetecteerd",
+    "redirectToApp": "Omleiding naar app"
+  },
+  "terms": {
+    "title": "Gebruiksvoorwaarden",
+    "breadcrumbTitle": "Gebruiksvoorwaarden",
+    "breadcrumbSpan": "Gebruiksvoorwaarden",
+    "lastUpdated": "Laatst bijgewerkt: Juni 2025",
+    "sections": {
+      "definitions": {
+        "title": "1. DEFINITIES EN TOEPASSINGSGEBIED",
+        "intro": "Voor de toepassing van dit Contract wordt verstaan onder:",
+        "items": [
+          "– De \"<strong>Applicatie</strong>\": verwijst naar de mobiele applicatie genaamd \"Splitizy\", ontwikkeld door SPLITIZY.",
+          "– Het \"<strong>Contract</strong>\" verwijst naar dit contract;",
+          "– De \"<strong>Distributeur</strong>\": elk bedrijf of vereniging dat een contract aangaat met SPLITIZY om zijn Applicatie te distribueren aan Gebruikers;",
+          "– De \"<strong>Groep</strong>\": betekent de Gebruiker en Geautoriseerde Gebruikers die samen gemachtigd zijn om de Applicatie te gebruiken voor een bepaalde erfenisdelingsoperatie;",
+          "– De \"<strong>Aanvullende Diensten</strong>\": zoals gedefinieerd in artikel 4;",
+          "– \"<strong>SPLITIZY</strong>\": SPLITIZY BV, waarvan de maatschappelijke zetel is gevestigd aan Rue Konkel 3 in 1150 Woluwe-Saint-Pierre en geregistreerd bij de BCE onder nummer 1022.619.233;",
+          "– De \"<strong>Gebruiker</strong>\": elke persoon die zich heeft geabonneerd op een licentie om de Applicatie voor persoonlijk gebruik te gebruiken;",
+          "– De \"<strong>Geautoriseerde Gebruiker</strong>\": elke persoon die door de Gebruiker is aangewezen en dus gemachtigd is om de Applicatie te gebruiken."
+        ],
+        "conclusion": [
+          "Het Contract regelt de licentie om de Applicatie te gebruiken die door SPLITIZY aan de Gebruiker wordt verleend.",
+          "Deze bepalingen kunnen alleen worden gewijzigd door uitdrukkelijke schriftelijke overeenkomst. Ze worden geacht te zijn geaccepteerd door de Gebruiker door het enkele feit van het gebruik van de Applicatie, waarbij hun eigen algemene of specifieke voorwaarden worden uitgesloten."
+        ]
+      },
+      "license": {
+        "title": "2. GEBRUIKSLICENTIE",
+        "subsections": {
+          "2.1": {
+            "title": "2.1.",
+            "content": "SPLITIZY verleent de Gebruiker een niet-exclusief, persoonlijk en niet-overdraagbaar recht om de Applicatie voor persoonlijke doeleinden te gebruiken. SPLITIZY behoudt het volledige eigendom en alle intellectuele eigendomsrechten in de Applicatie."
+          },
+          "2.2": {
+            "title": "2.2.",
+            "content": [
+              "Na betaling van de prijs aan de Distributeur van de Applicatie en acceptatie van deze voorwaarden, ontvangt de Gebruiker de toegangscodes tot de Applicatie.",
+              "<u>In geval van directe verkoop door SPLITIZY aan de Gebruiker</u>, ontvangt de Gebruiker toegang tot de Applicatie na betaling van de prijs aan SPLITIZY en acceptatie van deze voorwaarden."
+            ]
+          },
+          "2.3": {
+            "title": "2.3.",
+            "content": "Bij het aanmaken van hun account of achteraf, kan de Gebruiker een of meer Geautoriseerde Gebruikers aanwijzen die dan toegang tot de Applicatie krijgen. De Gebruiker is volledig verantwoordelijk voor de naleving van dit Contract door de Geautoriseerde Gebruikers."
+          },
+          "2.4": {
+            "title": "2.4.",
+            "content": "Toegang is strikt persoonlijk en vertrouwelijk. De Gebruiker mag deze niet delen met andere personen. De Gebruiker is uitsluitend verantwoordelijk voor het verlies of de diefstal van hun toegang en de gevolgen daarvan."
+          },
+          "2.5": {
+            "title": "2.5.",
+            "content": "De licentie om de Applicatie te gebruiken moet worden geactiveerd binnen een (1) jaar na de levering van de licentie-toegangscodes. Zodra de licentie is geactiveerd door het aanmaken van een Groep, blijft deze geldig voor de gehele duur van de operatie die nodig is om een enkele erfenisdelingsoperatie uit te voeren. Gegevens worden echter drie (3) jaar na het laatste gebruik van de Applicatie verwijderd."
+          }
+        }
+      },
+      "royalties": {
+        "title": "3. VERGOEDINGEN",
+        "content": [
+          "Het recht om de Applicatie te gebruiken wordt verleend tegen een vergoeding die is inbegrepen in de prijs die door de Distributeur van de Applicatie aan SPLITIZY wordt betaald.",
+          "<u>In geval van directe verkoop door SPLITIZY aan de Gebruiker</u>: de prijs van de Applicatie wordt bepaald door SPLITIZY in het bestelformulier aan de Gebruiker. Tenzij anders vermeld, zijn alle prijzen netto exclusief BTW, kosten en belastingen extra.",
+          "Alle SPLITIZY-facturen zijn contant betaalbaar. Toegang tot de Applicatie wordt alleen aan de Gebruiker gegeven als de prijs is betaald.",
+          "Bij gebrek aan betaling van geheel of gedeeltelijk een factuur binnen 30 dagen na uitgifte, wordt het totale verschuldigde bedrag verhoogd van rechtswege en zonder ingebrekestelling met rente berekend tegen het wettelijke tarief, elke begonnen maand zijnde verschuldigd.",
+          "Elke klacht betreffende een factuur moet schriftelijk worden gericht binnen 7 werkdagen na ontvangst, die wordt verondersteld te zijn gerealiseerd binnen drie werkdagen na de datum op de factuur.",
+          "Na afloop van deze termijn wordt de factuur als geaccepteerd beschouwd. Een klacht kan in geen geval een opschorting van betaling van het onbetwistbaar verschuldigde rechtvaardigen.",
+          "Er wordt geen terugbetaling gedaan voor betaalde vergoedingen, om welke reden dan ook, behalve in het geval bedoeld in artikel 6 (herroepingsrecht)."
+        ]
+      },
+      "additionalServices": {
+        "title": "4. AANVULLENDE DIENSTEN",
+        "subsections": {
+          "4.1": {
+            "title": "4.1.",
+            "content": "De Gebruiker heeft de mogelijkheid om via de Applicatie aanvullende en betaalde Diensten te bestellen, zoals met name:",
+            "items": [
+              "– een expertise-service via een gekwalificeerde expert,",
+              "– een verhuisservice."
+            ]
+          },
+          "4.2": {
+            "title": "4.2.",
+            "content": [
+              "Diensten waarbij derde partijen betrokken zijn, worden rechtstreeks door de derde partijen gefactureerd en worden beheerst door hun eigen algemene of contractuele voorwaarden.",
+              "SPLITIZY onderschrijft geen aansprakelijkheid of garantie betreffende de kwaliteit of nauwkeurigheid van de door deze derden geleverde Diensten."
+            ]
+          }
+        }
+      },
+      "termination": {
+        "title": "5. BEËINDIGING",
+        "content": "Dit Contract kan te allen tijde door SPLITIZY worden beëindigd, van rechtswege, zonder opzegging of compensatie in geval van niet-naleving door de Gebruiker van artikel 8.1."
+      },
+      "withdrawal": {
+        "title": "6. HERROEPINGSRECHT",
+        "content": "Tenzij, in overeenstemming met artikel VI.53. 13° van het Wetboek Economisch Recht, de Gebruiker zijn toestemming heeft gegeven om te beginnen met het gebruik van de applicatie terwijl hij erkent dat hij zijn herroepingsrecht zal verliezen, kan de Gebruiker die een consument is in de zin van artikel I.1. van het Wetboek Economisch Recht het Contract zonder reden beëindigen binnen 14 dagen na het ontvangen van toegang tot de Applicatie door dit via de Applicatie te melden. In overeenstemming met de toepasselijke regelgeving is het herroepingsrecht exclusief voorbehouden aan consumenten die hun licentie hebben verkregen via een verkoop op afstand kanaal. Geen herroeping wordt geaccepteerd voor licenties die zijn verkregen of gekocht bij een distributeur."
+      },
+      "responsibility": {
+        "title": "7. AANSPRAKELIJKHEID",
+        "subsections": {
+          "7.1": {
+            "title": "7.1.",
+            "content": [
+              "De Applicatie biedt Gebruikers en Geautoriseerde Gebruikers assistentie in het kader van erfenisdeling, met name door evaluatie- en verdelingshulpmiddelen voor activa voor te stellen. De door de Applicatie geproduceerde resultaten worden echter puur informatief verstrekt en kunnen in geen geval worden beschouwd als officiële, juridische of andere waarde.",
+              "De Gebruiker erkent dat de evaluaties en verdelingsvoorstellen die door de Applicatie worden gegenereerd, het advies van een gekwalificeerde expert niet vervangen en niet kunnen substitutie bieden voor gepersonaliseerde analyse. Bijgevolg kan de Applicatie niet verantwoordelijk worden gehouden voor beslissingen die uitsluitend zijn genomen op basis van de resultaten die zij levert.",
+              "De Applicatie vormt alleen een hulpmiddel bij erfenisdeling zonder verbintenis betreffende de nauwkeurigheid, volledigheid of actualiteit van de gegenereerde gegevens. De Gebruiker verbindt zich ertoe de Applicatie op loyale, ethische en te goeder trouw wijze te gebruiken, in overeenstemming met het doel en de geest van samenwerking tussen Gebruikers.",
+              "Elk misbruik, frauduleus of afgeleid gebruik van de Applicatie, met name elke manipulatie gericht op het vervalsen van resultaten, het schaden van de vlotte werking van interacties of het vrijwillig benadelen van andere Gebruikers, is verboden."
+            ]
+          },
+          "7.2": {
+            "title": "7.2.",
+            "content": "In de ruimste mate toegestaan door de toepasselijke wettelijke bepalingen, en behalve in gevallen van opzettelijke fout of fraude, is de totale aansprakelijkheid van SPLITIZY voortvloeiend uit dit Contract uitdrukkelijk beperkt tot het bedrag van de vergoeding die daadwerkelijk door de Gebruiker is betaald voor het gebruik van de licentie."
+          },
+          "7.3": {
+            "title": "7.3.",
+            "content": "SPLITIZY onderschrijft geen aansprakelijkheid of garantie betreffende de diensten van derde partijen die Aanvullende Diensten leveren. De relatie tussen de Gebruiker en de derde partij wordt beheerst door de algemene of contractuele voorwaarden specifiek voor de leverancier."
+          },
+          "7.4": {
+            "title": "7.4.",
+            "content": "SPLITIZY zal de Gebruiker garanderen tegen elke juridische actie gerelateerd aan claims ingediend door derden op grond dat de Applicatie een inbreuk vormt op of bevat van hun intellectuele eigendomsrechten, mits de Gebruiker:",
+            "items": [
+              "– SPLITIZY op de hoogte stelt van de claim van de derde partij zodra zij er kennis van krijgen;",
+              "– SPLITIZY exclusieve leiding geeft over de juridische verdediging;",
+              "– op geen enkel moment hun aansprakelijkheid toelaat of probeert het geschil te schikken, behalve op uitdrukkelijke instructie van SPLITIZY; en",
+              "– handelt in overeenstemming met SPLITIZY's instructies en SPLITIZY alle assistentie biedt voor het voeren van genoemde verdediging."
+            ]
+          },
+          "7.5": {
+            "title": "7.5.",
+            "content": "SPLITIZY zal redelijke inspanningen leveren om ervoor te zorgen dat de Applicatie, op het moment dat deze wordt verstrekt, vrij is van virussen, malware of andere schadelijke code. Het enige en exclusieve verhaal van de Gebruiker is om een vervangende kopie van de Applicatie te verkrijgen. De aansprakelijkheid van SPLITIZY kan niet worden ingeroepen in geval van:",
+            "items": [
+              "– Storingen, onderbrekingen of onbeschikbaarheid van de Applicatie om onderhouds- of overmachtredenen.",
+              "– Gegevensverlies, mits SPLITIZY redelijke back-upmaatregelen heeft geïmplementeerd."
+            ]
+          }
+        }
+      },
+      "obligations": {
+        "title": "8. VERPLICHTINGEN VAN DE PARTIJEN",
+        "subsections": {
+          "8.1": {
+            "title": "8.1.",
+            "content": "De Gebruiker mag niet:",
+            "items": [
+              "– de Applicatie in licentie geven, distribueren, verhuren, uitlenen of verkopen;",
+              "– SPLITIZY's handelsmerken of eigendomsrechten op de Applicatie verwijderen of wijzigen;",
+              "– toegang tot de Applicatie geven aan derden andere dan Geautoriseerde Gebruikers;",
+              "– overgaan tot of toestaan van reverse engineering of demontage van de Applicatie."
+            ],
+            "conclusion": "In geval van inbreuk op dit artikel 8 door de Gebruiker of een Geautoriseerde Gebruiker, heeft SPLITIZY het recht om alle toegang tot de Applicatie af te sluiten in overeenstemming met artikel 5."
+          },
+          "8.2": {
+            "title": "8.2.",
+            "content": "SPLITIZY verbindt zich ertoe:",
+            "items": [
+              "– <u>In geval van verkoop via Distributeur</u>: bij ontvangst van betaling van de vergoeding door de Distributeur, toegang tot de Applicatie te verlenen aan de Distributeur voor deling met de Gebruiker",
+              "– <u>In geval van directe verkoop</u>: bij ontvangst van betaling van de vergoeding door de Gebruiker, toegang tot de Applicatie te verlenen aan de Gebruiker."
+            ],
+            "conclusion": "Om deze te kunnen gebruiken, moeten de Gebruiker en Geautoriseerde Gebruikers de Applicatie downloaden. De Applicatie biedt de volgende functies:",
+            "features": [
+              "– Een erfenisdelingsservice",
+              "– Elke aanvullende Service bedoeld in artikel 4."
+            ]
+          }
+        }
+      },
+      "dataProcessing": {
+        "title": "9. VERWERKING VAN PERSOONSGEGEVENS",
+        "content": "De persoonsgegevens van Gebruikers en Geautoriseerde Gebruikers worden verwerkt in overeenstemming met SPLITIZY's privacybeleid dat direct beschikbaar is vanuit de Applicatie of via deze link."
+      },
+      "miscellaneous": {
+        "title": "10. DIVERSE BEPALINGEN",
+        "subsections": {
+          "10.1": {
+            "title": "10.1. Gedeeltelijke nietigheid",
+            "content": "Als een of meer bepalingen van het Contract ongeldig worden geacht of als zodanig worden verklaard door toepassing van een wet, verordening of na een definitieve beslissing van een bevoegde rechtbank, behouden de andere bepalingen al hun kracht en reikwijdte, waarbij wordt gepreciseerd dat de Partijen in onderling overleg kunnen overeenkomen om de geïnvalideerde bepaling(en) te vervangen."
+          },
+          "10.2": {
+            "title": "10.2. Geen afstand",
+            "content": "Het feit dat een van de Partijen niet heeft geëist dat een clausule van het Contract wordt toegepast, hetzij permanent of tijdelijk, kan in geen geval worden beschouwd als een afstand van genoemde clausule."
+          }
+        }
+      },
+      "applicableLaw": {
+        "title": "11. TOEPASSELIJK RECHT EN BEVOEGDE RECHTSMACHT",
+        "content": "Het Contract is onderworpen aan Belgisch recht dat alle aspecten ervan regelt. Elk geschil voortvloeiend uit de geldigheid, interpretatie of uitvoering van het Contract zal onderworpen zijn aan de rechtsmacht van de Franstalige rechtbanken van Brussel."
+      }
+    }
+  }
+} 
