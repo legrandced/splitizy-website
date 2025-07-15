@@ -82,6 +82,7 @@ class I18nManager {
         this.translateFeatures();
         this.translateTrial();
         this.translateDistribution();
+        this.translateVideo();
         this.translatePricing();
         this.translateTestimonials();
         this.translateFAQ();
@@ -94,6 +95,9 @@ class I18nManager {
         this.translateDataRemoval();
         this.translateTerms();
         this.translateGroup();
+        
+        // Mettre à jour les liens pro.splitizy.com avec la langue actuelle
+        this.updateProSplitiziyLinks();
         
         // Mettre à jour les titres de page
         this.updatePageTitle();
@@ -198,14 +202,28 @@ class I18nManager {
         const distribution = this.translations.distribution;
         if (!distribution) return;
 
-        const titleEl = document.querySelector('.banner-title');
+        const titleEl = document.querySelector('.banner-style-8 .banner-title');
         if (titleEl) titleEl.textContent = distribution.title;
 
-        const descEl = document.querySelector('.banner-desc');
+        const descEl = document.querySelector('.banner-style-8 .banner-desc');
         if (descEl) descEl.textContent = distribution.description;
 
-        const btnEl = document.querySelector('.banner-btn-wrap a');
+        const btnEl = document.querySelector('.banner-style-8 .banner-btn-wrap a');
         if (btnEl) btnEl.textContent = distribution.learnMore;
+    }
+
+    translateVideo() {
+        const video = this.translations.video;
+        if (!video) return;
+
+        const titleEl = document.querySelector('.banner-style-9 .banner-title');
+        if (titleEl) titleEl.textContent = video.title;
+
+        const descEl = document.querySelector('.banner-style-9 .banner-desc');
+        if (descEl) descEl.textContent = video.description;
+
+        const btnEl = document.querySelector('.banner-style-9 .banner-btn-wrap a');
+        if (btnEl) btnEl.textContent = video.button;
     }
 
     translatePricing() {
@@ -1415,6 +1433,22 @@ class I18nManager {
         }
     }
 
+    updateProSplitiziyLinks() {
+        // Mettre à jour tous les liens vers pro.splitizy.com avec la langue actuelle
+        const proLinks = document.querySelectorAll('a[href*="pro.splitizy.com"]');
+        
+        proLinks.forEach(link => {
+            const currentHref = link.getAttribute('href');
+            const url = new URL(currentHref);
+            
+            // Mettre à jour ou ajouter le paramètre lang
+            url.searchParams.set('lang', this.currentLanguage);
+            
+            // Mettre à jour le lien
+            link.setAttribute('href', url.toString());
+        });
+    }
+
     updatePageTitle() {
         const siteName = 'Splitizy';
         const currentPath = window.location.pathname;
@@ -2116,6 +2150,7 @@ class I18nManager {
         this.translateFeatures();
         this.translateTrial();
         this.translateDistribution();
+        this.translateVideo();
         this.translatePricing();
         this.translateTestimonials();
         this.translateFAQ();
@@ -2129,6 +2164,9 @@ class I18nManager {
         this.forceTranslateTerms();
         this.forceTranslateFAQ();
         this.translateGroup();
+        
+        // Mettre à jour les liens pro.splitizy.com avec la langue actuelle
+        this.updateProSplitiziyLinks();
         
         // Mettre à jour les titres de page
         this.updatePageTitle();

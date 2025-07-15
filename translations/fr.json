@@ -39,6 +39,11 @@
     "description": "Splitizy offre des méthodes de répartition variées pour s'adapter à chaque situation, en prenant en compte les objets favoris, ceux ayant une valeur sentimentale, et la part idéale de chacun.",
     "learnMore": "En savoir plus"
   },
+  "video": {
+    "title": "Splitizy en action",
+    "description": "Découvrez en vidéo comment Splitizy simplifie la gestion et le partage de vos biens familiaux.",
+    "button": "Essayer l'app"
+  },
   "pricing": {
     "title": "Tarifs",
     "description": "Splitizy offre une version gratuite complète et une Licence Premium pour débloquer toutes les fonctionnalités avancées.",

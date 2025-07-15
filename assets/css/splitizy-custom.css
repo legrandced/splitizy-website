@@ -80,6 +80,12 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--splitizy-secondary) !important;
 }
 
+/* Section video avec padding équilibré */
+.banner-style-9 {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
 /* Override header menu colors */
 .header-style-4:not([class*="is-active"]) .header-menu-nav > ul > li > a {
     color: var(--splitizy-primary) !important; /* Couleur des liens non sélectionnés */
@@ -828,5 +834,95 @@ h1, h2, h3, h4, h5, h6 {
         background-image: url('../images/header_1_mobile.png') !important;
         /* background-size: cover !important; */
         background-position: center !important;
+    }
+}
+
+/* Styles pour le lecteur vidéo YouTube intégré */
+.video-player-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background: #000;
+    margin: 20px 0;
+}
+
+.youtube-embed {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.youtube-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+}
+
+/* Indicateur de chargement */
+.video-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 18px;
+    z-index: 2;
+}
+
+.video-loading::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive pour le lecteur vidéo */
+@media (max-width: 768px) {
+    .video-player-container {
+        margin: 15px 0;
+    }
+    
+    .youtube-embed {
+        border-radius: 8px;
+    }
+    
+    .youtube-embed iframe {
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-player-container {
+        margin: 10px 0;
+        border-radius: 8px;
+    }
+    
+    .youtube-embed {
+        border-radius: 6px;
+    }
+    
+    .youtube-embed iframe {
+        border-radius: 6px;
     }
 }
