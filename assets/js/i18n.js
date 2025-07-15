@@ -96,6 +96,12 @@ class I18nManager {
         this.translateTerms();
         this.translateGroup();
         
+        // Traduire les images selon la langue
+        this.translateImages();
+        
+        // Injecter le CSS dynamique pour les images avec !important
+        this.injectLocalizedCSS();
+        
         // Mettre à jour les liens pro.splitizy.com avec la langue actuelle
         this.updateProSplitiziyLinks();
         
@@ -1433,6 +1439,63 @@ class I18nManager {
         }
     }
 
+    translateImages() {
+        // Localiser les boutons de téléchargement
+        this.localizeDownloadButtons();
+        
+        // Localiser les images d'arrière-plan via le CSS injecté
+        this.injectLocalizedCSS();
+    }
+
+    localizeDownloadButtons() {
+        // Boutons Google Play
+        const googlePlayImages = document.querySelectorAll('img[src*="stores/google-play"]');
+        googlePlayImages.forEach(img => {
+            const localizedPath = `assets/images/stores/google-play_${this.currentLanguage}.png`;
+            this.checkImageExists(localizedPath).then(exists => {
+                if (exists) {
+                    img.src = localizedPath;
+                }
+            });
+        });
+
+        // Boutons App Store
+        const appStoreImages = document.querySelectorAll('img[src*="stores/app-store"]');
+        appStoreImages.forEach(img => {
+            const localizedPath = `assets/images/stores/app-store_${this.currentLanguage}.png`;
+            this.checkImageExists(localizedPath).then(exists => {
+                if (exists) {
+                    img.src = localizedPath;
+                }
+            });
+        });
+
+        // Images de features
+        const featureImages = document.querySelectorAll('.feature-img img[src*="feature_1"]');
+        featureImages.forEach(img => {
+            const localizedPath = `assets/images/index/feature_1_${this.currentLanguage}.png`;
+            this.checkImageExists(localizedPath).then(exists => {
+                if (exists) {
+                    img.src = localizedPath;
+                }
+            });
+        });
+    }
+
+
+
+    // Fonction helper pour vérifier si une image existe
+    async checkImageExists(imagePath) {
+        try {
+            const response = await fetch(imagePath, { method: 'HEAD' });
+            return response.ok;
+        } catch (error) {
+            return false;
+        }
+    }
+
+
+
     updateProSplitiziyLinks() {
         // Mettre à jour tous les liens vers pro.splitizy.com avec la langue actuelle
         const proLinks = document.querySelectorAll('a[href*="pro.splitizy.com"]');
@@ -1676,33 +1739,94 @@ class I18nManager {
         const footerLinks = document.querySelectorAll('.footer-lang-option');
 
         if (footerDropdown && footerBtn && footerMenu) {
-            // Ouverture au survol
-            footerDropdown.addEventListener('mouseenter', () => {
+            let isMenuOpen = false;
+            let hideTimeout = null;
+
+            // Fonction pour afficher le menu
+            const showMenu = () => {
+                if (hideTimeout) {
+                    clearTimeout(hideTimeout);
+                    hideTimeout = null;
+                }
                 footerMenu.classList.add('active');
-            });
+                isMenuOpen = true;
+            };
 
-            // Fermeture quand la souris quitte le dropdown entier
-            footerDropdown.addEventListener('mouseleave', () => {
+            // Fonction pour cacher le menu avec délai
+            const hideMenu = (delay = 150) => {
+                if (hideTimeout) {
+                    clearTimeout(hideTimeout);
+                }
+                hideTimeout = setTimeout(() => {
+                    footerMenu.classList.remove('active');
+                    isMenuOpen = false;
+                    hideTimeout = null;
+                }, delay);
+            };
+
+            // Fonction pour cacher le menu immédiatement
+            const hideMenuImmediately = () => {
+                if (hideTimeout) {
+                    clearTimeout(hideTimeout);
+                    hideTimeout = null;
+                }
                 footerMenu.classList.remove('active');
+                isMenuOpen = false;
+            };
+
+            // Ouverture au survol du bouton
+            footerBtn.addEventListener('mouseenter', () => {
+                showMenu();
             });
 
-            // Optionnel : permettre aussi l'ouverture/fermeture au clic
+            // Maintenir ouvert quand la souris est sur le bouton
+            footerBtn.addEventListener('mouseleave', () => {
+                hideMenu();
+            });
+
+            // Maintenir ouvert quand la souris est sur le menu
+            footerMenu.addEventListener('mouseenter', () => {
+                showMenu();
+            });
+
+            // Cacher quand la souris quitte le menu
+            footerMenu.addEventListener('mouseleave', () => {
+                hideMenu();
+            });
+
+            // Clic sur le bouton
             footerBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                footerMenu.classList.toggle('active');
+                e.stopPropagation();
+                
+                if (isMenuOpen) {
+                    hideMenuImmediately();
+                } else {
+                    showMenu();
+                }
             });
 
             // Fermer le menu si on clique ailleurs
             document.addEventListener('click', (e) => {
                 if (!footerDropdown.contains(e.target)) {
-                    footerMenu.classList.remove('active');
+                    hideMenuImmediately();
+                }
+            });
+
+            // Empêcher la fermeture du menu quand on clique dessus (sauf sur les liens)
+            footerMenu.addEventListener('click', (e) => {
+                if (!e.target.matches('a')) {
+                    e.stopPropagation();
                 }
             });
         }
 
+        // Gestion des clics sur les liens
         footerLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
+                e.stopPropagation();
+                
                 const lang = link.getAttribute('data-lang');
                 
                 // Fermer le menu immédiatement après sélection
@@ -1736,6 +1860,7 @@ class I18nManager {
                 }
             }
             
+            /* Styles pour le sélecteur de langue */
             .language-selector {
                 position: relative;
                 display: inline-block;
@@ -1763,7 +1888,12 @@ class I18nManager {
                 color: white;
             }
             
-            .language-dropdown:hover .language-menu {
+            .language-dropdown {
+                position: relative;
+            }
+            
+            .language-dropdown:hover .language-menu,
+            .language-menu:hover {
                 display: block;
             }
             
@@ -1779,10 +1909,17 @@ class I18nManager {
                 z-index: 1000;
                 display: none;
                 margin-top: 2px;
+                opacity: 0;
+                transform: translateY(-10px);
+                transition: all 0.2s ease;
+                pointer-events: none;
             }
             
             .language-menu.active {
                 display: block;
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto;
             }
             
             .language-menu a {
@@ -2028,36 +2165,98 @@ class I18nManager {
         const links = document.querySelectorAll('.language-menu a');
 
         if (dropdown && btn && menu) {
-            // Ouverture au survol
-            dropdown.addEventListener('mouseenter', () => {
+            let isMenuOpen = false;
+            let hideTimeout = null;
+
+            // Fonction pour afficher le menu
+            const showMenu = () => {
+                if (hideTimeout) {
+                    clearTimeout(hideTimeout);
+                    hideTimeout = null;
+                }
                 menu.classList.add('active');
-            });
+                isMenuOpen = true;
+            };
 
-            // Fermeture quand la souris quitte le dropdown entier
-            dropdown.addEventListener('mouseleave', () => {
+            // Fonction pour cacher le menu avec délai
+            const hideMenu = (delay = 150) => {
+                if (hideTimeout) {
+                    clearTimeout(hideTimeout);
+                }
+                hideTimeout = setTimeout(() => {
+                    menu.classList.remove('active');
+                    isMenuOpen = false;
+                    hideTimeout = null;
+                }, delay);
+            };
+
+            // Fonction pour cacher le menu immédiatement
+            const hideMenuImmediately = () => {
+                if (hideTimeout) {
+                    clearTimeout(hideTimeout);
+                    hideTimeout = null;
+                }
                 menu.classList.remove('active');
+                isMenuOpen = false;
+            };
+
+            // Ouverture au survol du bouton
+            btn.addEventListener('mouseenter', () => {
+                showMenu();
             });
 
-            // Optionnel : permettre aussi l'ouverture/fermeture au clic pour mobile
+            // Maintenir ouvert quand la souris est sur le bouton
+            btn.addEventListener('mouseleave', () => {
+                hideMenu();
+            });
+
+            // Maintenir ouvert quand la souris est sur le menu
+            menu.addEventListener('mouseenter', () => {
+                showMenu();
+            });
+
+            // Cacher quand la souris quitte le menu
+            menu.addEventListener('mouseleave', () => {
+                hideMenu();
+            });
+
+            // Clic sur le bouton (pour mobile et desktop)
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
-                menu.classList.toggle('active');
+                e.stopPropagation();
+                
+                if (isMenuOpen) {
+                    hideMenuImmediately();
+                } else {
+                    showMenu();
+                }
             });
 
-            // Fermer le menu si on clique ailleurs (pour mobile)
+            // Fermer le menu si on clique ailleurs
             document.addEventListener('click', (e) => {
                 if (!dropdown.contains(e.target)) {
-                    menu.classList.remove('active');
+                    hideMenuImmediately();
+                }
+            });
+
+            // Empêcher la fermeture du menu quand on clique dessus (sauf sur les liens)
+            menu.addEventListener('click', (e) => {
+                if (!e.target.matches('a')) {
+                    e.stopPropagation();
                 }
             });
         }
 
+        // Gestion des clics sur les liens
         links.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
+                e.stopPropagation();
+                
                 const lang = link.getAttribute('data-lang');
                 
                 // Fermer le menu immédiatement après sélection
+                const menu = document.querySelector('.language-menu');
                 if (menu) {
                     menu.classList.remove('active');
                 }
@@ -2087,6 +2286,9 @@ class I18nManager {
         
         // Mettre à jour l'URL
         this.updateURL();
+        
+        // Réappliquer la localisation des images après changement de langue
+        this.translateImages();
     }
 
     updateLanguageSelector() {
@@ -2164,6 +2366,12 @@ class I18nManager {
         this.forceTranslateTerms();
         this.forceTranslateFAQ();
         this.translateGroup();
+        
+        // Traduire les images selon la langue
+        this.translateImages();
+        
+        // Injecter le CSS dynamique pour les images avec !important
+        this.injectLocalizedCSS();
         
         // Mettre à jour les liens pro.splitizy.com avec la langue actuelle
         this.updateProSplitiziyLinks();
@@ -2352,9 +2560,73 @@ class I18nManager {
             document.title = faq.title + ' - Splitizy';
         }
     }
+
+    // Méthode pour injecter du CSS dynamique pour les images hero selon la langue
+    injectLocalizedCSS() {
+        const lang = this.currentLanguage;
+        
+        // Supprimer le CSS précédent s'il existe
+        if (this.lastInjectedCSS) {
+            this.lastInjectedCSS.remove();
+            this.lastInjectedCSS = null;
+        }
+        
+        // Créer le nouveau CSS
+        const style = document.createElement('style');
+        style.id = 'splitizy-localized-css';
+        
+        const css = `
+            /* CSS dynamique pour les images hero localisées */
+            .hero-bg.hero-style-4 {
+                background-image: url('assets/images/index/header_1_${lang}.png') !important;
+            }
+            
+            @media (max-width: 363px) {
+                .hero-bg.hero-style-4 {
+                    background-image: url('assets/images/index/header_1_mobile_${lang}.png') !important;
+                }
+            }
+            
+            /* CSS pour la section de répartition */
+            .banner-style-8 {
+                background-image: url('assets/images/index/feature_2_${lang}.png') !important;
+            }
+            
+            /* CSS pour les newsletters */
+            .newsletter-bg {
+                background-image: url('assets/images/newsletter_1_${lang}.png') !important;
+            }
+        `;
+        
+        style.textContent = css;
+        document.head.appendChild(style);
+        this.lastInjectedCSS = style;
+        
+        // Fallback vers les images par défaut si les versions localisées n'existent pas
+        this.checkAndFallbackImages(lang);
+    }
+    
+    // Vérifier l'existence des images et utiliser les versions par défaut si nécessaire
+    async checkAndFallbackImages(lang) {
+        const imagesToCheck = [
+            { path: `assets/images/index/header_1_${lang}.png`, fallback: 'assets/images/index/header_1.png' },
+            { path: `assets/images/index/header_1_mobile_${lang}.png`, fallback: 'assets/images/index/header_1_mobile.png' },
+            { path: `assets/images/index/feature_2_${lang}.png`, fallback: 'assets/images/index/feature_2.png' },
+            { path: `assets/images/newsletter_1_${lang}.png`, fallback: 'assets/images/newsletter_1.png' }
+        ];
+        
+        for (const image of imagesToCheck) {
+            const exists = await this.checkImageExists(image.path);
+            if (!exists) {
+                // Utiliser l'image par défaut
+                const fallbackCSS = this.lastInjectedCSS.textContent.replace(image.path, image.fallback);
+                this.lastInjectedCSS.textContent = fallbackCSS;
+            }
+        }
+    }
 }
 
 // Initialiser le système de traduction quand le DOM est prêt
 document.addEventListener('DOMContentLoaded', () => {
     new I18nManager();
-}); 
+});

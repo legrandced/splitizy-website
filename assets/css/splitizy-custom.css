@@ -831,7 +831,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Dézoome l'image de fond sur très petits écrans */
 @media (max-width: 363px) {
     .hero-bg.hero-style-4 {
-        background-image: url('../images/header_1_mobile.png') !important;
+        background-image: url('../images/index/header_1_mobile.png') !important;
         /* background-size: cover !important; */
         background-position: center !important;
     }
