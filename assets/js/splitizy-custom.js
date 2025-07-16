@@ -256,7 +256,7 @@ function createFallbackPlayer() {
     const playerContainer = document.getElementById('youtube-player');
     if (!playerContainer) return;
 
-    const videoId = '_z7wGoJzYik';
+    const videoId = 'AqkZSZJeOMs';
     
     playerContainer.innerHTML = `
         <iframe 
@@ -288,7 +288,7 @@ function createYouTubePlayer() {
     playerContainer.innerHTML = '<div class="video-loading">Chargement de la vidéo...</div>';
     
     // Extraire l'ID de la vidéo YouTube
-    const videoUrl = 'https://www.youtube.com/watch?v=_z7wGoJzYik';
+    const videoUrl = 'https://www.youtube.com/watch?v=AqkZSZJeOMs';
     const videoId = extractYouTubeVideoId(videoUrl);
     
     if (!videoId) {
