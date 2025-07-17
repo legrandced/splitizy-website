@@ -207,6 +207,17 @@ function initYouTubePlayer() {
         return;
     }
 
+    // En production, utiliser directement le fallback iframe qui est plus fiable
+    // L'API YouTube iframe peut avoir des problèmes avec GitHub Pages et les CSP strictes
+    const isProduction = window.location.hostname === 'splitizy.com' || 
+                        window.location.hostname.includes('github.io');
+
+    if (isProduction) {
+        console.log('Environnement de production détecté, utilisation du fallback iframe optimisé');
+        createFallbackPlayer();
+        return;
+    }
+
     // Détecter si nous sommes en local
     const isLocalhost = window.location.hostname === 'localhost' || 
                        window.location.hostname === '127.0.0.1' || 
@@ -218,7 +229,7 @@ function initYouTubePlayer() {
         return;
     }
 
-    // Charger l'API YouTube iframe pour la production
+    // Charger l'API YouTube iframe seulement pour les autres environnements
     if (!window.YT) {
         console.log('Chargement de l\'API YouTube');
         const tag = document.createElement('script');
@@ -243,13 +254,13 @@ function initYouTubePlayer() {
         createYouTubePlayer();
     }
 
-    // Fallback en cas d'échec après 5 secondes
+    // Fallback en cas d'échec après 3 secondes (réduit pour une meilleure UX)
     setTimeout(() => {
         if (!playerReady) {
             console.log('Timeout de l\'API YouTube, utilisation du fallback');
             createFallbackPlayer();
         }
-    }, 5000);
+    }, 3000);
 }
 
 function createFallbackPlayer() {
@@ -258,16 +269,86 @@ function createFallbackPlayer() {
 
     const videoId = 'AqkZSZJeOMs';
     
+    // Obtenir l'origine actuelle pour éviter les erreurs cross-origin
+    const currentOrigin = window.location.origin;
+    
+    // Paramètres YouTube optimisés pour la production
+    const youtubeParams = [
+        'autoplay=0',
+        'mute=1',
+        'controls=1',
+        'modestbranding=1',
+        'rel=0',
+        'showinfo=0',
+        'fs=1',
+        'cc_load_policy=0',
+        'iv_load_policy=3',
+        'autohide=1',
+        'playsinline=1',
+        'enablejsapi=1',
+        `origin=${encodeURIComponent(currentOrigin)}`
+    ].join('&');
+    
+    // Afficher d'abord un indicateur de chargement
     playerContainer.innerHTML = `
+        <div id="video-loading-overlay" style="
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            z-index: 10;
+            transition: opacity 0.3s ease-in-out;
+        ">
+            <div style="text-align: center;">
+                <div style="
+                    width: 40px;
+                    height: 40px;
+                    border: 3px solid rgba(255,255,255,0.3);
+                    border-top: 3px solid white;
+                    border-radius: 50%;
+                    animation: spin 1s linear infinite;
+                    margin: 0 auto 15px;
+                "></div>
+                <p style="margin: 0; font-size: 14px;">Chargement de la vidéo...</p>
+            </div>
+        </div>
         <iframe 
-            src="https://www.youtube.com/embed/${videoId}?controls=1&modestbranding=1&rel=0&showinfo=0&fs=1&cc_load_policy=0&iv_load_policy=3&autohide=1&playsinline=1" 
+            id="youtube-fallback-iframe"
+            src="https://www.youtube.com/embed/${videoId}?${youtubeParams}" 
             frameborder="0" 
             allowfullscreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;"
-            onload="console.log('Iframe YouTube chargé avec succès')"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            sandbox="allow-scripts allow-same-origin allow-presentation allow-popups allow-popups-to-escape-sandbox"
+            referrerpolicy="strict-origin-when-cross-origin"
+            loading="lazy"
+            style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; border: none; opacity: 0; transition: opacity 0.3s ease-in-out;"
+            onload="
+                console.log('Iframe YouTube chargé avec succès');
+                setTimeout(() => {
+                    this.style.opacity = '1';
+                    const overlay = document.getElementById('video-loading-overlay');
+                    if (overlay) overlay.style.opacity = '0';
+                    setTimeout(() => {
+                        if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+                    }, 300);
+                }, 100);
+            "
             onerror="console.error('Erreur lors du chargement de l\'iframe YouTube')"
+            title="Vidéo de démonstration Splitizy"
         ></iframe>
+        <style>
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
     `;
     
     console.log('Fallback player créé avec succès');
@@ -275,6 +356,39 @@ function createFallbackPlayer() {
     // Simuler playerReady pour les autres fonctions
     playerReady = true;
     setupIntersectionObserver();
+    
+    // Ajouter un gestionnaire d'erreur pour l'iframe
+    const iframe = playerContainer.querySelector('iframe');
+    if (iframe) {
+        iframe.addEventListener('error', function(e) {
+            console.error('Erreur iframe YouTube:', e);
+            // En cas d'erreur, afficher un message d'erreur élégant
+            playerContainer.innerHTML = `
+                <div style="
+                    width: 100%; 
+                    height: 100%; 
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    text-align: center;
+                    font-family: Arial, sans-serif;
+                    padding: 20px;
+                    box-sizing: border-box;
+                ">
+                    <div>
+                        <h3 style="margin: 0 0 10px 0;">Vidéo temporairement indisponible</h3>
+                        <p style="margin: 0; opacity: 0.8;">Veuillez recharger la page ou visiter notre chaîne YouTube</p>
+                        <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" rel="noopener noreferrer" 
+                           style="color: #ffffff; text-decoration: underline; margin-top: 10px; display: inline-block;">
+                           Voir sur YouTube
+                        </a>
+                    </div>
+                </div>
+            `;
+        });
+    }
 }
 
 function createYouTubePlayer() {
@@ -300,11 +414,12 @@ function createYouTubePlayer() {
     console.log('Création du lecteur YouTube avec l\'ID:', videoId);
     
     try {
-        // Créer le lecteur YouTube
+        // Créer le lecteur YouTube avec configuration améliorée
         youtubePlayer = new YT.Player('youtube-player', {
             height: '360',
             width: '640',
             videoId: videoId,
+            host: 'https://www.youtube.com',
             playerVars: {
                 autoplay: 0, // Désactivé par défaut, contrôlé par l'intersection observer
                 mute: 1, // Muet pour permettre l'autoplay
@@ -316,7 +431,10 @@ function createYouTubePlayer() {
                 cc_load_policy: 0,
                 iv_load_policy: 3,
                 autohide: 1,
-                playsinline: 1
+                playsinline: 1,
+                enablejsapi: 1,
+                origin: window.location.origin,
+                widget_referrer: window.location.origin
             },
             events: {
                 onReady: onPlayerReady,
@@ -380,18 +498,30 @@ function setupIntersectionObserver() {
                     if (youtubePlayer && youtubePlayer.playVideo) {
                         try {
                             youtubePlayer.playVideo();
-                            console.log('Lecture automatique lancée');
+                            hasPlayed = true;
+                            console.log('Lecture automatique lancée (API YouTube)');
                         } catch (error) {
                             console.error('Erreur lors du lancement de la lecture automatique:', error);
                         }
                     } else {
-                        console.log('Lecteur YouTube non disponible pour l\'autoplay (mode fallback)');
+                        // Mode fallback iframe - ne peut pas contrôler l'autoplay via JS
+                        // Mais on peut marquer comme "vu" pour éviter les tentatives répétées
+                        console.log('Mode fallback iframe - pas d\'autoplay JavaScript disponible');
+                        hasPlayed = true; // Éviter les tentatives répétées
+                        
+                        // Optionnel: ajouter une indication visuelle que la vidéo est prête
+                        const iframe = document.getElementById('youtube-fallback-iframe');
+                        if (iframe) {
+                            iframe.style.opacity = '1';
+                            iframe.style.transition = 'opacity 0.3s ease-in-out';
+                        }
                     }
                 }, 500); // Petit délai pour s'assurer que tout est prêt
             }
         });
     }, {
-        threshold: 0.5 // Déclencher quand 50% de la vidéo est visible
+        threshold: 0.3, // Réduit à 30% pour déclencher plus tôt
+        rootMargin: '50px' // Marge pour commencer le chargement un peu avant que la vidéo soit visible
     });
     
     observer.observe(playerContainer);
