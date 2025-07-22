@@ -19,7 +19,7 @@
     "subtitle": "Splitizy begeleidt u bij het beheer en eerlijk delen van uw goederen met professionele en intuïtieve tools.",
     "intelligentInventory": {
       "title": "Slimme Inventaris",
-      "description": "Maak foto's van uw objecten, en AI zorgt voor de rest: Organisatie per kamer en categorieën, beschrijvingen,..."
+      "description": "Maak foto's van uw objecten, en AI zorgt voor de rest: organisatie per kamer en categorieën, beschrijvingen,..."
     },
     "professionalExpertise": {
       "title": "Professionele Expertise",
@@ -36,7 +36,7 @@
   },
   "distribution": {
     "title": "Eerlijke verdeling voor iedereen.",
-    "description": "Splitizy biedt verschillende verdelingsmethoden om zich aan elke situatie aan te passen, rekening houdend met favoriete objecten, die met sentimentele waarde, en ieders ideale aandeel.",
+    "description": "Splitizy past zich aan elke situatie aan met verdelingsmethoden die rekening houden met wat belangrijk is voor iedereen: favoriete objecten, emotioneel waardevolle spullen en ieders gewenste aandeel.",
     "learnMore": "Meer weten"
   },
   "video": {
@@ -97,9 +97,9 @@
     }
   },
   "faq": {
-    "title": "Veelgestelde Vragen",
+    "title": "Veel gestelde vragen",
     "subtitle": "Vind snel antwoorden op de meest voorkomende vragen over Splitizy",
-    "breadcrumbTitle": "Veelgestelde Vragen",
+    "breadcrumbTitle": "Veel gestelde vragen",
     "otherQuestions": "Andere Vragen",
     "categories": {
       "general": "📱 Algemeen",

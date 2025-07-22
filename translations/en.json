@@ -16,10 +16,10 @@
   },
   "features": {
     "title": "Main Features",
-    "subtitle": "Splitizy accompanies you in the management and fair sharing of your assets with professional and intuitive tools.",
+    "subtitle": "Splitizy assists you in the management and fair sharing of your assets with professional and intuitive tools.",
     "intelligentInventory": {
       "title": "Smart Inventory",
-      "description": "Take photos of your objects, and AI takes care of the rest: Organization by rooms and categories, descriptions,..."
+      "description": "Take photos of your items, and AI takes care of the rest: organization by rooms and categories, descriptions,..."
     },
     "professionalExpertise": {
       "title": "Professional Expertise",
@@ -36,7 +36,7 @@
   },
   "distribution": {
     "title": "Fair distribution for everyone.",
-    "description": "Splitizy offers various distribution methods to adapt to each situation, taking into account favorite objects, those with sentimental value, and everyone's ideal share.",
+    "description": "Splitizy provides flexible distribution solutions tailored to each situation. The app considers favorite items, sentimental belongings, and individual preference for division.",
     "learnMore": "Learn more"
   },
   "video": {
@@ -46,14 +46,14 @@
   },
   "pricing": {
     "title": "Pricing",
-    "description": "Splitizy offers a complete free version and a Premium License to unlock all advanced features.",
+    "description": "Splitizy is available as a free version, with a Premium License for full access to advanced features.",
     "premiumLicense": "Premium License",
     "expertise": "Expertise",
     "freeVersion": {
       "title": "Free Version",
       "price": "€0",
       "features": [
-        "Max. 30 objects in inventory",
+        "Max. 30 items in inventory",
         "Up to 4 members per group",
         "Distribution details"
       ],
@@ -72,7 +72,7 @@
     "expertiseService": {
       "title": "Expertise",
       "price": "€40",
-      "priceUnit": "per object",
+      "priceUnit": "per item",
       "features": [
         "Professional expertise",
         "Value evaluation",
@@ -84,16 +84,13 @@
   "testimonials": {
     "title": "What our users think about Splitizy",
     "testimonial1": {
-      "text": "Our mother's succession could have been a headache. <strong>Splitizy</strong> made the process so simple and fair with its <strong>smart inventory</strong> and <strong>transparent distribution</strong>. No more disputes, a real relief!",
-      "author": "Sophie M."
+      "text": "Our mother's succession could have been a headache. <strong>Splitizy</strong> made the process so simple and fair with its <strong>smart inventory</strong> and <strong>transparent distribution</strong>. No more disputes, a real relief!"
     },
     "testimonial2": {
-      "text": "Sharing our assets after the divorce seemed insurmountable. <strong>Splitizy</strong> made the process so simple and fair! The <strong>intuitive inventory</strong> and <strong>fair distribution</strong> avoided many disputes. It's an essential tool for a respectful and serene separation.",
-      "author": "Marc L."
+      "text": "Sharing our assets after the divorce seemed insurmountable. <strong>Splitizy</strong> made the process so simple and fair! The <strong>intuitive inventory</strong> and <strong>fair distribution</strong> avoided many disputes. It's an essential tool for a respectful and serene separation."
     },
     "testimonial3": {
-      "text": "Managing the inheritance remotely with my sister was a challenge. <strong>Splitizy</strong> gave us incredible clarity. The <strong>detailed reports</strong> and <strong>data security</strong> were essential. A modern and indispensable tool!",
-      "author": "Lucie P."
+      "text": "Managing the inheritance remotely with my sister was a challenge. <strong>Splitizy</strong> gave us incredible clarity. The <strong>detailed reports</strong> and <strong>data security</strong> were essential. A modern and indispensable tool!"
     }
   },
   "faq": {
@@ -121,11 +118,11 @@
         },
         {
           "question": "How does Splitizy work?",
-          "answer": "1. <strong>Create a group</strong> with other heirs<br>2. <strong>Photograph and catalog</strong> all goods<br>3. <strong>Evaluate or have objects appraised</strong><br>4. <strong>Choose your favorites</strong> (maximum 5 favorites per person)<br>5. <strong>Mark</strong> objects that have <strong>sentimental value</strong> for you<br>6. <strong>Perform final distribution</strong> according to a chosen method"
+          "answer": "1. <strong>Create a group</strong> with other heirs<br>2. <strong>Photograph and catalog</strong> all goods<br>3. <strong>Evaluate or have items appraised</strong><br>4. <strong>Choose your favorites</strong> (maximum 5 favorites per person)<br>5. <strong>Mark</strong> items that have <strong>sentimental value</strong> for you<br>6. <strong>Perform final distribution</strong> according to a chosen method"
         },
         {
           "question": "Is the application free?",
-          "answer": "Splitizy offers a <strong>free version</strong> limited to 30 objects and 4 members per group, ideal for testing the application. For more extensive use, the <strong>Premium license at €99</strong> unlocks all features without limitation."
+          "answer": "Splitizy offers a <strong>free version</strong> limited to 30 items and 4 members per group, ideal for testing the application. For more extensive use, the <strong>Premium license at €99</strong> unlocks all features without limitation."
         },
         {
           "question": "What languages are supported?",
@@ -169,7 +166,7 @@
       "licence": [
         {
           "question": "What is the difference between the free and Premium version?",
-          "answer": "<strong>Free version</strong>: Up to 30 objects, 4 members maximum<br><br><strong>Premium version</strong>: Unlimited inventory, unlimited members, full access to expertise, official final distribution, professional PDF/Excel exports."
+          "answer": "<strong>Free version</strong>: Up to 30 items, 4 members maximum<br><br><strong>Premium version</strong>: Unlimited inventory, unlimited members, full access to expertise, official final distribution, professional PDF/Excel exports."
         },
         {
           "question": "How much does the Premium license cost?",
@@ -199,7 +196,7 @@
         },
         {
           "question": "What are the different roles in a group?",
-          "answer": "• <strong>Administrator</strong>: Can manage everything (add/remove members, configure the group, access all features)<br>• <strong>Member</strong>: Can add objects, evaluate, participate in distribution<br>• <strong>Guest</strong>: Read-only access, can view inventory but not modify it"
+          "answer": "• <strong>Administrator</strong>: Can manage everything (add/remove members, configure the group, access all features)<br>• <strong>Member</strong>: Can add items, evaluate, participate in distribution<br>• <strong>Guest</strong>: Read-only access, can view inventory but not modify it"
         },
         {
           "question": "How to change groups?",
@@ -207,7 +204,7 @@
         },
         {
           "question": "What currency to use?",
-          "answer": "We invite you to select your usual currency for ease of use and object valuation."
+          "answer": "We invite you to select your usual currency for ease of use and item valuation."
         },
         {
           "question": "Can we use different currencies in the same Group?",
@@ -216,38 +213,38 @@
       ],
       "inventaire": [
         {
-          "question": "How to add an object to the inventory?",
-          "answer": "In the <strong>\"Inventory\"</strong> tab, click the \"+\" button to add a new object. You can take photos, give a name, description, assign a room, category and estimate a value. Adding quality photos is strongly recommended."
+          "question": "How to add an item to the inventory?",
+          "answer": "In the <strong>\"Inventory\"</strong> tab, click the \"+\" button to add a new item. You can take photos, give a name, description, assign a room, category and estimate a value. Adding quality photos is strongly recommended."
         },
         {
-          "question": "How many photos can I add per object?",
-          "answer": "You can add <strong>maximum 10 photos per object</strong> to document it from all angles. Photos can be taken directly from the camera or imported from your gallery. Favor sharp and well-lit photos for better expertise."
+          "question": "How many photos can I add per item?",
+          "answer": "You can add <strong>maximum 10 photos per item</strong> to document it from all angles. Photos can be taken directly from the camera or imported from your gallery. Favor sharp and well-lit photos for better expertise."
         },
         {
           "question": "How to organize my inventory?",
-          "answer": "You can organize your inventory with <strong>rooms, categories and tags</strong>. You can also filter by favorites, expertised or archived objects. A search system allows you to easily find an object by its name or description."
+          "answer": "You can organize your inventory with <strong>rooms, categories and tags</strong>. You can also filter by favorites, expertised or archived items. A search system allows you to easily find an item by its name or description."
         },
         {
-          "question": "What is an archived object?",
-          "answer": "An archived object is an object that <strong>will not participate in the distribution</strong> (for example: broken object, worthless, already distributed). It remains visible in the inventory for documentation but does not appear in distribution calculations."
+          "question": "What is an archived item?",
+          "answer": "An archived item is an item that <strong>will not participate in the distribution</strong> (for example: broken item, worthless, already distributed). It remains visible in the inventory for documentation but does not appear in distribution calculations."
         },
         {
           "question": "What is a Tag?",
-          "answer": "A tag (or label, marker, label) is a keyword or term associated with information (for example a material, a place, or a first name), which describes a characteristic of the object and/or allows easy grouping of information containing the same keywords."
+          "answer": "A tag (or label, marker, label) is a keyword or term associated with information (for example a material, a place, or a first name), which describes a characteristic of the item and/or allows easy grouping of information containing the same keywords."
         }
       ],
       "expertise": [
         {
           "question": "What is the expertise service?",
-          "answer": "The expertise service allows you to have your objects evaluated by <strong>qualified professional experts</strong>. They analyze your photos and descriptions to provide an official value estimate. This service is paid and costs €39.99 per object."
+          "answer": "The expertise service allows you to have your items evaluated by <strong>qualified professional experts</strong>. They analyze your photos and descriptions to provide an official value estimate. This service is paid and costs €39.99 per item."
         },
         {
           "question": "How does AI estimation work?",
-          "answer": "Artificial intelligence can analyze photos of your objects and provide a <strong>preliminary estimate of their value</strong>. This estimate is indicative and does not replace the expertise of a qualified professional for an official evaluation."
+          "answer": "Artificial intelligence can analyze photos of your items and provide a <strong>preliminary estimate of their value</strong>. This estimate is indicative and does not replace the expertise of a qualified professional for an official evaluation."
         },
         {
           "question": "How much does an expertise cost?",
-          "answer": "The cost of an expertise is <strong>€39.99 per object</strong>. Payment is made directly in the application via Google Pay (for Android) or Apple Pay (for iOS) depending on your device's operating system."
+          "answer": "The cost of an expertise is <strong>€39.99 per item</strong>. Payment is made directly in the application via Google Pay (for Android) or Apple Pay (for iOS) depending on your device's operating system."
         }
       ],
       "repartition": [

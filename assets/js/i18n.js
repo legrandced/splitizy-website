@@ -297,10 +297,7 @@ class I18nManager {
         testimonialItems.forEach((item, index) => {
             if (testimonialData[index]) {
                 const commentEl = item.querySelector('.user-comment');
-                const authorEl = item.querySelector('.user-title');
-
                 if (commentEl) commentEl.innerHTML = testimonialData[index].text;
-                if (authorEl) authorEl.textContent = testimonialData[index].author;
             }
         });
     }
