@@ -192,6 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialiser le lecteur vidéo YouTube
     initYouTubePlayer();
+    initTeamProfileSelector();
 }); 
 
 // Variables globales pour le lecteur YouTube
@@ -532,4 +533,41 @@ function extractYouTubeVideoId(url) {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
     const match = url.match(regExp);
     return (match && match[2].length === 11) ? match[2] : null;
+}
+
+function initTeamProfileSelector() {
+    const profileItems = document.querySelectorAll('.team-profile-item');
+    const descriptionContents = document.querySelectorAll('.profile-description');
+
+    if (profileItems.length === 0) {
+        return; // Do nothing if the elements are not on the page
+    }
+
+    const switchProfile = (profileToShow) => {
+        // Hide all descriptions and remove active class from all items
+        descriptionContents.forEach(desc => desc.classList.remove('active'));
+        profileItems.forEach(item => item.classList.remove('active'));
+
+        // Show the target description and set the corresponding item to active
+        const targetDescription = document.querySelector(`#profile-description-${profileToShow}`);
+        const targetProfileItem = document.querySelector(`.team-profile-item[data-profile="${profileToShow}"]`);
+
+        if (targetDescription && targetProfileItem) {
+            targetDescription.classList.add('active');
+            targetProfileItem.classList.add('active');
+        }
+    };
+
+    profileItems.forEach(item => {
+        item.addEventListener('mouseover', () => {
+            const profileId = item.getAttribute('data-profile');
+            switchProfile(profileId);
+        });
+
+        // Keep it switchable on click for mobile/touch devices
+        item.addEventListener('click', () => {
+            const profileId = item.getAttribute('data-profile');
+            switchProfile(profileId);
+        });
+    });
 }

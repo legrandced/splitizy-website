@@ -5,11 +5,27 @@
     "pricing": "Prijzen",
     "faq": "FAQ",
     "contact": "Contact",
+    "about": "Over ons",
     "individual": "Individueel",
     "professional": "Professioneel"
   },
+  "aboutUs": {
+    "pageTitle": "Splitizy - Over ons",
+    "breadcrumbTitle": "Over ons",
+    "storyTitle": "Ons verhaal",
+    "storyP1": "Na 5 jaar gezamenlijk ondernemerschap in de techsector, zagen we het onbenutte potentieel van deze digitale oplossing. Gesterkt door onze complementariteit, was het voor ons een uitgemaakte zaak om dit project samen te realiseren.",
+    "storyP2": "Want vandaag de dag is een briljant idee niets zonder een uitstekende uitvoering: wij zetten innovatie om in echt succes!",
+    "gatienName": "Gatien du Bois",
+    "cedricName": "Cédric Legrand",
+    "gatienStoryTitle": "Het verhaal van Gatien",
+    "cedricStoryTitle": "Het verhaal van Cédric",
+    "gatienRole": "Mede-oprichter & CEO",
+    "cedricRole": "Mede-oprichter & CTO",
+    "gatienDescription": "Als ondernemer en innovator zet Gatien technologie in ten dienste van familieovergangen. Met zijn menselijke ervaring heeft hij Splitizy opgericht om de inventarisatie en het delen van bezittingen te vereenvoudigen op belangrijke momenten in het leven, zoals scheidingen of erfenissen. Zijn ambitie is duidelijk: technologie menselijker maken om de dialoog, eerlijkheid en harmonie binnen familiedynamieken te herstellen.",
+    "cedricDescription": "Op 27-jarige leeftijd belichaamt Cédric technische nauwkeurigheid in dienst van innovatie. Zijn grootste prestatie is de ontwikkeling van een complete software suite en het op zich nemen van de technische verantwoordelijkheid van een startup vanaf de beginjaren. Zijn vermogen om een visie om te zetten in een robuuste en performante oplossing is een grote troef voor Splitizy en garandeert een betrouwbaar en schaalbaar platform."
+  },
   "hero": {
-    "title": "Inventariseer, <span class=\"no-bubble\">Beheer</span> en Deel <br><span>uw goederen</span>met gemoedsrust.",
+    "title": "Inventariseer, <span class=\"no-bubble\">Beheer</span> en Deel <br><span>uw goederen</span> met gemoedsrust.",
     "subtitle": "De complete oplossing voor inventarisatie, verdeling en eerlijk delen van uw goederen",
     "downloadGooglePlay": "Download op Google Play",
     "downloadAppStore": "Download op de App Store"

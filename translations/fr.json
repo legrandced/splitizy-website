@@ -5,8 +5,24 @@
     "pricing": "Tarifs",
     "faq": "FAQ",
     "contact": "Contact",
+    "about": "Qui sommes-nous ?",
     "individual": "Particulier",
     "professional": "Professionnel"
+  },
+  "aboutUs": {
+    "pageTitle": "Splitizy - Qui sommes-nous ?",
+    "breadcrumbTitle": "Qui sommes-nous ?",
+    "storyTitle": "Notre histoire",
+    "storyP1": "Après 5 ans d'aventure entrepreneuriale commune dans le secteur de la tech, nous avons identifié le potentiel inexploité de cette solution digitale. Forts de notre complémentarité, il nous est apparu évident de réaliser ce projet ensemble.",
+    "storyP2": "Car aujourd'hui, une idée brillante ne vaut rien sans une excellente exécution : nous transformons l'innovation en véritable succès !",
+    "gatienName": "Gatien du Bois",
+    "cedricName": "Cédric Legrand",
+    "gatienStoryTitle": "L'histoire de Gatien",
+    "cedricStoryTitle": "L'histoire de Cédric",
+    "gatienRole": "Co-Founder & CEO",
+    "cedricRole": "Co-Founder & CTO",
+    "gatienDescription": "Entrepreneur et innovateur, Gatien met la technologie au service des transitions familiales. Fort de son expérience humaine, il a fondé Splitizy pour simplifier l'inventaire et le partage des biens lors des moments clés de la vie, tels que les séparations ou les successions. Son ambition est claire : humaniser la technologie pour restaurer le dialogue, l'équité et l'harmonie au sein des dynamiques familiales.",
+    "cedricDescription": "À 27 ans, Cédric incarne la rigueur technique au service de l'innovation. Sa plus grande réussite est d'avoir développé une suite logicielle complète et assumé la responsabilité technique d'une startup dès ses premières années. Sa capacité à transformer une vision en une solution robuste et performante est un atout majeur pour Splitizy, garantissant une plateforme fiable et évolutive."
   },
   "hero": {
     "title": "Inventoriez, <span class=\"no-bubble\">Gérez</span> et Partagez <br><span>vos biens</span>en toute sérénité.",

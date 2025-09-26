@@ -5,11 +5,27 @@
     "pricing": "Pricing",
     "faq": "FAQ",
     "contact": "Contact",
+    "about": "About Us",
     "individual": "Individual",
     "professional": "Professional"
   },
+  "aboutUs": {
+    "pageTitle": "Splitizy - About Us",
+    "breadcrumbTitle": "About Us",
+    "storyTitle": "Our Story",
+    "storyP1": "After 5 years of a joint entrepreneurial adventure in the tech sector, we identified the untapped potential of this digital solution. Building on our complementary skills, it became obvious to us to carry out this project together.",
+    "storyP2": "Because today, a brilliant idea is nothing without excellent execution: we turn innovation into real success!",
+    "gatienName": "Gatien du Bois",
+    "cedricName": "Cédric Legrand",
+    "gatienStoryTitle": "Gatien's Story",
+    "cedricStoryTitle": "Cédric's Story",
+    "gatienRole": "Co-Founder & CEO",
+    "cedricRole": "Co-Founder & CTO",
+    "gatienDescription": "An entrepreneur and innovator, Gatien puts technology at the service of family transitions. Drawing on his human experience, he founded Splitizy to simplify the inventory and sharing of assets during key life moments, such as separations or inheritances. His ambition is clear: to humanize technology to restore dialogue, fairness, and harmony within family dynamics.",
+    "cedricDescription": "At 27, Cédric embodies technical rigor in the service of innovation. His greatest achievement is having developed a complete software suite and taken on the technical responsibility of a startup from its early years. His ability to transform a vision into a robust and high-performing solution is a major asset for Splitizy, ensuring a reliable and scalable platform."
+  },
   "hero": {
-    "title": "Inventory, <span class=\"no-bubble\">Manage</span> and Share <br><span>your assets</span>with peace of mind.",
+    "title": "Inventory, <span class=\"no-bubble\">Manage</span> and Share <br><span>your assets</span> with peace of mind.",
     "subtitle": "The complete solution for inventory, distribution and fair sharing of your assets",
     "downloadGooglePlay": "Download on Google Play",
     "downloadAppStore": "Download on the App Store"

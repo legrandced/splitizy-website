@@ -95,6 +95,7 @@ class I18nManager {
         this.translateDataRemoval();
         this.translateTerms();
         this.translateGroup();
+        this.translateAboutUsPage();
         
         // Traduire les images selon la langue
         this.translateImages();
@@ -132,6 +133,10 @@ class I18nManager {
         
         document.querySelectorAll('a[href*="contact"]').forEach(el => {
             el.textContent = nav.contact;
+        });
+
+        document.querySelectorAll('a[href*="qui-sommes-nous"]').forEach(el => {
+            el.textContent = nav.about;
         });
 
         // Boutons header
@@ -1436,6 +1441,50 @@ class I18nManager {
         }
     }
 
+    translateAboutUsPage() {
+        if (!window.location.pathname.includes('qui-sommes-nous')) return;
+
+        const about = this.translations.aboutUs;
+        if (!about) return;
+
+        document.title = about.pageTitle;
+
+        const breadcrumbTitle = document.querySelector('.breadcrumb-title');
+        if (breadcrumbTitle) breadcrumbTitle.textContent = about.breadcrumbTitle;
+        const breadcrumbSpan = document.querySelector('.breadcrumb-list span');
+        if (breadcrumbSpan) breadcrumbSpan.textContent = about.breadcrumbTitle;
+
+        const storyP1 = document.querySelector('.about-us-description p:first-child');
+        if (storyP1) storyP1.textContent = about.storyP1;
+
+        const storyP2 = document.querySelector('.about-us-description p:nth-child(2)');
+        if (storyP2) storyP2.textContent = about.storyP2;
+
+        const gatienName = document.querySelector('[data-profile="gatien"] .profile-name');
+        if (gatienName) gatienName.textContent = about.gatienName;
+
+        const cedricName = document.querySelector('[data-profile="cedric"] .profile-name');
+        if (cedricName) cedricName.textContent = about.cedricName;
+
+        const gatienStoryTitle = document.querySelector('#profile-description-gatien .story-title');
+        if (gatienStoryTitle) gatienStoryTitle.textContent = about.gatienStoryTitle;
+
+        const cedricStoryTitle = document.querySelector('#profile-description-cedric .story-title');
+        if (cedricStoryTitle) cedricStoryTitle.textContent = about.cedricStoryTitle;
+        
+        const gatienRole = document.querySelector('#profile-description-gatien h4');
+        if (gatienRole) gatienRole.textContent = about.gatienRole;
+        
+        const cedricRole = document.querySelector('#profile-description-cedric h4');
+        if (cedricRole) cedricRole.textContent = about.cedricRole;
+        
+        const gatienDescription = document.querySelector('#profile-description-gatien p');
+        if (gatienDescription) gatienDescription.textContent = about.gatienDescription;
+
+        const cedricDescription = document.querySelector('#profile-description-cedric p');
+        if (cedricDescription) cedricDescription.textContent = about.cedricDescription;
+    }
+
     translateImages() {
         // Localiser les boutons de téléchargement
         this.localizeDownloadButtons();
@@ -1840,23 +1889,6 @@ class I18nManager {
     addLanguageSelectorStyles() {
         const style = document.createElement('style');
         style.textContent = `
-            /* Réduire l'espacement des éléments de navigation pour faire de la place */
-            .header-menu-nav > ul > li:not(:last-child) {
-                margin-right: 45px !important;
-            }
-            
-            @media (max-width: 1399px) {
-                .header-menu-nav > ul > li:not(:last-child) {
-                    margin-right: 25px !important;
-                }
-            }
-            
-            @media (max-width: 1199px) {
-                .header-menu-nav > ul > li:not(:last-child) {
-                    margin-right: 20px !important;
-                }
-            }
-            
             /* Styles pour le sélecteur de langue */
             .language-selector {
                 position: relative;
@@ -2363,6 +2395,7 @@ class I18nManager {
         this.forceTranslateTerms();
         this.forceTranslateFAQ();
         this.translateGroup();
+        this.translateAboutUsPage();
         
         // Traduire les images selon la langue
         this.translateImages();

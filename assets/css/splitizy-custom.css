@@ -799,6 +799,11 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Ajustements responsifs pour le header entre 992px et 1200px */
 @media (min-width: 992px) and (max-width: 1200px) {
+    .header-menu {
+        max-width: 450px !important;
+        margin: 0 auto;
+    }
+     
     /* Forcer la largeur maximale du conteneur */
     .header-container {
         max-width: 100% !important;
@@ -819,12 +824,6 @@ h1, h2, h3, h4, h5, h6 {
     /* Réduction de l'espacement des boutons */
     .header-right > li:not(:first-child) {
         margin-left: 0px !important;
-    }
-}
-@media (min-width: 992px) and (max-width: 1060px) {
-    /* Réduction de l'espacement du menu */
-    .header-style-4 .header-menu-nav > ul > li:not(:last-child) {
-        margin-right: 5px !important;
     }
 }
 
@@ -924,5 +923,113 @@ h1, h2, h3, h4, h5, h6 {
     
     .youtube-embed iframe {
         border-radius: 6px;
+    }
+}
+
+/* Styles for the "Qui sommes-nous ?" page profiles */
+.team-profiles-selector {
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.team-profile-item {
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.team-profile-item .profile-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 4px solid transparent;
+}
+
+.team-profile-item .profile-name {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #999 !important;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+/* Inactive state */
+.team-profile-item:not(.active) .profile-image {
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+
+.team-profile-item:not(.active):hover .profile-image {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Active state */
+.team-profile-item.active .profile-image {
+    filter: grayscale(0%);
+    opacity: 1;
+    border-color: var(--splitizy-secondary);
+    transform: scale(1.05);
+}
+
+.team-profile-item.active .profile-name {
+    color: var(--splitizy-primary) !important;
+}
+
+.team-profile-item.active .profile-name::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: var(--splitizy-secondary);
+}
+
+/* Description styles */
+.profile-description {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.profile-description.active {
+    display: block;
+}
+
+.profile-description .story-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Styles pour la navigation sur deux lignes */
+@media (min-width: 992px) {
+    .header-menu-nav > ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        column-gap: 25px !important; /* Espacement horizontal fixe */
+        row-gap: 0 !important; /* Espacement vertical */
+    }
+
+    /* Forcer le passage à la ligne après le 3ème élément */
+    .header-menu-nav > ul > li:nth-child(3)::after {
+        content: '';
+        display: block;
+        flex-basis: 100%;
+        height: 0;
+    }
+
+    /* Ajuster l'espacement vertical des liens du menu */
+    .header-menu-nav > ul > li > a {
+        padding-top: 2px !important;
+        padding-bottom: 2px !important;
     }
 }
