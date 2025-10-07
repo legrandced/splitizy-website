@@ -86,20 +86,6 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 80px;
 }
 
-/* Override header menu colors */
-.header-style-4:not([class*="is-active"]) .header-menu-nav > ul > li > a {
-    color: var(--splitizy-primary) !important; /* Couleur des liens non sélectionnés */
-}
-
-.header-style-4:not([class*="is-active"]) .header-menu-nav > ul > li.active > a {
-    color: var(--splitizy-secondary) !important; /* Couleur du lien actif/sélectionné */
-}
-
-/* Override hover state aussi */
-.header-style-4:not([class*="is-active"]) .header-menu-nav > ul > li > a:hover {
-    color: var(--splitizy-secondary) !important; /* Couleur au survol */
-}
-
 /* Override footer titles */
 .footer-list .title {
     color: var(--splitizy-secondary) !important;
@@ -293,12 +279,6 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--splitizy-primary);
     border-color: var(--splitizy-primary);
     color: white;
-}
-
-/* Navigation active states */
-.header-menu-nav ul li.active a,
-.header-menu-nav ul li a:hover {
-    color: var(--splitizy-primary) !important;
 }
 
 /* Feature items styling */
@@ -1031,5 +1011,52 @@ h1, h2, h3, h4, h5, h6 {
     .header-menu-nav > ul > li > a {
         padding-top: 2px !important;
         padding-bottom: 2px !important;
+    }
+}
+
+/* === Button-like Navigation Menu === */
+
+.header-menu-nav {
+    transition: padding 0.3s ease;
+}
+
+.header-menu-nav > ul > li > a {
+    padding: 4px 16px !important;
+    border-radius: 25px !important;
+    transition: all 0.3s ease-in-out !important;
+    background-color: var(--splitizy-primary-alpha-20) !important;
+    color: var(--splitizy-primary) !important;
+    border: 2px solid transparent !important;
+    font-weight: 500;
+}
+
+.header-menu-nav > ul > li > a:hover {
+    background-color: var(--splitizy-secondary-alpha-20) !important;
+    color: var(--splitizy-secondary) !important;
+    transform: translateY(-2px);
+}
+
+.header-menu-nav > ul > li.active > a {
+    background-color: transparent !important;
+    color: var(--splitizy-secondary) !important;
+    border-color: var(--splitizy-secondary) !important;
+    font-weight: 600;
+}
+
+/* Style for sticky header menu buttons */
+.header-style-4.is-active .header-menu-nav > ul > li:not(.active) > a {
+    background-color: var(--splitizy-primary-alpha-10) !important;
+}
+
+/* Ajout de marge verticale pour le menu flottant */
+.header-style-4.is-active .header-menu-nav {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Ajustement de l'espacement pour la disposition sur deux lignes */
+@media (min-width: 992px) {
+    .header-menu-nav > ul {
+        row-gap: 10px !important; /* Ajoute un peu d'espace entre les lignes */
     }
 }
