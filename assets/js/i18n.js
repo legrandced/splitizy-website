@@ -3,14 +3,71 @@
  * Compatible avec GitHub Pages
  */
 
+/**
+ * Langues disponibles sur le site (l'ordre = l'ordre d'affichage dans les sélecteurs).
+ *  - label    : nom affiché dans les sélecteurs de langue
+ *  - short    : code affiché sur le bouton du sélecteur
+ *  - flag     : fichier dans assets/images/flags/
+ *  - base     : langue « de contenu » : fichier translations/<base>.json, images localisées
+ *               (*_<base>.png) et dictionnaires codés en dur (titres de pages, dates…)
+ *  - htmlLang : valeur de l'attribut <html lang>
+ *  - proLang  : langue transmise à Web Pro (pro.splitizy.com ne gère que fr / en / nl)
+ *  - currency : devise d'affichage des prix ('EUR' = textes tels quels, 'CAD' = conversion, voir ci-dessous)
+ */
+const SPLITIZY_LANGUAGES = {
+    'fr':    { label: 'Français',          short: 'FR',    flag: 'fr.png', base: 'fr', htmlLang: 'fr',    proLang: 'fr', currency: 'EUR' },
+    'fr-CA': { label: 'Français (Canada)', short: 'FR-CA', flag: 'ca.svg', base: 'fr', htmlLang: 'fr-CA', proLang: 'fr', currency: 'CAD' },
+    'en':    { label: 'English',           short: 'EN',    flag: 'en.png', base: 'en', htmlLang: 'en',    proLang: 'en', currency: 'EUR' },
+    'nl':    { label: 'Nederlands',        short: 'NL',    flag: 'nl.png', base: 'nl', htmlLang: 'nl',    proLang: 'nl', currency: 'EUR' }
+};
+
+/**
+ * Prix en dollars canadiens (langue fr-CA).
+ * Tous les montants en euros présents dans translations/*.json (« 99€ », « €99 », « 39,99€ »…) sont convertis
+ * automatiquement au chargement : aucun montant n'est à modifier dans les textes.
+ *  - fixedPrices  : prix publics convertis et arrondis « à la main » (EUR → CAD) ; c'est ici qu'on les ajuste
+ *  - eurToCadRate : taux EUR → CAD appliqué (arrondi à l'entier) aux montants absents de fixedPrices
+ */
+const SPLITIZY_CAD_PRICING = {
+    eurToCadRate: 1.57,
+    fixedPrices: { 40: 63, 99: 159 }
+};
+
 class I18nManager {
     constructor() {
         this.currentLanguage = 'fr';
         this.translations = {};
-        this.supportedLanguages = ['fr', 'en', 'nl'];
+        this.languages = SPLITIZY_LANGUAGES;
+        this.supportedLanguages = Object.keys(SPLITIZY_LANGUAGES);
         this.defaultLanguage = 'fr';
+
+        // Accès global (utilisé par splitizy-custom.js pour les messages des formulaires)
+        window.splitizyI18n = this;
         
         this.init();
+    }
+
+    // Configuration de la langue courante (ou d'une langue donnée)
+    getLanguageConfig(lang = this.currentLanguage) {
+        return this.languages[lang] || this.languages[this.defaultLanguage];
+    }
+
+    // Langue « de contenu » : 'fr' pour fr et fr-CA, sinon la langue elle-même
+    getBaseLanguage(lang = this.currentLanguage) {
+        return this.getLanguageConfig(lang).base;
+    }
+
+    // Robot d'indexation / d'aperçu de liens / d'audit (Googlebot, Bingbot, Google-InspectionTool, Lighthouse…) ?
+    isCrawler() {
+        return /googlebot|google-inspectiontool|googleother|adsbot|bingbot|bingpreview|duckduckbot|yandexbot|baiduspider|applebot|petalbot|slurp|facebookexternalhit|twitterbot|linkedinbot|slackbot|discordbot|whatsapp|telegrambot|semrushbot|ahrefsbot|chrome-lighthouse|headlesschrome|crawler|spider/i
+            .test(navigator.userAgent || '');
+    }
+
+    // Retrouve une langue supportée à partir d'un code (insensible à la casse : fr-ca, fr_CA… → fr-CA)
+    normalizeLanguage(code) {
+        if (!code) return null;
+        const wanted = String(code).trim().toLowerCase().replace('_', '-');
+        return this.supportedLanguages.find(lang => lang.toLowerCase() === wanted) || null;
     }
 
     async init() {
@@ -33,50 +90,107 @@ class I18nManager {
     detectLanguage() {
         // 1. Vérifier si la langue est dans l'URL
         const urlParams = new URLSearchParams(window.location.search);
-        const urlLang = urlParams.get('lang');
+        const urlLang = this.normalizeLanguage(urlParams.get('lang'));
         
-        if (urlLang && this.supportedLanguages.includes(urlLang)) {
+        if (urlLang) {
             this.currentLanguage = urlLang;
             return;
         }
 
         // 2. Vérifier localStorage
-        const savedLang = localStorage.getItem('splitizy_language');
-        if (savedLang && this.supportedLanguages.includes(savedLang)) {
+        const savedLang = this.normalizeLanguage(localStorage.getItem('splitizy_language'));
+        if (savedLang) {
             this.currentLanguage = savedLang;
             return;
         }
 
-        // 3. Détecter depuis le navigateur
-        const browserLang = navigator.language || navigator.userLanguage;
-        const langCode = browserLang.split('-')[0];
-        
-        if (this.supportedLanguages.includes(langCode)) {
-            this.currentLanguage = langCode;
-        } else {
+        // Les robots d'indexation n'expriment pas de préférence de langue : Googlebot se déclare en en-US, ce qui
+        // ferait afficher (et indexer) l'accueil en anglais. On leur sert la langue par défaut (français).
+        // Un paramètre ?lang=xx explicite (étape 1) ou une langue mémorisée (étape 2) restent respectés.
+        if (this.isCrawler()) {
             this.currentLanguage = this.defaultLanguage;
+            return;
         }
+
+        // 3. Détecter depuis le navigateur : d'abord le code complet (fr-CA), puis la langue seule (fr-BE → fr)
+        const browserLang = navigator.language || navigator.userLanguage || '';
+        this.currentLanguage = this.normalizeLanguage(browserLang)
+            || this.normalizeLanguage(browserLang.split('-')[0])
+            || this.defaultLanguage;
     }
 
     async loadTranslations() {
+        // fr-CA réutilise le fichier fr.json (langue de contenu) ; seuls les prix changent (voir localizeCurrencies)
+        const file = this.getBaseLanguage();
         try {
-            const response = await fetch(`translations/${this.currentLanguage}.json`);
+            const response = await fetch(`translations/${file}.json`);
             this.translations = await response.json();
         } catch (error) {
             console.error('Erreur lors du chargement des traductions:', error);
             // Fallback vers le français si erreur
-            if (this.currentLanguage !== this.defaultLanguage) {
+            if (file !== this.defaultLanguage) {
                 const fallbackResponse = await fetch(`translations/${this.defaultLanguage}.json`);
                 this.translations = await fallbackResponse.json();
             }
+        }
+
+        this.localizeCurrencies();
+    }
+
+    // ---------------------------------------------------------------
+    // Prix : conversion EUR → CAD pour la langue fr-CA
+    // ---------------------------------------------------------------
+
+    // Convertit tous les montants en euros des traductions chargées si la langue courante affiche des CAD
+    localizeCurrencies() {
+        if (this.getLanguageConfig().currency !== 'CAD') return;
+        this.translations = this.localizeCurrencyValue(this.translations);
+    }
+
+    localizeCurrencyValue(value) {
+        if (typeof value === 'string') return this.localizeCurrencyInText(value);
+        if (Array.isArray(value)) return value.map(item => this.localizeCurrencyValue(item));
+        if (value && typeof value === 'object') {
+            Object.keys(value).forEach(key => { value[key] = this.localizeCurrencyValue(value[key]); });
+        }
+        return value;
+    }
+
+    // Remplace « 99€ », « 99 € », « €99 », « 39,99€ », « €39.99 » par le montant équivalent en CAD
+    localizeCurrencyInText(text) {
+        return text.replace(/€\s?(\d+(?:[.,]\d{1,2})?)|(\d+(?:[.,]\d{1,2})?)\s?€/g, (match, amountAfterSign, amountBeforeSign) => {
+            const euros = parseFloat((amountAfterSign || amountBeforeSign).replace(',', '.'));
+            return this.formatCad(this.convertEurToCad(euros));
+        });
+    }
+
+    // EUR → CAD : prix publics fixés dans SPLITIZY_CAD_PRICING.fixedPrices, sinon taux × montant arrondi à l'entier
+    convertEurToCad(euros) {
+        const fixed = SPLITIZY_CAD_PRICING.fixedPrices[euros];
+        if (fixed !== undefined) return fixed;
+        return Math.round(euros * SPLITIZY_CAD_PRICING.eurToCadRate);
+    }
+
+    // Format canadien-français : « 159 $ » (espace insécable avant le symbole, sans décimales)
+    formatCad(amount) {
+        try {
+            return new Intl.NumberFormat('fr-CA', {
+                style: 'currency',
+                currency: 'CAD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(amount);
+        } catch (error) {
+            return `${amount}\u00A0$`;
         }
     }
 
     applyTranslations() {
         // Mettre à jour l'attribut lang du HTML
-        document.documentElement.lang = this.currentLanguage;
+        document.documentElement.lang = this.getLanguageConfig().htmlLang;
         
         // Appliquer les traductions par section
+        this.translateA11y();
         this.translateNavigation();
         this.translateHero();
         this.translateFeatures();
@@ -110,6 +224,35 @@ class I18nManager {
         this.updatePageTitle();
     }
 
+    // Libellé d'accessibilité traduit (clé `a11y.*` des fichiers JSON), avec valeur de secours en français
+    a11yText(key, fallback) {
+        const a11y = this.translations && this.translations.a11y;
+        return (a11y && a11y[key]) || fallback;
+    }
+
+    // Noms accessibles des boutons « icône seule » (menu, fermeture, haut de page, sélecteurs de langue)
+    translateA11y() {
+        const labels = [
+            ['button[data-bs-target="#offcanvasWithBothOptions"]', 'menu', 'Menu'],
+            ['.offcanvas .btn-close', 'close', 'Fermer'],
+            ['.scroll-to-top', 'backToTop', 'Retour en haut'],
+            ['.video-facade', 'playVideo', 'Lire la vidéo de démonstration']
+        ];
+        labels.forEach(([selector, key, fallback]) => {
+            const text = this.a11yText(key, fallback);
+            document.querySelectorAll(selector).forEach(el => el.setAttribute('aria-label', text));
+        });
+
+        // Boutons des sélecteurs de langue (le nom accessible doit contenir le texte visible, ex. « FR »)
+        const languageLabel = this.languageButtonLabel();
+        document.querySelectorAll('.language-btn, .footer-language-btn').forEach(el => el.setAttribute('aria-label', languageLabel));
+    }
+
+    // Nom accessible des boutons de langue : « FR - Changer de langue » (commence par le texte visible, WCAG 2.5.3)
+    languageButtonLabel() {
+        return `${this.getLanguageConfig().short} - ${this.a11yText('changeLanguage', 'Changer de langue')}`;
+    }
+
     translateNavigation() {
         const nav = this.translations.nav;
         if (!nav) return;
@@ -139,11 +282,7 @@ class I18nManager {
             el.textContent = nav.about;
         });
 
-        // Boutons header
-        document.querySelectorAll('a[href*="type=individual"]').forEach(el => {
-            el.textContent = nav.individual;
-        });
-        
+        // Bouton header « Professionnel » (le bouton « Particulier » a été retiré du header)
         document.querySelectorAll('a[href*="type=pro"]').forEach(el => {
             el.textContent = nav.professional;
         });
@@ -272,7 +411,11 @@ class I18nManager {
                 const features = card.querySelectorAll('.pricing-list li a');
 
                 if (titleEl) titleEl.textContent = pricingData[index].title;
-                if (priceEl) priceEl.textContent = pricingData[index].price;
+                if (priceEl) {
+                    priceEl.textContent = pricingData[index].price;
+                    // Montants longs (ex. « 159 $ ») : police réduite pour rester dans la pastille orange
+                    priceEl.classList.toggle('price-long', priceEl.textContent.trim().length >= 5);
+                }
                 if (monthEl && pricingData[index].priceUnit) monthEl.textContent = pricingData[index].priceUnit;
                 if (btnEl) btnEl.textContent = pricingData[index].button;
 
@@ -299,7 +442,14 @@ class I18nManager {
             testimonials.testimonial3
         ];
 
-        testimonialItems.forEach((item, index) => {
+        // Swiper (loop: true) ajoute des slides dupliqués au DOM : l'ordre du DOM ne correspond donc plus à l'ordre
+        // d'origine. On utilise l'index d'origine mémorisé par Swiper (data-swiper-slide-index) ; à défaut
+        // (Swiper pas encore initialisé), on se rabat sur la position dans le DOM.
+        testimonialItems.forEach((item, position) => {
+            const slide = item.closest('.swiper-slide');
+            const swiperIndex = slide ? parseInt(slide.getAttribute('data-swiper-slide-index'), 10) : NaN;
+            const index = Number.isNaN(swiperIndex) ? position : swiperIndex;
+
             if (testimonialData[index]) {
                 const commentEl = item.querySelector('.user-comment');
                 if (commentEl) commentEl.innerHTML = testimonialData[index].text;
@@ -406,10 +556,10 @@ class I18nManager {
         const descEl = document.querySelector('.newsletter-desc');
         if (descEl) descEl.textContent = newsletter.description;
 
+        // Le champ e-mail n'a plus de valeur pré-remplie : seul le placeholder est traduit
         const inputEl = document.querySelector('.newsletter-form input');
         if (inputEl) {
             inputEl.placeholder = newsletter.placeholder;
-            inputEl.setAttribute('value', newsletter.placeholder);
         }
 
         const btnEl = document.querySelector('.newsletter-form button');
@@ -442,9 +592,9 @@ class I18nManager {
         const dataRemovalLink = document.querySelector('a[href*="suppression-donnees"]');
         if (dataRemovalLink) dataRemovalLink.textContent = footer.dataRemoval;
 
-        // Copyright
+        // Copyright (« {year} » dans les JSON = année courante)
         const copyright = document.querySelector('.footer-copyright span');
-        if (copyright) copyright.innerHTML = footer.copyright;
+        if (copyright) copyright.innerHTML = footer.copyright.replace('{year}', new Date().getFullYear());
 
         // Boutons de téléchargement (alt des images)
         const googlePlayImg = document.querySelector('.footer-btn-wrap img[alt*="Google Play"]');
@@ -715,7 +865,7 @@ class I18nManager {
                 }
                 
                 // Section 6 - Droits
-                else if (text.includes('conformément au RGPD') && sections.userRights) {
+                else if (text.toLowerCase().includes('conformément au rgpd') && sections.userRights) {
                     p.textContent = sections.userRights.intro;
                 } else if (text.includes('gratuitement') && sections.userRights) {
                     p.innerHTML = sections.userRights.contact;
@@ -803,11 +953,12 @@ class I18nManager {
 
         // Date de mise à jour en bas de page
         const lastUpdatedBottom = document.querySelector('.text-center .text-muted small strong');
-        if (lastUpdatedBottom && this.currentLanguage === 'fr') {
+        const baseLang = this.getBaseLanguage();
+        if (lastUpdatedBottom && baseLang === 'fr') {
             lastUpdatedBottom.textContent = 'Guide mis à jour : Juin 2025';
-        } else if (lastUpdatedBottom && this.currentLanguage === 'en') {
+        } else if (lastUpdatedBottom && baseLang === 'en') {
             lastUpdatedBottom.textContent = 'Guide updated: June 2025';
-        } else if (lastUpdatedBottom && this.currentLanguage === 'nl') {
+        } else if (lastUpdatedBottom && baseLang === 'nl') {
             lastUpdatedBottom.textContent = 'Gids bijgewerkt: Juni 2025';
         }
 
@@ -950,15 +1101,15 @@ class I18nManager {
                 const emailLabels = document.querySelectorAll('.legal-content p strong');
                 emailLabels.forEach(label => {
                     if (label.textContent.includes('Email')) {
-                        if (this.currentLanguage === 'en') {
+                        if (this.getBaseLanguage() === 'en') {
                             label.textContent = 'Email:';
-                        } else if (this.currentLanguage === 'nl') {
+                        } else if (this.getBaseLanguage() === 'nl') {
                             label.textContent = 'E-mail:';
                         }
                     } else if (label.textContent.includes('Objet')) {
-                        if (this.currentLanguage === 'en') {
+                        if (this.getBaseLanguage() === 'en') {
                             label.textContent = 'Subject:';
-                        } else if (this.currentLanguage === 'nl') {
+                        } else if (this.getBaseLanguage() === 'nl') {
                             label.textContent = 'Onderwerp:';
                         }
                     }
@@ -987,10 +1138,10 @@ class I18nManager {
             const warningBox = document.querySelector('.legal-content div[style*="background-color: #f8d7da"]');
             if (warningBox) {
                 const strongElement = warningBox.querySelector('strong');
-                if (strongElement && this.currentLanguage === 'en') {
+                if (strongElement && this.getBaseLanguage() === 'en') {
                     strongElement.textContent = 'Warning:';
                     strongElement.nextSibling.textContent = ' Once deletion is confirmed, your account will be permanently deleted and you will no longer be able to recover your data. Make sure you have backed up any important information before proceeding.';
-                } else if (strongElement && this.currentLanguage === 'nl') {
+                } else if (strongElement && this.getBaseLanguage() === 'nl') {
                     strongElement.textContent = 'Waarschuwing:';
                     strongElement.nextSibling.textContent = ' Zodra de verwijdering is bevestigd, wordt uw account permanent verwijderd en kunt u uw gegevens niet meer herstellen. Zorg ervoor dat u alle belangrijke informatie heeft opgeslagen voordat u doorgaat.';
                 }
@@ -1494,50 +1645,49 @@ class I18nManager {
     }
 
     localizeDownloadButtons() {
-        // Boutons Google Play
-        const googlePlayImages = document.querySelectorAll('img[src*="stores/google-play"]');
-        googlePlayImages.forEach(img => {
-            const localizedPath = `assets/images/stores/google-play_${this.currentLanguage}.png`;
-            this.checkImageExists(localizedPath).then(exists => {
-                if (exists) {
-                    img.src = localizedPath;
-                }
-            });
-        });
+        const lang = this.getBaseLanguage();
 
-        // Boutons App Store
-        const appStoreImages = document.querySelectorAll('img[src*="stores/app-store"]');
-        appStoreImages.forEach(img => {
-            const localizedPath = `assets/images/stores/app-store_${this.currentLanguage}.png`;
-            this.checkImageExists(localizedPath).then(exists => {
-                if (exists) {
-                    img.src = localizedPath;
-                }
+        // Remplace, dans l'attribut src (chemin relatif OU absolu conservé), le nom de fichier par sa version localisée.
+        // Le HTML référence déjà la version française (`*_fr.*`) : pour le français il n'y a donc rien à faire,
+        // et surtout aucun second téléchargement ni requête HEAD.
+        // Une image « différée » (initLazyImages) porte son URL dans `data-src` tant qu'elle n'a pas été chargée.
+        const urlAttribute = img => (img.hasAttribute('data-src') ? 'data-src' : 'src');
+        const localize = (selector, pattern, replacement) => {
+            document.querySelectorAll(selector).forEach(img => {
+                const current = img.getAttribute(urlAttribute(img)) || '';
+                const localized = current.replace(pattern, replacement);
+                if (localized === current) return;
+                this.checkImageExists(localized).then(exists => {
+                    if (exists) {
+                        // L'attribut est relu ici : l'image a pu être chargée entre-temps (data-src -> src)
+                        img.setAttribute(urlAttribute(img), localized);
+                    }
+                });
             });
-        });
+        };
 
-        // Images de features
-        const featureImages = document.querySelectorAll('.feature-img img[src*="feature_1"]');
-        featureImages.forEach(img => {
-            const localizedPath = `assets/images/index/feature_1_${this.currentLanguage}.png`;
-            this.checkImageExists(localizedPath).then(exists => {
-                if (exists) {
-                    img.src = localizedPath;
-                }
-            });
-        });
+        // Boutons Google Play et App Store
+        localize('img[src*="stores/google-play"]', /google-play(_[a-z]{2})?\.png/, `google-play_${lang}.png`);
+        localize('img[src*="stores/app-store"]', /app-store(_[a-z]{2})?\.png/, `app-store_${lang}.png`);
+
+        // Image de la section « fonctionnalités » (WebP)
+        localize('.feature-img img[data-src*="feature_1"], .feature-img img[src*="feature_1"]', /feature_1(_[a-z]{2})?\.(png|webp)/, `feature_1_${lang}.webp`);
     }
 
 
 
     // Fonction helper pour vérifier si une image existe
-    async checkImageExists(imagePath) {
-        try {
-            const response = await fetch(imagePath, { method: 'HEAD' });
-            return response.ok;
-        } catch (error) {
-            return false;
+    // Le résultat est mémorisé par chemin : applyTranslations() peut s'exécuter plusieurs fois pour une même langue,
+    // inutile de refaire la même requête HEAD à chaque fois.
+    checkImageExists(imagePath) {
+        if (!this.imageExistsCache) this.imageExistsCache = new Map();
+        if (!this.imageExistsCache.has(imagePath)) {
+            const check = fetch(imagePath, { method: 'HEAD' })
+                .then(response => response.ok)
+                .catch(() => false);
+            this.imageExistsCache.set(imagePath, check);
         }
+        return this.imageExistsCache.get(imagePath);
     }
 
 
@@ -1550,8 +1700,8 @@ class I18nManager {
             const currentHref = link.getAttribute('href');
             const url = new URL(currentHref);
             
-            // Mettre à jour ou ajouter le paramètre lang
-            url.searchParams.set('lang', this.currentLanguage);
+            // Mettre à jour ou ajouter le paramètre lang (Web Pro ne gère que fr / en / nl : fr-CA → fr)
+            url.searchParams.set('lang', this.getLanguageConfig().proLang);
             
             // Mettre à jour le lien
             link.setAttribute('href', url.toString());
@@ -1561,6 +1711,8 @@ class I18nManager {
     updatePageTitle() {
         const siteName = 'Splitizy';
         const currentPath = window.location.pathname;
+        // Les titres sont codés en dur par langue de contenu (fr-CA utilise les titres français)
+        const lang = this.getBaseLanguage();
         
         // Déterminer le type de page et le titre approprié
         let pageTitle = '';
@@ -1571,49 +1723,49 @@ class I18nManager {
                 'en': `${siteName} - Contact`,
                 'nl': `${siteName} - Contact`
             };
-            pageTitle = contactTitles[this.currentLanguage];
+            pageTitle = contactTitles[lang];
         } else if (currentPath.includes('404')) {
             const errorTitles = {
                 'fr': `${siteName} - Page non trouvée`,
                 'en': `${siteName} - Page Not Found`,
                 'nl': `${siteName} - Pagina Niet Gevonden`
             };
-            pageTitle = errorTitles[this.currentLanguage];
+            pageTitle = errorTitles[lang];
         } else if (currentPath.includes('faq')) {
             const faqTitles = {
                 'fr': `${siteName} - Questions Fréquentes`,
                 'en': `${siteName} - Frequently Asked Questions`,
                 'nl': `${siteName} - Veelgestelde Vragen`
             };
-            pageTitle = faqTitles[this.currentLanguage];
+            pageTitle = faqTitles[lang];
         } else if (currentPath.includes('politique-de-vie-privee')) {
             const privacyTitles = {
                 'fr': `${siteName} - Politique de Vie Privée`,
                 'en': `${siteName} - Privacy Policy`,
                 'nl': `${siteName} - Privacybeleid`
             };
-            pageTitle = privacyTitles[this.currentLanguage];
+            pageTitle = privacyTitles[lang];
         } else if (currentPath.includes('suppression-donnees')) {
             const dataTitles = {
                 'fr': `${siteName} - Suppression de vos données`,
                 'en': `${siteName} - Data Removal`,
                 'nl': `${siteName} - Gegevensverwijdering`
             };
-            pageTitle = dataTitles[this.currentLanguage];
+            pageTitle = dataTitles[lang];
         } else if (currentPath.includes('conditions-licences-utilisation')) {
             const termsTitles = {
                 'fr': `${siteName} - Conditions des Licences d'Utilisation`,
                 'en': `${siteName} - Terms of Use`,
                 'nl': `${siteName} - Gebruiksvoorwaarden`
             };
-            pageTitle = termsTitles[this.currentLanguage];
+            pageTitle = termsTitles[lang];
         } else if (currentPath.includes('group.html')) {
             const groupTitles = {
                 'fr': `${siteName} - Rejoindre un groupe`,
                 'en': `${siteName} - Join a group`,
                 'nl': `${siteName} - Deelnemen aan een groep`
             };
-            pageTitle = groupTitles[this.currentLanguage];
+            pageTitle = groupTitles[lang];
         } else {
             // Page d'accueil par défaut
             const homeTitles = {
@@ -1621,12 +1773,23 @@ class I18nManager {
                 'en': `${siteName} - Inventory, Manage and Share your assets with peace of mind`,
                 'nl': `${siteName} - Inventariseer, Beheer en Deel uw goederen met gemoedsrust`
             };
-            pageTitle = homeTitles[this.currentLanguage];
+            pageTitle = homeTitles[lang];
         }
 
         if (pageTitle) {
             document.title = pageTitle;
         }
+    }
+
+    // Liens du menu de langue (HTML) générés depuis SPLITIZY_LANGUAGES ; linkClass = classe CSS propre à chaque sélecteur
+    buildLanguageLinks(linkClass = '') {
+        return this.supportedLanguages.map(code => {
+            const cfg = this.languages[code];
+            const classes = [linkClass, this.currentLanguage === code ? 'active' : ''].filter(Boolean).join(' ');
+            return `<a href="#" data-lang="${code}" class="${classes}">
+                        <span class="flag"><img src="assets/images/flags/${cfg.flag}" alt=""></span> ${cfg.label}
+                    </a>`;
+        }).join('\n                    ');
     }
 
     addLanguageSelector() {
@@ -1637,20 +1800,12 @@ class I18nManager {
         languageSelector.className = 'language-selector';
         languageSelector.innerHTML = `
             <div class="language-dropdown">
-                <button class="language-btn" aria-label="Changer de langue">
-                    <span class="current-lang">${this.currentLanguage.toUpperCase()}</span>
+                <button class="language-btn" aria-label="${this.languageButtonLabel()}">
+                    <span class="current-lang">${this.getLanguageConfig().short}</span>
                     <i class="icofont-caret-down"></i>
                 </button>
                 <div class="language-menu">
-                    <a href="#" data-lang="fr" class="${this.currentLanguage === 'fr' ? 'active' : ''}">
-                        <span class="flag"><img src="assets/images/flags/fr.png" alt="Français"></span> Français
-                    </a>
-                    <a href="#" data-lang="en" class="${this.currentLanguage === 'en' ? 'active' : ''}">
-                        <span class="flag"><img src="assets/images/flags/en.png" alt="English"></span> English
-                    </a>
-                    <a href="#" data-lang="nl" class="${this.currentLanguage === 'nl' ? 'active' : ''}">
-                        <span class="flag"><img src="assets/images/flags/nl.png" alt="Nederlands"></span> Nederlands
-                    </a>
+                    ${this.buildLanguageLinks()}
                 </div>
             </div>
         `;
@@ -1686,15 +1841,7 @@ class I18nManager {
         mobileLanguageSelector.innerHTML = `
             <div class="mobile-lang-title">Langue / Language / Taal</div>
             <div class="mobile-lang-options">
-                <a href="#" data-lang="fr" class="mobile-lang-option ${this.currentLanguage === 'fr' ? 'active' : ''}">
-                    <span class="flag"><img src="assets/images/flags/fr.png" alt="Français"></span> Français
-                </a>
-                <a href="#" data-lang="en" class="mobile-lang-option ${this.currentLanguage === 'en' ? 'active' : ''}">
-                    <span class="flag"><img src="assets/images/flags/en.png" alt="English"></span> English
-                </a>
-                <a href="#" data-lang="nl" class="mobile-lang-option ${this.currentLanguage === 'nl' ? 'active' : ''}">
-                    <span class="flag"><img src="assets/images/flags/nl.png" alt="Nederlands"></span> Nederlands
-                </a>
+                ${this.buildLanguageLinks('mobile-lang-option')}
             </div>
         `;
 
@@ -1743,21 +1890,13 @@ class I18nManager {
                     <div class="col-12">
                         <div class="footer-language-wrapper">
                             <div class="footer-language-dropdown">
-                                <button class="footer-language-btn" aria-label="Changer de langue">
-                                    <span class="flag"><img src="assets/images/flags/${this.currentLanguage}.png" alt="${this.currentLanguage.toUpperCase()}"></span>
-                                    <span class="current-lang">${this.currentLanguage.toUpperCase()}</span>
+                                <button class="footer-language-btn" aria-label="${this.languageButtonLabel()}">
+                                    <span class="flag"><img src="assets/images/flags/${this.getLanguageConfig().flag}" alt=""></span>
+                                    <span class="current-lang">${this.getLanguageConfig().short}</span>
                                     <i class="icofont-caret-down"></i>
                                 </button>
                                 <div class="footer-language-menu">
-                                    <a href="#" data-lang="fr" class="footer-lang-option ${this.currentLanguage === 'fr' ? 'active' : ''}">
-                                        <span class="flag"><img src="assets/images/flags/fr.png" alt="Français"></span> Français
-                                    </a>
-                                    <a href="#" data-lang="en" class="footer-lang-option ${this.currentLanguage === 'en' ? 'active' : ''}">
-                                        <span class="flag"><img src="assets/images/flags/en.png" alt="English"></span> English
-                                    </a>
-                                    <a href="#" data-lang="nl" class="footer-lang-option ${this.currentLanguage === 'nl' ? 'active' : ''}">
-                                        <span class="flag"><img src="assets/images/flags/nl.png" alt="Nederlands"></span> Nederlands
-                                    </a>
+                                    ${this.buildLanguageLinks('footer-lang-option')}
                                 </div>
                             </div>
                         </div>
@@ -1908,7 +2047,8 @@ class I18nManager {
                 font-size: 13px;
                 font-weight: 500;
                 transition: all 0.3s ease;
-                width: 60px;
+                min-width: 60px;
+                white-space: nowrap;
                 justify-content: center;
             }
             
@@ -1934,7 +2074,8 @@ class I18nManager {
                 border: 1px solid #ddd;
                 border-radius: 4px;
                 box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-                min-width: 160px;
+                min-width: 200px;
+                width: max-content; /* le menu s'élargit au libellé le plus long (« Français (Canada) » dépassait à droite) */
                 z-index: 1000;
                 display: none;
                 margin-top: 2px;
@@ -1955,6 +2096,7 @@ class I18nManager {
                 display: flex;
                 align-items: center;
                 gap: 8px;
+                white-space: nowrap;
                 padding: 10px 12px;
                 color: #333 !important;
                 text-decoration: none;
@@ -1979,6 +2121,7 @@ class I18nManager {
             
             .flag {
                 font-size: 16px;
+                flex-shrink: 0; /* le drapeau ne doit jamais être écrasé par un libellé long (« Français (Canada) ») */
             }
             
             .flag img {
@@ -2014,8 +2157,8 @@ class I18nManager {
             }
             
             .mobile-lang-options {
-                display: flex;
-                justify-content: space-around;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr); /* 4 langues : grille 2 × 2 */
                 gap: 10px;
             }
             
@@ -2108,7 +2251,8 @@ class I18nManager {
                 border: 1px solid #ddd;
                 border-radius: 6px;
                 box-shadow: 0 -4px 15px rgba(0,0,0,0.15);
-                min-width: 160px;
+                min-width: 200px;
+                width: max-content; /* idem : s'adapte au libellé le plus long */
                 z-index: 1000;
                 display: none;
                 margin-bottom: 5px;
@@ -2122,6 +2266,7 @@ class I18nManager {
                 display: flex;
                 align-items: center;
                 gap: 8px;
+                white-space: nowrap;
                 padding: 12px 14px;
                 color: #333 !important;
                 text-decoration: none;
@@ -2296,13 +2441,31 @@ class I18nManager {
         });
     }
 
+    // Pages légales : leur traduction repose sur la reconnaissance du texte FRANÇAIS du HTML d'origine
+    isLegalPage() {
+        const path = window.location.pathname;
+        return path.includes('politique-de-vie-privee')
+            || path.includes('conditions-licences-utilisation')
+            || path.includes('suppression-donnees');
+    }
+
     async changeLanguage(lang) {
-        if (lang === this.currentLanguage) return;
+        lang = this.normalizeLanguage(lang);
+        if (!lang || lang === this.currentLanguage) return;
 
         this.currentLanguage = lang;
         
         // Sauvegarder la préférence
         localStorage.setItem('splitizy_language', lang);
+
+        // Une fois traduit, le texte d'une page légale n'est plus reconnaissable (il n'est plus en français) :
+        // on ne peut pas passer à chaud d'une langue à une autre sans obtenir une page mélangée.
+        // On recharge donc la page dans la nouvelle langue (?lang=xx est mis à jour avant le rechargement).
+        if (this.isLegalPage()) {
+            this.updateURL();
+            window.location.reload();
+            return;
+        }
         
         // Charger les nouvelles traductions
         await this.loadTranslations();
@@ -2324,7 +2487,7 @@ class I18nManager {
         // Mettre à jour le sélecteur desktop
         const currentLangSpan = document.querySelector('.current-lang');
         if (currentLangSpan) {
-            currentLangSpan.textContent = this.currentLanguage.toUpperCase();
+            currentLangSpan.textContent = this.getLanguageConfig().short;
         }
 
         const desktopLinks = document.querySelectorAll('.language-menu a');
@@ -2347,13 +2510,13 @@ class I18nManager {
         // Mettre à jour le sélecteur footer
         const footerCurrentLangSpan = document.querySelector('.footer-language-btn .current-lang');
         if (footerCurrentLangSpan) {
-            footerCurrentLangSpan.textContent = this.currentLanguage.toUpperCase();
+            footerCurrentLangSpan.textContent = this.getLanguageConfig().short;
         }
 
         const footerFlag = document.querySelector('.footer-language-btn .flag img');
         if (footerFlag) {
-            footerFlag.src = `assets/images/flags/${this.currentLanguage}.png`;
-            footerFlag.alt = this.currentLanguage.toUpperCase();
+            footerFlag.src = `assets/images/flags/${this.getLanguageConfig().flag}`;
+            footerFlag.alt = '';
         }
 
         const footerLinks = document.querySelectorAll('.footer-lang-option');
@@ -2363,9 +2526,16 @@ class I18nManager {
                 link.classList.add('active');
             }
         });
+
+        // Les noms accessibles des boutons de langue contiennent le code de la langue courante
+        this.translateA11y();
     }
 
     updateURL() {
+        // Pour un robot, on ne réécrit pas l'URL : sinon il pourrait mémoriser des variantes ?lang=xx
+        // de la page (vues dans la Search Console comme « pages en double »).
+        if (this.isCrawler()) return;
+
         const url = new URL(window.location);
         url.searchParams.set('lang', this.currentLanguage);
         window.history.replaceState({}, '', url);
@@ -2373,7 +2543,7 @@ class I18nManager {
 
     forceApplyTranslations() {
         // Mettre à jour l'attribut lang du HTML
-        document.documentElement.lang = this.currentLanguage;
+        document.documentElement.lang = this.getLanguageConfig().htmlLang;
         
         // Appliquer les traductions par section - version forcée sans conditions de pathname
         this.translateNavigation();
@@ -2511,11 +2681,12 @@ class I18nManager {
         // Date de mise à jour en bas de page
         const lastUpdatedBottom = document.querySelector('.text-center .text-muted small strong');
         if (lastUpdatedBottom) {
-            if (this.currentLanguage === 'fr') {
+            const baseLang = this.getBaseLanguage();
+            if (baseLang === 'fr') {
                 lastUpdatedBottom.textContent = 'Guide mis à jour : Juin 2025';
-            } else if (this.currentLanguage === 'en') {
+            } else if (baseLang === 'en') {
                 lastUpdatedBottom.textContent = 'Guide updated: June 2025';
-            } else if (this.currentLanguage === 'nl') {
+            } else if (baseLang === 'nl') {
                 lastUpdatedBottom.textContent = 'Gids bijgewerkt: Juni 2025';
             }
         }
@@ -2593,7 +2764,12 @@ class I18nManager {
 
     // Méthode pour injecter du CSS dynamique pour les images hero selon la langue
     injectLocalizedCSS() {
-        const lang = this.currentLanguage;
+        // Images localisées par langue de contenu (fr-CA utilise les visuels *_fr.webp)
+        const lang = this.getBaseLanguage();
+
+        // Déjà injecté pour cette langue (applyTranslations l'appelle deux fois) : rien à refaire
+        if (this.lastInjectedCSS && this.lastInjectedLang === lang) return;
+        this.lastInjectedLang = lang;
         
         // Supprimer le CSS précédent s'il existe
         if (this.lastInjectedCSS) {
@@ -2608,23 +2784,25 @@ class I18nManager {
         const css = `
             /* CSS dynamique pour les images hero localisées */
             .hero-bg.hero-style-4 {
-                background-image: url('assets/images/index/header_1_${lang}.png') !important;
+                background-image: url('assets/images/index/header_1_${lang}.webp') !important;
             }
             
             @media (max-width: 363px) {
                 .hero-bg.hero-style-4 {
-                    background-image: url('assets/images/index/header_1_mobile_${lang}.png') !important;
+                    background-image: url('assets/images/index/header_1_mobile_${lang}.webp') !important;
                 }
             }
             
+            /* Fonds lourds situés loin sous le pli : appliqués seulement quand l'élément approche de l'écran
+               (classe .bg-loaded ajoutée par initLazyBackgrounds() dans splitizy-custom.js) */
             /* CSS pour la section de répartition */
-            .banner-style-8 {
-                background-image: url('assets/images/index/feature_2_${lang}.png') !important;
+            .banner-style-8.bg-loaded {
+                background-image: url('assets/images/index/feature_2_${lang}.webp') !important;
             }
             
             /* CSS pour les newsletters */
-            .newsletter-bg {
-                background-image: url('assets/images/newsletter_1_${lang}.png') !important;
+            .newsletter-bg.bg-loaded {
+                background-image: url('assets/images/newsletter_1_${lang}.webp') !important;
             }
         `;
         
@@ -2638,11 +2816,14 @@ class I18nManager {
     
     // Vérifier l'existence des images et utiliser les versions par défaut si nécessaire
     async checkAndFallbackImages(lang) {
+        // Le français est la langue par défaut : ses visuels existent forcément, pas de vérification (HEAD) à faire
+        if (lang === this.defaultLanguage) return;
+
         const imagesToCheck = [
-            { path: `assets/images/index/header_1_${lang}.png`, fallback: 'assets/images/index/header_1.png' },
-            { path: `assets/images/index/header_1_mobile_${lang}.png`, fallback: 'assets/images/index/header_1_mobile.png' },
-            { path: `assets/images/index/feature_2_${lang}.png`, fallback: 'assets/images/index/feature_2.png' },
-            { path: `assets/images/newsletter_1_${lang}.png`, fallback: 'assets/images/newsletter_1.png' }
+            { path: `assets/images/index/header_1_${lang}.webp`, fallback: 'assets/images/index/header_1_fr.webp' },
+            { path: `assets/images/index/header_1_mobile_${lang}.webp`, fallback: 'assets/images/index/header_1_mobile_fr.webp' },
+            { path: `assets/images/index/feature_2_${lang}.webp`, fallback: 'assets/images/index/feature_2_fr.webp' },
+            { path: `assets/images/newsletter_1_${lang}.webp`, fallback: 'assets/images/newsletter_1_fr.webp' }
         ];
         
         for (const image of imagesToCheck) {

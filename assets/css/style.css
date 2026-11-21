@@ -29,8 +29,9 @@
     21. 404
 
 -----------------------------------------------------------------------------------*/
-/*-- Google Font --*/
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+/*-- Google Font : Roboto est désormais auto-hébergée (voir gordita-font.css et tools/selfhost_roboto.py) ;
+     Playfair Display n'était utilisée par aucune classe du site. L'ancien @import Google Fonts a été retiré
+     (requête tierce bloquante). --*/
 /*----------------------------------------*/
 /*  01. Template default CSS
 /*----------------------------------------*/

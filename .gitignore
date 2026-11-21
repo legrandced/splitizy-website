@@ -1,0 +1,13 @@
+# Docs de contexte pour l'IA (internes) : NE JAMAIS les committer.
+# Ce dépôt est public et publié tel quel par GitHub Pages : tout fichier suivi par git
+# deviendrait téléchargeable sur https://splitizy.com/...
+docs/
+
+# Scripts Python locaux de génération d'assets (images WebP, polices, affiche vidéo) : outils de travail,
+# inutiles au site et sans raison d'être publics. Les fichiers qu'ils génèrent (.webp, .woff2) sont, eux, committés.
+tools/
+
+.env
+.vscode
+.idea
+.DS_Store

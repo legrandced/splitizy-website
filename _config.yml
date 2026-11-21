@@ -1,1 +1,4 @@
 include: [".well-known"]
+# Filet de sécurité : même si docs/ était committé par erreur, Jekyll ne le publierait pas.
+# tools/ : scripts Python de génération des assets (images WebP, polices), inutiles en ligne.
+exclude: ["docs", "tools"]

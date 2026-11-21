@@ -6,7 +6,6 @@
     "faq": "FAQ",
     "contact": "Contact",
     "about": "About Us",
-    "individual": "Individual",
     "professional": "Professional"
   },
   "aboutUs": {
@@ -53,7 +52,7 @@
   "distribution": {
     "title": "Fair distribution for everyone.",
     "description": "Splitizy provides flexible distribution solutions tailored to each situation. The app considers favorite items, sentimental belongings, and individual preference for division.",
-    "learnMore": "Learn more"
+    "learnMore": "Discover the app"
   },
   "video": {
     "title": "Splitizy in action",
@@ -100,13 +99,16 @@
   "testimonials": {
     "title": "What our users think about Splitizy",
     "testimonial1": {
-      "text": "Our mother's succession could have been a headache. <strong>Splitizy</strong> made the process so simple and fair with its <strong>smart inventory</strong> and <strong>transparent distribution</strong>. No more disputes, a real relief!"
+      "text": "Our mother's succession could have been a headache. <strong>Splitizy</strong> made the process so simple and fair with its <strong>smart inventory</strong> and <strong>transparent distribution</strong>. No more disputes, a real relief!",
+      "author": "Sophie M."
     },
     "testimonial2": {
-      "text": "Sharing our assets after the divorce seemed insurmountable. <strong>Splitizy</strong> made the process so simple and fair! The <strong>intuitive inventory</strong> and <strong>fair distribution</strong> avoided many disputes. It's an essential tool for a respectful and serene separation."
+      "text": "Sharing our assets after the divorce seemed insurmountable. <strong>Splitizy</strong> made the process so simple and fair! The <strong>intuitive inventory</strong> and <strong>fair distribution</strong> avoided many disputes. It's an essential tool for a respectful and serene separation.",
+      "author": "Marc L."
     },
     "testimonial3": {
-      "text": "Managing the inheritance remotely with my sister was a challenge. <strong>Splitizy</strong> gave us incredible clarity. The <strong>detailed reports</strong> and <strong>data security</strong> were essential. A modern and indispensable tool!"
+      "text": "Managing the inheritance remotely with my sister was a challenge. <strong>Splitizy</strong> gave us incredible clarity. The <strong>detailed reports</strong> and <strong>data security</strong> were essential. A modern and indispensable tool!",
+      "author": "Lucie P."
     }
   },
   "faq": {
@@ -252,7 +254,7 @@
       "expertise": [
         {
           "question": "What is the expertise service?",
-          "answer": "The expertise service allows you to have your items evaluated by <strong>qualified professional experts</strong>. They analyze your photos and descriptions to provide an official value estimate. This service is paid and costs €39.99 per item."
+          "answer": "The expertise service allows you to have your items evaluated by <strong>qualified professional experts</strong>. They analyze your photos and descriptions to provide an official value estimate. This service is paid and costs €40 per item."
         },
         {
           "question": "How does AI estimation work?",
@@ -260,7 +262,7 @@
         },
         {
           "question": "How much does an expertise cost?",
-          "answer": "The cost of an expertise is <strong>€39.99 per item</strong>. Payment is made directly in the application via Google Pay (for Android) or Apple Pay (for iOS) depending on your device's operating system."
+          "answer": "The cost of an expertise is <strong>€40 per item</strong>. Payment is made directly in the application via Google Pay (for Android) or Apple Pay (for iOS) depending on your device's operating system."
         }
       ],
       "repartition": [
@@ -327,13 +329,29 @@
     "placeholder": "Enter your email",
     "button": "Subscribe"
   },
+  "a11y": {
+    "menu": "Menu",
+    "close": "Close",
+    "backToTop": "Back to top",
+    "changeLanguage": "Change language",
+    "playVideo": "Play the demo video",
+    "videoTitle": "Splitizy demo video"
+  },
+  "forms": {
+    "processing": "Processing...",
+    "newsletterInvalidEmail": "Please enter a valid email address.",
+    "newsletterSuccess": "Thank you! You are now subscribed to our newsletter.",
+    "contactRequired": "Please fill in all required fields.",
+    "contactSuccess": "Thank you! Your message has been sent successfully.",
+    "error": "An error occurred. Please try again."
+  },
   "footer": {
     "contactUs": "Contact Us",
     "legal": "Legal",
     "termsOfUse": "Terms of Use",
     "privacyPolicy": "Privacy Policy",
     "dataRemoval": "Data Removal",
-    "copyright": "© 2025 Splitizy <i class=\"icofont-heart\"></i> All rights reserved"
+    "copyright": "© {year} Splitizy <i class=\"icofont-heart\"></i> All rights reserved"
   },
   "breadcrumb": {
     "home": "Home"
@@ -585,7 +603,6 @@
     "appOpening": "Opening application...",
     "appRequired": "Splitizy application required",
     "appRequiredDescription": "To join this group, please download the Splitizy application on your mobile device.",
-    "countdown": "Automatic redirection in {seconds} seconds...",
     "backToHome": "Back to Home",
     "noGroupFound": "No group code found",
     "groupDetected": "Group code detected",

@@ -1,22 +1,32 @@
 // Splitizy Custom Functions
 // Newsletter and Contact forms with reCAPTCHA integration
 
+// Texte traduit d'un message de formulaire (bloc "forms" de translations/*.json, exposé par i18n.js
+// via window.splitizyI18n), avec repli en français si les traductions ne sont pas chargées.
+function formText(key, fallback) {
+    const forms = window.splitizyI18n && window.splitizyI18n.translations && window.splitizyI18n.translations.forms;
+    return (forms && forms[key]) || fallback;
+}
+
 // Global functions called by reCAPTCHA
 function onSubmit(token) {
     const form = document.getElementById('mc-form');
-    const email = document.getElementById('mc-email').value;
+    const emailInput = document.getElementById('mc-email');
+    const email = emailInput.value.trim();
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
     
-    if (!email || email === 'Entrez votre email') {
-        showMailchimpMessage('Veuillez entrer une adresse email valide.', 'error');
+    // Adresse vide ou invalide (le champ n'a plus de valeur pré-remplie : seul le placeholder est affiché)
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showMailchimpMessage(formText('newsletterInvalidEmail', 'Veuillez entrer une adresse email valide.'), 'error');
         return;
     }
 
     // Afficher l'indicateur de chargement
-    showMailchimpMessage('Traitement en cours...', 'loading');
+    const processingText = formText('processing', 'Traitement en cours...');
+    showMailchimpMessage(processingText, 'loading');
     submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Traitement en cours... <i class="icofont-spinner-alt-4"></i>';
+    submitBtn.innerHTML = processingText + ' <i class="icofont-spinner-alt-4"></i>';
 
     const formData = new FormData();
     formData.append('email', email);
@@ -29,14 +39,14 @@ function onSubmit(token) {
     .then(response => response.text())
     .then(data => {
         if (data.includes('success')) {
-            showMailchimpMessage('Merci ! Vous êtes maintenant inscrit à notre newsletter.', 'success');
-            document.getElementById('mc-email').value = 'Entrez votre email';
+            showMailchimpMessage(formText('newsletterSuccess', 'Merci ! Vous êtes maintenant inscrit à notre newsletter.'), 'success');
+            emailInput.value = '';
         } else {
             throw new Error('Réponse inattendue du serveur');
         }
     })
     .catch(error => {
-        showMailchimpMessage('Une erreur est survenue. Veuillez réessayer.', 'error');
+        showMailchimpMessage(formText('error', 'Une erreur est survenue. Veuillez réessayer.'), 'error');
     })
     .finally(() => {
         // Restaurer le bouton
@@ -58,14 +68,15 @@ function onContactSubmit(token) {
     
     // Validation côté client
     if (!name || !email || !subject || !message) {
-        showContactMessage('Veuillez remplir tous les champs obligatoires.', 'error');
+        showContactMessage(formText('contactRequired', 'Veuillez remplir tous les champs obligatoires.'), 'error');
         return;
     }
     
     // Afficher l'indicateur de chargement
-    showContactMessage('Traitement en cours...', 'loading');
+    const processingText = formText('processing', 'Traitement en cours...');
+    showContactMessage(processingText, 'loading');
     submitBtn.disabled = true;
-    submitBtn.innerHTML = 'Traitement en cours... <i class="icofont-spinner-alt-4"></i>';
+    submitBtn.innerHTML = processingText + ' <i class="icofont-spinner-alt-4"></i>';
     
     // Préparer les données en FormData avec les noms que le script Apps Script attend
     const formData = new FormData();
@@ -83,7 +94,7 @@ function onContactSubmit(token) {
     .then(response => response.text())
     .then(data => {
         if (data.includes('success')) {
-            showContactMessage('Merci ! Votre message a été envoyé avec succès.', 'success');
+            showContactMessage(formText('contactSuccess', 'Merci ! Votre message a été envoyé avec succès.'), 'success');
             form.reset();
         } else {
             throw new Error('Réponse inattendue du serveur');
@@ -91,7 +102,7 @@ function onContactSubmit(token) {
     })
     .catch(error => {
         console.error('Erreur:', error);
-        showContactMessage('Une erreur est survenue. Veuillez réessayer.', 'error');
+        showContactMessage(formText('error', 'Une erreur est survenue. Veuillez réessayer.'), 'error');
     })
     .finally(() => {
         // Restaurer le bouton
@@ -149,390 +160,271 @@ function showContactMessage(message, type) {
     }
 }
 
-// Fallback system for when reCAPTCHA doesn't load
-function enableFallbackMode() {
-    // Convert newsletter button
-    const newsletterBtn = document.querySelector('#mc-form button[type="submit"]');
-    if (newsletterBtn && newsletterBtn.classList.contains('g-recaptcha')) {
-        newsletterBtn.classList.remove('g-recaptcha');
-        newsletterBtn.removeAttribute('data-sitekey');
-        newsletterBtn.removeAttribute('data-callback');
-        newsletterBtn.removeAttribute('data-badge');
-        newsletterBtn.removeAttribute('data-size');
-        
-        newsletterBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            onSubmit(null);
-        });
-    }
+// ---------------------------------------------------------------------------------------------------------
+// reCAPTCHA invisible chargé À LA DEMANDE
+// Le script de Google (~350 Ko, JavaScript tiers) n'est plus chargé avec la page : il l'est dès que le visiteur
+// s'approche d'un formulaire (focus, survol, toucher, ou défilement jusqu'au formulaire) ou clique sur « Envoyer ».
+// Les boutons gardent leurs attributs data-sitekey / data-callback / data-badge / data-size : le rendu est fait
+// ici de manière explicite (render=explicit) une fois l'API disponible.
+// ---------------------------------------------------------------------------------------------------------
+const RECAPTCHA_API_URL = 'https://www.google.com/recaptcha/api.js?onload=splitizyRecaptchaReady&render=explicit';
+const RECAPTCHA_TIMEOUT_MS = 10000;
+let recaptchaPromise = null;
+let recaptchaRendered = false;
 
-    // Convert contact button
-    const contactBtn = document.querySelector('#contact-form button[type="submit"]');
-    if (contactBtn && contactBtn.classList.contains('g-recaptcha')) {
-        contactBtn.classList.remove('g-recaptcha');
-        contactBtn.removeAttribute('data-sitekey');
-        contactBtn.removeAttribute('data-callback');
-        contactBtn.removeAttribute('data-badge');
-        contactBtn.removeAttribute('data-size');
-        
-        contactBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            onContactSubmit(null);
+// Affiche (rend) le widget invisible sur chaque bouton « .g-recaptcha » de la page
+function renderRecaptchaButtons() {
+    document.querySelectorAll('button.g-recaptcha[data-sitekey]').forEach(button => {
+        grecaptcha.render(button, {
+            sitekey: button.dataset.sitekey,
+            callback: window[button.dataset.callback],
+            size: button.dataset.size || 'invisible',
+            badge: button.dataset.badge || 'bottomleft'
         });
+    });
+}
+
+// Charge l'API reCAPTCHA une seule fois. La promesse est toujours résolue (jamais rejetée) :
+// `recaptchaRendered` indique ensuite si reCAPTCHA est utilisable (sinon : bloqueur de publicités, réseau, délai dépassé).
+function loadRecaptcha() {
+    if (recaptchaPromise) return recaptchaPromise;
+
+    recaptchaPromise = new Promise((resolve, reject) => {
+        const timer = setTimeout(() => reject(new Error('délai dépassé')), RECAPTCHA_TIMEOUT_MS);
+
+        window.splitizyRecaptchaReady = function () {
+            clearTimeout(timer);
+            try {
+                renderRecaptchaButtons();
+                recaptchaRendered = true;
+                resolve();
+            } catch (error) {
+                reject(error);
+            }
+        };
+
+        const script = document.createElement('script');
+        script.src = RECAPTCHA_API_URL;
+        script.async = true;
+        script.defer = true;
+        script.onerror = function () {
+            clearTimeout(timer);
+            reject(new Error('chargement impossible'));
+        };
+        document.head.appendChild(script);
+    }).catch(error => {
+        console.warn('reCAPTCHA indisponible, envoi sans vérification côté navigateur :', error.message);
+    });
+
+    return recaptchaPromise;
+}
+
+// Mode de secours historique : si reCAPTCHA ne peut pas être chargé, on appelle directement le callback sans jeton
+// (la décision finale revient au script Google Apps Script côté serveur).
+function submitWithoutRecaptcha(button) {
+    const callback = window[button.dataset.callback];
+    if (typeof callback === 'function') {
+        callback(null);
     }
 }
 
-// Auto-enable fallback mode if reCAPTCHA doesn't load within 3 seconds
-document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-        if (typeof grecaptcha === 'undefined') {
-            enableFallbackMode();
+// Clic sur « Envoyer » : tant que reCAPTCHA n'est pas prêt, on met le clic en attente, on charge l'API,
+// puis on rejoue le clic (ou on bascule sur le mode de secours si le chargement échoue).
+function handleRecaptchaButtonClick(event) {
+    if (recaptchaRendered) return; // reCAPTCHA a pris le relais : son propre écouteur lance la vérification
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
+    const button = event.currentTarget;
+    if (button.dataset.captchaPending) return;
+    button.dataset.captchaPending = '1';
+
+    loadRecaptcha().then(() => {
+        delete button.dataset.captchaPending;
+        if (recaptchaRendered) {
+            button.click();
+        } else {
+            submitWithoutRecaptcha(button);
         }
-    }, 3000);
-    
-    // Initialiser le lecteur vidéo YouTube
+    });
+}
+
+function initRecaptchaLazyLoad() {
+    const buttons = document.querySelectorAll('button.g-recaptcha[data-sitekey]');
+    if (buttons.length === 0) return;
+
+    const forms = new Set();
+    buttons.forEach(button => {
+        button.addEventListener('click', handleRecaptchaButtonClick);
+        const form = button.closest('form');
+        if (form) forms.add(form);
+    });
+
+    const start = () => { loadRecaptcha(); };
+    forms.forEach(form => {
+        ['focusin', 'pointerenter', 'touchstart'].forEach(eventName => {
+            form.addEventListener(eventName, start, { once: true, passive: true });
+        });
+    });
+
+    // Formulaire proche de la zone visible (ex. newsletter en bas de page) : on précharge un peu avant
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+            if (entries.some(entry => entry.isIntersecting)) {
+                observer.disconnect();
+                start();
+            }
+        }, { rootMargin: '200px' });
+        forms.forEach(form => observer.observe(form));
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------------
+// Fonds d'image lourds situés loin sous le pli (bandeau « Répartition », bandeau newsletter, ≈ 0,9 Mo en qualité
+// d'origine) : ils ne sont plus téléchargés au chargement de la page mais quand l'élément s'approche de l'écran.
+// Mêmes fichiers, même qualité : seul le moment du téléchargement change. Le HTML porte l'URL française dans
+// `data-bg-lazy` ; en EN/NL, i18n.js applique la version localisée via la classe `.bg-loaded`.
+// ---------------------------------------------------------------------------------------------------------
+function initLazyBackgrounds() {
+    const targets = document.querySelectorAll('[data-bg-lazy]');
+    if (targets.length === 0) return;
+
+    const load = (element) => {
+        element.style.backgroundImage = `url('${element.getAttribute('data-bg-lazy')}')`;
+        element.classList.add('bg-loaded');
+    };
+
+    if (!('IntersectionObserver' in window)) {
+        targets.forEach(load);
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                load(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: '600px 0px' });
+    targets.forEach((element) => observer.observe(element));
+}
+
+// Images « différées » : <img src="(pixel transparent)" data-src="vraie-image.webp" width height>. L'URL réelle n'est
+// utilisée que lorsque l'image s'approche de l'écran (le navigateur ne la juge « proche » qu'à ~1 250 px avec
+// loading="lazy", ce qui la télécharge dès l'ouverture de la page). Les dimensions width/height réservent la place
+// (pas de décalage de mise en page) ; un <noscript> fournit l'image sans JavaScript.
+function initLazyImages() {
+    const images = document.querySelectorAll('img[data-src]');
+    if (images.length === 0) return;
+
+    const load = (img) => {
+        img.src = img.getAttribute('data-src');
+        img.removeAttribute('data-src');
+    };
+
+    if (!('IntersectionObserver' in window)) {
+        images.forEach(load);
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                load(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: '100px 0px' });
+    images.forEach((img) => observer.observe(img));
+}
+document.addEventListener('DOMContentLoaded', function() {
+    initLazyBackgrounds();
+    initLazyImages();
+    initRecaptchaLazyLoad();
     initYouTubePlayer();
     initTeamProfileSelector();
-}); 
+    initStoreLinks();
+});
 
-// Variables globales pour le lecteur YouTube
-let youtubePlayer = null;
-let playerReady = false;
-let hasPlayed = false;
+// Boutons « Télécharger / Essayer l'app / C'est parti ! » de l'accueil (attribut data-store-cta) :
+// ils ouvrent le store correspondant à l'appareil (Google Play sur Android, App Store sur iOS).
+// Par défaut (desktop, ou JavaScript désactivé) ils font défiler jusqu'à la section #download,
+// qui présente les deux stores.
+function initStoreLinks() {
+    const links = document.querySelectorAll('[data-store-cta]');
+    if (links.length === 0) return;
 
-// Initialisation du lecteur vidéo YouTube
-function initYouTubePlayer() {
-    const playerContainer = document.getElementById('youtube-player');
-    if (!playerContainer) {
-        console.log('Conteneur youtube-player non trouvé');
-        return;
-    }
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera || '';
+    const isAndroid = /android/i.test(userAgent);
+    const isIos = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+    if (!isAndroid && !isIos) return;
 
-    // En production, utiliser directement le fallback iframe qui est plus fiable
-    // L'API YouTube iframe peut avoir des problèmes avec GitHub Pages et les CSP strictes
-    const isProduction = window.location.hostname === 'splitizy.com' || 
-                        window.location.hostname.includes('github.io');
+    const storeSelector = isAndroid ? 'a[href*="play.google.com"]' : 'a[href*="apps.apple.com"]';
+    const storeLink = document.querySelector(storeSelector + ':not([data-store-cta])');
+    if (!storeLink) return;
 
-    if (isProduction) {
-        console.log('Environnement de production détecté, utilisation du fallback iframe optimisé');
-        createFallbackPlayer();
-        return;
-    }
-
-    // Détecter si nous sommes en local
-    const isLocalhost = window.location.hostname === 'localhost' || 
-                       window.location.hostname === '127.0.0.1' || 
-                       window.location.protocol === 'file:';
-
-    if (isLocalhost) {
-        console.log('Environnement local détecté, utilisation du fallback iframe');
-        createFallbackPlayer();
-        return;
-    }
-
-    // Charger l'API YouTube iframe seulement pour les autres environnements
-    if (!window.YT) {
-        console.log('Chargement de l\'API YouTube');
-        const tag = document.createElement('script');
-        tag.src = 'https://www.youtube.com/iframe_api';
-        tag.onerror = function() {
-            console.error('Erreur lors du chargement de l\'API YouTube, utilisation du fallback');
-            createFallbackPlayer();
-        };
-        const firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    }
-    
-    // Attendre que l'API soit prête
-    window.onYouTubeIframeAPIReady = function() {
-        console.log('API YouTube prête');
-        createYouTubePlayer();
-    };
-    
-    // Si l'API est déjà chargée
-    if (window.YT && window.YT.Player) {
-        console.log('API YouTube déjà chargée');
-        createYouTubePlayer();
-    }
-
-    // Fallback en cas d'échec après 3 secondes (réduit pour une meilleure UX)
-    setTimeout(() => {
-        if (!playerReady) {
-            console.log('Timeout de l\'API YouTube, utilisation du fallback');
-            createFallbackPlayer();
-        }
-    }, 3000);
-}
-
-function createFallbackPlayer() {
-    const playerContainer = document.getElementById('youtube-player');
-    if (!playerContainer) return;
-
-    const videoId = 'AqkZSZJeOMs';
-    
-    // Obtenir l'origine actuelle pour éviter les erreurs cross-origin
-    const currentOrigin = window.location.origin;
-    
-    // Paramètres YouTube optimisés pour la production
-    const youtubeParams = [
-        'autoplay=0',
-        'mute=1',
-        'controls=1',
-        'modestbranding=1',
-        'rel=0',
-        'showinfo=0',
-        'fs=1',
-        'cc_load_policy=0',
-        'iv_load_policy=3',
-        'autohide=1',
-        'playsinline=1',
-        'enablejsapi=1',
-        `origin=${encodeURIComponent(currentOrigin)}`
-    ].join('&');
-    
-    // Afficher d'abord un indicateur de chargement
-    playerContainer.innerHTML = `
-        <div id="video-loading-overlay" style="
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-family: Arial, sans-serif;
-            z-index: 10;
-            transition: opacity 0.3s ease-in-out;
-        ">
-            <div style="text-align: center;">
-                <div style="
-                    width: 40px;
-                    height: 40px;
-                    border: 3px solid rgba(255,255,255,0.3);
-                    border-top: 3px solid white;
-                    border-radius: 50%;
-                    animation: spin 1s linear infinite;
-                    margin: 0 auto 15px;
-                "></div>
-                <p style="margin: 0; font-size: 14px;">Chargement de la vidéo...</p>
-            </div>
-        </div>
-        <iframe 
-            id="youtube-fallback-iframe"
-            src="https://www.youtube.com/embed/${videoId}?${youtubeParams}" 
-            frameborder="0" 
-            allowfullscreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            sandbox="allow-scripts allow-same-origin allow-presentation allow-popups allow-popups-to-escape-sandbox"
-            referrerpolicy="strict-origin-when-cross-origin"
-            loading="lazy"
-            style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; border: none; opacity: 0; transition: opacity 0.3s ease-in-out;"
-            onload="
-                console.log('Iframe YouTube chargé avec succès');
-                setTimeout(() => {
-                    this.style.opacity = '1';
-                    const overlay = document.getElementById('video-loading-overlay');
-                    if (overlay) overlay.style.opacity = '0';
-                    setTimeout(() => {
-                        if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
-                    }, 300);
-                }, 100);
-            "
-            onerror="console.error('Erreur lors du chargement de l\'iframe YouTube')"
-            title="Vidéo de démonstration Splitizy"
-        ></iframe>
-        <style>
-            @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-        </style>
-    `;
-    
-    console.log('Fallback player créé avec succès');
-    
-    // Simuler playerReady pour les autres fonctions
-    playerReady = true;
-    setupIntersectionObserver();
-    
-    // Ajouter un gestionnaire d'erreur pour l'iframe
-    const iframe = playerContainer.querySelector('iframe');
-    if (iframe) {
-        iframe.addEventListener('error', function(e) {
-            console.error('Erreur iframe YouTube:', e);
-            // En cas d'erreur, afficher un message d'erreur élégant
-            playerContainer.innerHTML = `
-                <div style="
-                    width: 100%; 
-                    height: 100%; 
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: white;
-                    text-align: center;
-                    font-family: Arial, sans-serif;
-                    padding: 20px;
-                    box-sizing: border-box;
-                ">
-                    <div>
-                        <h3 style="margin: 0 0 10px 0;">Vidéo temporairement indisponible</h3>
-                        <p style="margin: 0; opacity: 0.8;">Veuillez recharger la page ou visiter notre chaîne YouTube</p>
-                        <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" rel="noopener noreferrer" 
-                           style="color: #ffffff; text-decoration: underline; margin-top: 10px; display: inline-block;">
-                           Voir sur YouTube
-                        </a>
-                    </div>
-                </div>
-            `;
-        });
-    }
-}
-
-function createYouTubePlayer() {
-    const playerContainer = document.getElementById('youtube-player');
-    if (!playerContainer) {
-        console.error('Conteneur youtube-player non trouvé');
-        return;
-    }
-    
-    // Afficher l'indicateur de chargement
-    playerContainer.innerHTML = '<div class="video-loading">Chargement de la vidéo...</div>';
-    
-    // Extraire l'ID de la vidéo YouTube
-    const videoUrl = 'https://www.youtube.com/watch?v=AqkZSZJeOMs';
-    const videoId = extractYouTubeVideoId(videoUrl);
-    
-    if (!videoId) {
-        console.error('ID de vidéo YouTube invalide');
-        playerContainer.innerHTML = '<div class="video-loading">Erreur: ID de vidéo invalide</div>';
-        return;
-    }
-    
-    console.log('Création du lecteur YouTube avec l\'ID:', videoId);
-    
-    try {
-        // Créer le lecteur YouTube avec configuration améliorée
-        youtubePlayer = new YT.Player('youtube-player', {
-            height: '360',
-            width: '640',
-            videoId: videoId,
-            host: 'https://www.youtube.com',
-            playerVars: {
-                autoplay: 0, // Désactivé par défaut, contrôlé par l'intersection observer
-                mute: 1, // Muet pour permettre l'autoplay
-                controls: 1,
-                modestbranding: 1,
-                rel: 0,
-                showinfo: 0,
-                fs: 1,
-                cc_load_policy: 0,
-                iv_load_policy: 3,
-                autohide: 1,
-                playsinline: 1,
-                enablejsapi: 1,
-                origin: window.location.origin,
-                widget_referrer: window.location.origin
-            },
-            events: {
-                onReady: onPlayerReady,
-                onStateChange: onPlayerStateChange,
-                onError: onPlayerError
-            }
-        });
-    } catch (error) {
-        console.error('Erreur lors de la création du lecteur YouTube:', error);
-        createFallbackPlayer();
-    }
-}
-
-function onPlayerReady(event) {
-    playerReady = true;
-    console.log('Lecteur YouTube prêt');
-    
-    // Configurer l'Intersection Observer pour l'autoplay
-    setupIntersectionObserver();
-}
-
-function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.PLAYING) {
-        hasPlayed = true;
-        console.log('Vidéo en cours de lecture');
-    } else if (event.data === YT.PlayerState.PAUSED) {
-        console.log('Vidéo en pause');
-    } else if (event.data === YT.PlayerState.ENDED) {
-        console.log('Vidéo terminée');
-    }
-}
-
-function onPlayerError(event) {
-    console.error('Erreur du lecteur YouTube:', event.data);
-    console.log('Basculement vers le fallback iframe');
-    createFallbackPlayer();
-}
-
-function setupIntersectionObserver() {
-    // Vérifier si l'Intersection Observer est supporté
-    if (!window.IntersectionObserver) {
-        console.log('Intersection Observer non supporté');
-        return;
-    }
-    
-    const playerContainer = document.querySelector('.video-player-container');
-    if (!playerContainer) {
-        console.log('Conteneur .video-player-container non trouvé');
-        return;
-    }
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            console.log('Intersection Observer - Ratio de visibilité:', entry.intersectionRatio);
-            
-            if (entry.isIntersecting && playerReady && !hasPlayed) {
-                // L'utilisateur peut voir la vidéo et elle n'a pas encore été lue
-                console.log('Vidéo visible, tentative de démarrage automatique');
-                
-                setTimeout(() => {
-                    if (youtubePlayer && youtubePlayer.playVideo) {
-                        try {
-                            youtubePlayer.playVideo();
-                            hasPlayed = true;
-                            console.log('Lecture automatique lancée (API YouTube)');
-                        } catch (error) {
-                            console.error('Erreur lors du lancement de la lecture automatique:', error);
-                        }
-                    } else {
-                        // Mode fallback iframe - ne peut pas contrôler l'autoplay via JS
-                        // Mais on peut marquer comme "vu" pour éviter les tentatives répétées
-                        console.log('Mode fallback iframe - pas d\'autoplay JavaScript disponible');
-                        hasPlayed = true; // Éviter les tentatives répétées
-                        
-                        // Optionnel: ajouter une indication visuelle que la vidéo est prête
-                        const iframe = document.getElementById('youtube-fallback-iframe');
-                        if (iframe) {
-                            iframe.style.opacity = '1';
-                            iframe.style.transition = 'opacity 0.3s ease-in-out';
-                        }
-                    }
-                }, 500); // Petit délai pour s'assurer que tout est prêt
-            }
-        });
-    }, {
-        threshold: 0.3, // Réduit à 30% pour déclencher plus tôt
-        rootMargin: '50px' // Marge pour commencer le chargement un peu avant que la vidéo soit visible
+    links.forEach(link => {
+        link.setAttribute('href', storeLink.getAttribute('href'));
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
     });
-    
-    observer.observe(playerContainer);
-    console.log('Intersection Observer configuré');
 }
 
-function extractYouTubeVideoId(url) {
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-    const match = url.match(regExp);
-    return (match && match[2].length === 11) ? match[2] : null;
+// ---------------------------------------------------------------------------------------------------------
+// Vidéo YouTube : « façade ». La page affiche une affiche locale (WebP) et un bouton de lecture ; l'iframe YouTube
+// (plusieurs centaines de Ko de JavaScript tiers) n'est créée qu'au clic. Avant cela : aucune requête vers YouTube.
+// Le HTML (index.html) contient déjà <button class="video-facade"> dans #youtube-player.
+// ---------------------------------------------------------------------------------------------------------
+const YOUTUBE_VIDEO_ID = 'AqkZSZJeOMs';
+
+// Libellé d'accessibilité traduit (clé `a11y.*` de translations/*.json), avec repli en français
+function a11yText(key, fallback) {
+    const a11y = window.splitizyI18n && window.splitizyI18n.translations && window.splitizyI18n.translations.a11y;
+    return (a11y && a11y[key]) || fallback;
+}
+
+function initYouTubePlayer() {
+    const container = document.getElementById('youtube-player');
+    if (!container) return;
+
+    const facade = container.querySelector('.video-facade');
+    if (!facade) return;
+
+    // Au survol / focus, on ouvre à l'avance la connexion vers YouTube pour que la lecture démarre plus vite
+    const warmUp = () => {
+        const link = document.createElement('link');
+        link.rel = 'preconnect';
+        link.href = 'https://www.youtube-nocookie.com';
+        document.head.appendChild(link);
+    };
+    facade.addEventListener('pointerenter', warmUp, { once: true, passive: true });
+    facade.addEventListener('focus', warmUp, { once: true });
+
+    facade.addEventListener('click', () => playYouTubeVideo(container));
+}
+
+function playYouTubeVideo(container) {
+    const params = new URLSearchParams({
+        autoplay: '1',
+        rel: '0',
+        modestbranding: '1',
+        playsinline: '1',
+        hl: document.documentElement.lang || 'fr'
+    });
+
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?${params.toString()}`;
+    iframe.title = a11yText('videoTitle', 'Vidéo de démonstration Splitizy');
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-presentation allow-popups allow-popups-to-escape-sandbox');
+    iframe.setAttribute('frameborder', '0');
+
+    container.replaceChildren(iframe);
+    iframe.focus();
 }
 
 function initTeamProfileSelector() {

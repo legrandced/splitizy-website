@@ -6,7 +6,6 @@
     "faq": "FAQ",
     "contact": "Contact",
     "about": "Over ons",
-    "individual": "Individueel",
     "professional": "Professioneel"
   },
   "aboutUs": {
@@ -53,7 +52,7 @@
   "distribution": {
     "title": "Eerlijke verdeling voor iedereen.",
     "description": "Splitizy past zich aan elke situatie aan met verdelingsmethoden die rekening houden met wat belangrijk is voor iedereen: favoriete objecten, emotioneel waardevolle spullen en ieders gewenste aandeel.",
-    "learnMore": "Meer weten"
+    "learnMore": "Ontdek de app"
   },
   "video": {
     "title": "Splitizy in actie",
@@ -255,7 +254,7 @@
       "expertise": [
         {
           "question": "Wat is de expertise service?",
-          "answer": "De expertise service stelt u in staat om uw objecten te laten evalueren door <strong>gekwalificeerde professionele experts</strong>. Zij analyseren uw foto's en beschrijvingen om een officiële waardeschatting te geven. Deze service is betaald en kost €39,99 per object."
+          "answer": "De expertise service stelt u in staat om uw objecten te laten evalueren door <strong>gekwalificeerde professionele experts</strong>. Zij analyseren uw foto's en beschrijvingen om een officiële waardeschatting te geven. Deze service is betaald en kost €40 per object."
         },
         {
           "question": "Hoe werkt AI-schatting?",
@@ -263,7 +262,7 @@
         },
         {
           "question": "Hoeveel kost een expertise?",
-          "answer": "De kosten van een expertise zijn <strong>€39,99 per object</strong>. Betaling gebeurt direct in de applicatie via Google Pay (voor Android) of Apple Pay (voor iOS) afhankelijk van het besturingssysteem van uw apparaat."
+          "answer": "De kosten van een expertise zijn <strong>€40 per object</strong>. Betaling gebeurt direct in de applicatie via Google Pay (voor Android) of Apple Pay (voor iOS) afhankelijk van het besturingssysteem van uw apparaat."
         }
       ],
       "repartition": [
@@ -330,13 +329,29 @@
     "placeholder": "Voer uw email in",
     "button": "Abonneren"
   },
+  "a11y": {
+    "menu": "Menu",
+    "close": "Sluiten",
+    "backToTop": "Terug naar boven",
+    "changeLanguage": "Taal wijzigen",
+    "playVideo": "De demovideo afspelen",
+    "videoTitle": "Splitizy-demovideo"
+  },
+  "forms": {
+    "processing": "Bezig met verwerken...",
+    "newsletterInvalidEmail": "Voer een geldig e-mailadres in.",
+    "newsletterSuccess": "Bedankt! U bent nu ingeschreven voor onze nieuwsbrief.",
+    "contactRequired": "Vul alle verplichte velden in.",
+    "contactSuccess": "Bedankt! Uw bericht is succesvol verzonden.",
+    "error": "Er is een fout opgetreden. Probeer het opnieuw."
+  },
   "footer": {
     "contactUs": "Contacteer Ons",
     "legal": "Juridisch",
     "termsOfUse": "Gebruiksvoorwaarden",
     "privacyPolicy": "Privacybeleid",
     "dataRemoval": "Gegevensverwijdering",
-    "copyright": "© 2025 Splitizy <i class=\"icofont-heart\"></i> Alle rechten voorbehouden"
+    "copyright": "© {year} Splitizy <i class=\"icofont-heart\"></i> Alle rechten voorbehouden"
   },
   "breadcrumb": {
     "home": "Home"
@@ -588,7 +603,6 @@
     "appOpening": "Applicatie openen...",
     "appRequired": "Splitizy applicatie vereist",
     "appRequiredDescription": "Om deel te nemen aan deze groep, download alstublieft de Splitizy-applicatie op uw mobiele apparaat.",
-    "countdown": "Automatische omleiding in {seconds} seconden...",
     "backToHome": "Terug naar Home",
     "noGroupFound": "Geen groepscode gevonden",
     "groupDetected": "Groepscode gedetecteerd",

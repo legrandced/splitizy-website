@@ -810,7 +810,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Dézoome l'image de fond sur très petits écrans */
 @media (max-width: 363px) {
     .hero-bg.hero-style-4 {
-        background-image: url('../images/index/header_1_mobile.png') !important;
+        background-image: url('../images/index/header_1_mobile_fr.webp') !important;
         /* background-size: cover !important; */
         background-position: center !important;
     }
@@ -846,6 +846,61 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     border: none;
     border-radius: 12px;
+}
+
+/* Façade vidéo : affiche locale + bouton de lecture, l'iframe YouTube n'est créée qu'au clic (voir splitizy-custom.js) */
+.video-facade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: #000;
+    cursor: pointer;
+    display: block;
+}
+
+.youtube-embed .video-facade img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-facade-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 72px;
+    height: 72px;
+    margin: -36px 0 0 -36px;
+    border-radius: 50%;
+    background: var(--splitizy-secondary);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease;
+}
+
+.video-facade-play::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-35%, -50%);
+    border-style: solid;
+    border-width: 14px 0 14px 23px;
+    border-color: transparent transparent transparent #fff;
+}
+
+.video-facade:hover .video-facade-play,
+.video-facade:focus-visible .video-facade-play {
+    transform: scale(1.1);
+}
+
+.video-facade:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: -6px;
 }
 
 /* Indicateur de chargement */
@@ -1059,4 +1114,42 @@ h1, h2, h3, h4, h5, h6 {
     .header-menu-nav > ul {
         row-gap: 10px !important; /* Ajoute un peu d'espace entre les lignes */
     }
+}
+
+/* Montants longs dans la pastille de prix (ex. « 159 $ » en fr-CA) : classe .price-long posée par i18n.js
+   (translatePricing) quand le montant fait 5 caractères ou plus ; la pastille est un cercle tronqué de 167 px */
+.pricing-style-4 .pricing-info span.price.price-long {
+    font-size: 38px;
+    margin-left: 24px;
+}
+
+/* Ancre des boutons « Télécharger / Essayer l'app / C'est parti ! » de l'accueil (data-store-cta) :
+   évite que la section #download passe sous le header au défilement */
+#download {
+    scroll-margin-top: 100px;
+}
+
+/* Visuel du héro (élément LCP) déclaré directement en CSS : le navigateur le découvre dès le chargement de la
+   feuille de style, sans attendre le JavaScript (main.js / i18n.js le remplacent ensuite par la version localisée
+   si la langue n'est pas le français). Préchargé dans le <head> de index.html. */
+.hero-bg.hero-style-4 {
+    background-image: url('../images/index/header_1_fr.webp');
+}
+
+/* Images avec attributs width/height (évite les décalages de mise en page) : la hauteur suit la largeur réelle */
+img[width][height] {
+    height: auto;
+}
+
+/* Pages légales : les liens dans les paragraphes sont soulignés (ils ne doivent pas se distinguer par la seule couleur - accessibilité) */
+.legal-content p a {
+    text-decoration: underline;
+}
+
+/* Fonds chargés à l'approche (attribut data-bg-lazy au lieu de data-bg-image, voir initLazyBackgrounds) : mêmes règles que
+   [data-bg-image] dans style.css (ligne 158), sinon l'image s'affiche en taille réelle, répétée et recadrée. */
+[data-bg-lazy] {
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    background-size: cover;
 }

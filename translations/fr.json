@@ -6,7 +6,6 @@
     "faq": "FAQ",
     "contact": "Contact",
     "about": "Qui sommes-nous ?",
-    "individual": "Particulier",
     "professional": "Professionnel"
   },
   "aboutUs": {
@@ -53,7 +52,7 @@
   "distribution": {
     "title": "Une répartition équitable pour tous.",
     "description": "Splitizy offre des méthodes de répartition variées pour s'adapter à chaque situation, en prenant en compte les objets favoris, ceux ayant une valeur sentimentale, et la part idéale de chacun.",
-    "learnMore": "En savoir plus"
+    "learnMore": "Découvrir l'application"
   },
   "video": {
     "title": "Splitizy en action",
@@ -255,7 +254,7 @@
       "expertise": [
         {
           "question": "Qu'est-ce que le service d'expertise ?",
-          "answer": "Le service d'expertise permet de faire évaluer vos objets par <strong>des experts professionnels habilités</strong>. Ils analysent vos photos et descriptions pour fournir une estimation officielle de la valeur. Ce service est payant et coûte 39,99€ par objet."
+          "answer": "Le service d'expertise permet de faire évaluer vos objets par <strong>des experts professionnels habilités</strong>. Ils analysent vos photos et descriptions pour fournir une estimation officielle de la valeur. Ce service est payant et coûte 40€ par objet."
         },
         {
           "question": "Comment fonctionne l'estimation par IA ?",
@@ -263,7 +262,7 @@
         },
         {
           "question": "Combien coûte une expertise ?",
-          "answer": "Le coût d'une expertise est de <strong>39,99€ par objet</strong>. Le paiement se fait directement dans l'application via Google Pay (pour Android) ou Apple Pay (pour iOS) dépendant du système d'exploitation de votre appareil."
+          "answer": "Le coût d'une expertise est de <strong>40€ par objet</strong>. Le paiement se fait directement dans l'application via Google Pay (pour Android) ou Apple Pay (pour iOS) dépendant du système d'exploitation de votre appareil."
         }
       ],
       "repartition": [
@@ -330,13 +329,29 @@
     "placeholder": "Entrez votre email",
     "button": "S'inscrire"
   },
+  "a11y": {
+    "menu": "Menu",
+    "close": "Fermer",
+    "backToTop": "Retour en haut",
+    "changeLanguage": "Changer de langue",
+    "playVideo": "Lire la vidéo de démonstration",
+    "videoTitle": "Vidéo de démonstration Splitizy"
+  },
+  "forms": {
+    "processing": "Traitement en cours...",
+    "newsletterInvalidEmail": "Veuillez entrer une adresse email valide.",
+    "newsletterSuccess": "Merci ! Vous êtes maintenant inscrit à notre newsletter.",
+    "contactRequired": "Veuillez remplir tous les champs obligatoires.",
+    "contactSuccess": "Merci ! Votre message a été envoyé avec succès.",
+    "error": "Une erreur est survenue. Veuillez réessayer."
+  },
   "footer": {
     "contactUs": "Nous contacter",
     "legal": "Légal",
     "termsOfUse": "Conditions des Licences d'Utilisation",
     "privacyPolicy": "Politique de Vie Privée",
     "dataRemoval": "Suppression de vos données",
-    "copyright": "© 2025 Splitizy <i class=\"icofont-heart\"></i> Tous droits réservés"
+    "copyright": "© {year} Splitizy <i class=\"icofont-heart\"></i> Tous droits réservés"
   },
   "breadcrumb": {
     "home": "Accueil"
@@ -588,7 +603,6 @@
     "appOpening": "Ouverture de l'application en cours...",
     "appRequired": "Application Splitizy requise",
     "appRequiredDescription": "Pour rejoindre ce groupe, veuillez télécharger l'application Splitizy sur votre appareil mobile.",
-    "countdown": "Redirection automatique dans {seconds} secondes...",
     "backToHome": "Retour à l'accueil",
     "noGroupFound": "Aucun code de groupe trouvé",
     "groupDetected": "Code de groupe détecté",

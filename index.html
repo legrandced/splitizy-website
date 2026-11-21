@@ -18,14 +18,16 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="manifest" href="site.webmanifest">
 
+    <!-- Précharge le visuel du héro (élément LCP) -->
+    <link rel="preload" as="image" href="assets/images/index/header_1_fr.webp" fetchpriority="high" media="(min-width: 364px)">
+    <link rel="preload" as="image" href="assets/images/index/header_1_mobile_fr.webp" fetchpriority="high" media="(max-width: 363px)">
+
     <!-- CSS
     ============================================ -->
 
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/icofont.min.css" />
-    <link rel="stylesheet" href="assets/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/magnific-popup.min.css" />
     <link rel="stylesheet" href="assets/css/gordita-font.css" />
 
     <!-- Style CSS -->
@@ -34,8 +36,6 @@
     <!-- Splitizy Custom CSS -->
     <link rel="stylesheet" href="assets/css/splitizy-custom.css">
     
-    <!-- reCAPTCHA -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
 
@@ -49,7 +49,7 @@
                     <div class="row align-items-center">
                         <div class="col-xl-3 col-lg-2 col-6">
                             <a href="index.html" class="header-logo">
-                                <img src="assets/images/logo/logo_full_transparent_120.gif" alt="Header Logo" style="max-width: auto; height: 90px;">
+                                <img src="assets/images/logo/logo_full_transparent_120.webp" alt="Header Logo" style="max-width: auto; height: 90px;">
                             </a>
                         </div>
                         <div class="col-xl-6 col-lg-8 d-none d-lg-block">
@@ -81,13 +81,10 @@
                         <div class="col-xl-3 col-lg-2 col-6">
                             <ul class="header-right">
                                 <li class="d-none d-md-block">
-                                    <a class="btn btn-custom-size btn-md btn-professionnel" href="https://pro.splitizy.com?type=individual" target="_blank" rel="noopener noreferrer">Particulier</a>
-                                </li>
-                                <li class="d-none d-md-block">
                                     <a class="btn btn-custom-size btn-md blackcurrant-color extbot-primary-hover-4" href="https://pro.splitizy.com?type=pro" target="_blank" rel="noopener noreferrer">Professionnel</a>
                                 </li>
                                 <li class="d-flex d-lg-none">
-                                    <button class="btn p-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                                    <button class="btn p-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" aria-label="Menu">
                                         <i class="icofont-navigation-menu"></i>
                                     </button>
                                 </li>
@@ -100,7 +97,7 @@
             <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions">
                 <div class="offcanvas-header">
                     <a href="index.html" class="header-logo">
-                        <img src="assets/images/logo/logo_full_transparent_120.gif" alt="Header Logo" style="max-width: auto; height: 90px;">
+                        <img src="assets/images/logo/logo_full_transparent_120.webp" alt="Header Logo" style="max-width: auto; height: 90px;">
                     </a>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
@@ -129,9 +126,6 @@
                             </ul>
                         </nav>
                         <div class="mobile-menu-buttons" style="margin-top: 30px;">
-                            <div style="margin-bottom: 15px;">
-                                <a class="btn btn-custom-size btn-md btn-professionnel" href="https://pro.splitizy.com?type=individual" target="_blank" rel="noopener noreferrer" style="width: 100%;">Particulier</a>
-                            </div>
                             <div>
                                 <a class="btn btn-custom-size btn-md blackcurrant-color extbot-primary-hover-4" href="https://pro.splitizy.com?type=pro" target="_blank" rel="noopener noreferrer" style="width: 100%;">Professionnel</a>
                             </div>
@@ -142,8 +136,9 @@
         </header>
         <!-- Main Header Area End Here -->
 
+        <main>
         <!-- Begin Hero Area -->
-        <div class="hero-area hero-bg hero-style-4" data-bg-image="assets/images/index/header_1.png">
+        <div class="hero-area hero-bg hero-style-4" data-bg-image="assets/images/index/header_1_fr.webp">
             <div class="container">
                 <div class="hero-item">
                     <div class="hero-content">
@@ -151,10 +146,10 @@
                         <p class="desc">La solution complète pour l'inventaire, la répartition et le partage équitable de vos biens</p>
                         <div class="hero-btn-wrap">
                             <a href="https://play.google.com/store/apps/details?id=com.splitizy.splitizy&hl=fr" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/images/stores/google-play.png" alt="Télécharger sur Google Play" class="download-btn-img">
+                                <img src="assets/images/stores/google-play_fr.png" alt="Télécharger sur Google Play" class="download-btn-img" width="600" height="200">
                             </a>
                             <a href="https://apps.apple.com/be/app/splitizy/id6747078524?platform=iphone" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/images/stores/app-store.png" alt="Télécharger sur l'App Store" class="download-btn-img">
+                                <img src="assets/images/stores/app-store_fr.png" alt="Télécharger sur l'App Store" class="download-btn-img" width="600" height="200">
                             </a>
                         </div>
                     </div>
@@ -220,7 +215,8 @@
                     <div class="col-lg-6">
                         <div class="feature-img">
                             <div class="single-img">
-                                <img src="assets/images/index/feature_1.png" alt="Feature Image">
+                                <img src="data:image/svg+xml,%3Csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%201410%202095%27%3E%3C/svg%3E" data-src="assets/images/index/feature_1_fr.webp" alt="Feature Image" width="1410" height="2095" decoding="async">
+                                <noscript><img src="assets/images/index/feature_1_fr.webp" alt="Feature Image" width="1410" height="2095"></noscript>
                             </div>
                         </div>
                     </div>
@@ -279,7 +275,7 @@
         <!-- Feature Area End -->
 
         <!-- Begin Banner Area -->
-        <div id="repartition" class="banner-area banner-style-8" data-bg-image="assets/images/index/feature_2.png">
+        <div id="repartition" class="banner-area banner-style-8" data-bg-lazy="assets/images/index/feature_2_fr.webp">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 align-self-center">
@@ -290,7 +286,7 @@
                                     en prenant en compte les objets favoris, ceux ayant une valeur sentimentale, et la part idéale de chacun.
                                 </p>
                                 <div class="banner-btn-wrap">
-                                    <a class="btn btn-custom-size blackberry-color extbot-primary-hover-4" href="https://apps.apple.com/be/app/splitizy/id6747078524?platform=iphone" target="_blank" rel="noopener noreferrer">En savoir plus</a>
+                                    <a class="btn btn-custom-size blackberry-color extbot-primary-hover-4" href="#download" data-store-cta>Découvrir l'application</a>
                                 </div>
                             </div>
                         </div>
@@ -307,6 +303,10 @@
                     <div class="col-lg-6">
                         <div class="video-player-container">
                             <div id="youtube-player" class="youtube-embed">
+                                <button type="button" class="video-facade" aria-label="Lire la vidéo de démonstration">
+                                    <img src="assets/images/index/video_poster.webp" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                                    <span class="video-facade-play" aria-hidden="true"></span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -319,7 +319,7 @@
                                 Découvrez en vidéo comment Splitizy simplifie la gestion et le partage de vos biens familiaux.
                             </p>
                             <div class="banner-btn-wrap">
-                                <a class="btn btn-custom-size blackberry-color extbot-primary-hover-4" href="https://apps.apple.com/be/app/splitizy/id6747078524?platform=iphone" target="_blank" rel="noopener noreferrer">Essayer l'app</a>
+                                <a class="btn btn-custom-size blackberry-color extbot-primary-hover-4" href="#download" data-store-cta>Essayer l'app</a>
                             </div>
                         </div>
                     </div>
@@ -329,7 +329,7 @@
         <!-- Video Area End Here -->
 
         <!-- Begin Trial Area -->
-        <div class="trial-area trial-style-1">
+        <div id="download" class="trial-area trial-style-1">
         <!-- <div class="trial-area trial-style-1" style="background-color: var(--splitizy-primary-alpha-10);"> -->
             <div class="container">
                 <div class="row">
@@ -340,10 +340,10 @@
                             </p>
                             <div class="trial-btn-wrap">
                                 <a href="https://play.google.com/store/apps/details?id=com.splitizy.splitizy&hl=fr" target="_blank" rel="noopener noreferrer">
-                                    <img src="assets/images/stores/google-play.png" alt="Télécharger sur Google Play" class="download-btn-img">
+                                    <img src="assets/images/stores/google-play_fr.png" alt="Télécharger sur Google Play" class="download-btn-img" width="600" height="200" loading="lazy">
                                 </a>
                                 <a href="https://apps.apple.com/be/app/splitizy/id6747078524?platform=iphone" target="_blank" rel="noopener noreferrer">
-                                    <img src="assets/images/stores/app-store.png" alt="Télécharger sur l'App Store" class="download-btn-img">
+                                    <img src="assets/images/stores/app-store_fr.png" alt="Télécharger sur l'App Store" class="download-btn-img" width="600" height="200" loading="lazy">
                                 </a>
                             </div>
                         </div>
@@ -406,7 +406,7 @@
                                                     </li>
                                                 </ul>
                                                 <div class="pricing-btn-wrap">
-                                                    <a class="btn btn-custom-size btn-outline" href="https://apps.apple.com/be/app/splitizy/id6747078524?platform=iphone" target="_blank" rel="noopener noreferrer">Télécharger</a>
+                                                    <a class="btn btn-custom-size btn-outline" href="#download" data-store-cta>Télécharger</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -475,7 +475,7 @@
                                                     </li>
                                                 </ul>
                                                 <div class="pricing-btn-wrap">
-                                                    <a class="btn btn-custom-size btn-outline" href="https://apps.apple.com/be/app/splitizy/id6747078524?platform=iphone" target="_blank" rel="noopener noreferrer">C'est parti !</a>
+                                                    <a class="btn btn-custom-size btn-outline" href="#download" data-store-cta>C'est parti !</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -490,7 +490,7 @@
         <!-- Pricing Area End Here -->
 
         <!-- Begin Testimonial Area -->
-        <div id="testimonial" class="testimonial-area testimonial-style-4"">
+        <div id="testimonial" class="testimonial-area testimonial-style-4">
             <div class="container testimonial-container-2">
                 <div class="section-area">
                     <!-- <h2 class="section-title">Plus de <span>10 000+</span> utilisateurs actifs nous font confiance.</h2> -->
@@ -505,7 +505,7 @@
                                     <div class="testimonial-item">
                                         <div class="testimonial-user-info">
                                             <div class="user-img">
-                                                <img src="assets/images/index/user_1.png" alt="Témoignage de Sophie M.">
+                                                <img src="assets/images/index/user_1.webp" alt="Témoignage de Sophie M." width="140" height="140" loading="lazy" decoding="async">
                                             </div>
                                             <div class="testimonial-review">
                                                 <div class="rating-box">
@@ -543,7 +543,7 @@
                                     <div class="testimonial-item">
                                         <div class="testimonial-user-info">
                                             <div class="user-img">
-                                                <img src="assets/images/index/user_2.png" alt="Témoignage de Marc L.">
+                                                <img src="assets/images/index/user_2.webp" alt="Témoignage de Marc L." width="140" height="140" loading="lazy" decoding="async">
                                             </div>
                                             <div class="testimonial-review">
                                                 <div class="rating-box">
@@ -581,7 +581,7 @@
                                     <div class="testimonial-item">
                                         <div class="testimonial-user-info">
                                             <div class="user-img">
-                                                <img src="assets/images/index/user_3.png" alt="Témoignage de Lucie P.">
+                                                <img src="assets/images/index/user_3.webp" alt="Témoignage de Lucie P." width="140" height="140" loading="lazy" decoding="async">
                                             </div>
                                             <div class="testimonial-review">
                                                 <div class="rating-box">
@@ -653,9 +653,13 @@
                             </div>
                             <div class="col-12">
                                 <div class="faq-item">
-                                    <h3 class="faq-title">Quelle est la différence entre la version Gratuite et Premium ?</h3>
-                                    <p class="faq-desc"><strong>Version gratuite</strong> : Jusqu'à 30 objets, 4 membres maximum<br><br>
-                                        <strong>Version Premium</strong> : Inventaire illimité, membres illimités, accès complet aux expertises, répartition finale officielle, exports PDF/Excel professionnels.
+                                    <h3 class="faq-title">Comment fonctionne Splitizy ?</h3>
+                                    <p class="faq-desc">1. <strong>Créez un groupe</strong> avec les autres héritiers<br>
+                                        2. <strong>Photographiez et répertoriez</strong> tous les biens<br>
+                                        3. <strong>Évaluez ou faites expertiser</strong> les objets<br>
+                                        4. <strong>Choisissez vos favoris</strong> (maximum 5 favoris par personne)<br>
+                                        5. <strong>Marquez</strong> les objets qui ont une <strong>valeur sentimentale</strong> pour vous<br>
+                                        6. <strong>Effectuez la répartition finale</strong> selon une méthode choisie
                                     </p>
                                 </div>
                             </div>
@@ -672,20 +676,21 @@
                         <div class="faq-item-wrap row">
                             <div class="col-12">
                                 <div class="faq-item">
-                                    <h3 class="faq-title">Comment fonctionne Splitizy ?</h3>
-                                    <p class="faq-desc">1. <strong>Créez un groupe</strong> avec les autres héritiers<br>
-                                        2. <strong>Photographiez et répertoriez</strong> tous les biens<br>
-                                        3. <strong>Évaluez ou faites expertiser</strong> les objets<br>
-                                        4. <strong>Choisissez vos favoris</strong> (maximum 5 favoris par personne)<br>
-                                        5. <strong>Marquez</strong> les objets qui ont une <strong>valeur sentimentale</strong> pour vous<br>
-                                        6. <strong>Effectuez la répartition finale</strong> selon une méthode choisie
+                                    <h3 class="faq-title">Quelles langues sont prises en charge ?</h3>
+                                    <p class="faq-desc">Actuellement, notre application prend en charge les langues suivantes :<br><br>
+                                        <strong>- Français</strong><br>
+                                        <strong>- English</strong><br>
+                                        <strong>- Nederlands</strong>
                                     </p>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="faq-item faq-group-desc">
-                                    <h3 class="faq-title">Combien coûte la licence Premium ?</h3>
-                                    <p class="faq-desc">La licence Premium coûte <strong>99€ pour tout le groupe</strong> avec un paiement unique. La licence est <strong>valable 3 ans</strong>, vous laissant tout le temps nécessaire pour effectuer la répartition.
+                                    <h3 class="faq-title">Comment puis-je utiliser l'application dans la langue de mon choix ?</h3>
+                                    <p class="faq-desc"><strong>1.</strong> Cliquez sur l'onglet "Paramètres" en bas de votre écran<br>
+                                        <strong>2.</strong> Appuyez sur le premier bouton de la liste : "Langue"<br>
+                                        <strong>3.</strong> Sélectionnez la langue de votre choix<br>
+                                        <strong>4.</strong> Le changement de langue se fait automatiquement
                                     </p>
                                 </div>
                             </div>
@@ -711,7 +716,7 @@
         <!-- Begin Newsletter Area -->
         <div class="newsletter-area style-3">
             <div class="container">
-                <div class="newsletter-bg" data-bg-image="assets/images/newsletter_1.png">
+                <div class="newsletter-bg" data-bg-lazy="assets/images/newsletter_1_fr.webp">
                     <div class="row">
                         <div class="col-lg-7">
                             <div class="newsletter-item">
@@ -719,7 +724,7 @@
                                     <h2 class="newsletter-title">Rejoignez-nous.</h2>
                                     <p class="newsletter-desc">Recevez les dernières actualités de Splitizy.</p>
                                     <form class="newsletter-form" id="mc-form" action="#">
-                                        <input class="input-field" id="mc-email" type="email" autocomplete="off" name="email" placeholder="Entrez votre email" value="Entrez votre email" onblur="if(this.value==''){this.value='Entrez votre email'}" onfocus="if(this.value=='Entrez votre email'){this.value=''}">
+                                        <input class="input-field" id="mc-email" type="email" autocomplete="off" name="email" placeholder="Entrez votre email">
                                         <div class="btn-wrap">
                                             <button class="btn btn-custom-size extbot-primary-4 blackcurrant-hover g-recaptcha" 
                                                     id="mc-submit"
@@ -748,15 +753,17 @@
         </div>
         <!-- Newsletter Area End Here -->
 
+        </main>
+
         <!-- Begin Footer Area -->
-        <footer class="footer-style-4" data-bg-image="assets/images/footer.png">
+        <footer class="footer-style-4" data-bg-image="assets/images/footer.webp">
             <div class="footer-upper-top">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="footer-upper-top-item">
                                 <a class="footer-logo" href="index.html">
-                                    <img src="assets/images/logo/logo_full_transparent_120.gif" alt="Logo" style="max-width: 300px; height: auto;">
+                                    <img src="assets/images/logo/logo_full_transparent_120.webp" alt="Logo" style="max-width: 300px; height: auto;" loading="lazy">
                                 </a>
                                 <!-- <div class="footer-social-link">
                                     <ul>
@@ -779,10 +786,10 @@
                                 </div> -->
                                 <div class="footer-btn-wrap">
                                     <a href="https://play.google.com/store/apps/details?id=com.splitizy.splitizy&hl=fr" target="_blank" rel="noopener noreferrer">
-                                        <img src="assets/images/stores/google-play.png" alt="Télécharger sur Google Play" class="download-btn-img">
+                                        <img src="assets/images/stores/google-play_fr.png" alt="Télécharger sur Google Play" class="download-btn-img" width="600" height="200" loading="lazy">
                                     </a>
                                     <a href="https://apps.apple.com/be/app/splitizy/id6747078524?platform=iphone" target="_blank" rel="noopener noreferrer">
-                                        <img src="assets/images/stores/app-store.png" alt="Télécharger sur l'App Store" class="download-btn-img">
+                                        <img src="assets/images/stores/app-store_fr.png" alt="Télécharger sur l'App Store" class="download-btn-img" width="600" height="200" loading="lazy">
                                     </a>
                                 </div>
                             </div>
@@ -799,7 +806,7 @@
                                     <h2 class="title">Nous contacter</h2>
                                     <ul>
                                         <li>
-                                            <a href="mailto://support@splitizy.com">support@splitizy.com</a>
+                                            <a href="mailto:support@splitizy.com">support@splitizy.com</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -840,7 +847,7 @@
                         <div class="col-12">
                             <div class="footer-bottom-item">
                                 <div class="footer-copyright white-text">
-                                    <span>© 2025 Splitizy <i class="icofont-heart"></i> Tous droits réservés</span>
+                                    <span>© 2026 Splitizy <i class="icofont-heart"></i> Tous droits réservés</span>
                                 </div>
                             </div>
                         </div>
@@ -851,7 +858,7 @@
         <!-- Footer Area End Here -->
 
         <!-- Begin Scroll To Top -->
-        <a class="scroll-to-top style-4" href="">
+        <a class="scroll-to-top style-4" href="#" aria-label="Retour en haut">
             <i class="icofont-arrow-up"></i>
         </a>
         <!-- Scroll To Top End Here -->
@@ -870,9 +877,6 @@
     <script src="assets/js/plugins/wow.min.js"></script>
     <script src="assets/js/plugins/swiper-bundle.min.js"></script>
     <script src="assets/js/plugins/parallax.min.js"></script>
-    <script src="assets/js/plugins/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/plugins/tippy.min.js"></script>
-    <script src="assets/js/plugins/mailchimp-ajax.js"></script>
     <script src="assets/js/plugins/one-page-nav.min.js"></script>
 
     <!--Main JS (Common Activation Codes)-->
